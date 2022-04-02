@@ -29,7 +29,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::Alarm);
 
-        data->SetSize(20, 20, 2);
+        data->SetSize(20, 20, 0);
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmNeutralSprite));
 
@@ -42,7 +42,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::AlarmScrew);
 
-        data->SetSize(20, 20, 1);
+        data->SetSize(20, 20, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
@@ -56,7 +56,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::AlarmButton);
 
-        data->SetSize(20, 20, 1);
+        data->SetSize(20, 20, 0);
 data->AddComponent<SnoozableComponent>();
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
@@ -89,6 +89,58 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleWeb));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* LockKeyFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::LockKey);
+
+        data->SetSize(20, 20, 0);
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* LockLockFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::LockLock);
+
+        data->SetSize(20, 20, 0);
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockLockSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* LockChainBackFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::LockChainBack);
+
+        data->SetSize(20, 20, 0);
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainBackSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* LockChainFrontFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::LockChainFront);
+
+        data->SetSize(20, 20, 0);
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainFrontSprite));
 
         return data;
     }

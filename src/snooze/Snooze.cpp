@@ -35,15 +35,19 @@ void Snooze::OnInit()
     m_World.Init(100.f, 100.f);
 
     forge::Entity::Ptr alarm = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Alarm);
-    alarm->SetPosition(50.f - alarm->GetSize().w * 0.5f, 50.f - alarm->GetSize().d * 0.5f, 0.f);
+    alarm->SetPosition(50.f - alarm->GetSize().w * 0.5f, 50.f - alarm->GetSize().d * 0.5f, 1.f);
     m_World.AddEntity(alarm);
 
-    forge::Entity::Ptr screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmScrew);
-    screw->SetPosition(50.f - screw->GetSize().w * 0.5f, 50.f - screw->GetSize().d * 0.5f, 0.f);
+    forge::Entity::Ptr screw1 = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainBack);
+    screw1->SetPosition(50.f - screw1->GetSize().w * 0.5f, 50.f - screw1->GetSize().d * 0.5f, 0.f);
+    m_World.AddEntity(screw1);
+
+    forge::Entity::Ptr screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainFront);
+    screw->SetPosition(50.f - screw->GetSize().w * 0.5f, 50.f - screw->GetSize().d * 0.5f, 1.f);
     m_World.AddEntity(screw);
 
-    forge::Entity::Ptr button = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmButton);
-    button->SetPosition(50.f - button->GetSize().w * 0.5f, 50.f - button->GetSize().d * 0.5f, 0.f);
+    forge::Entity::Ptr button = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
+    button->SetPosition(50.f - button->GetSize().w * 0.5f, 50.f - button->GetSize().d * 0.5f, 1.f);
     m_World.AddEntity(button);
 
     forge::CameraAPI::SetLookAt({50.f, 50.f, 0.f});

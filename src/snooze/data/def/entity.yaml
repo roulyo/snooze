@@ -17,20 +17,20 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ForgeSprite));
 
     - Alarm:
-        Size: [20, 20, 2]
+        Size: [20, 20, 0]
         Verbatim: |
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmNeutralSprite));
 
     - AlarmScrew:
-        Size: [20, 20, 1]
+        Size: [20, 20, 0]
         Verbatim: |
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
 
     - AlarmButton:
-        Size: [20, 20, 1]
+        Size: [20, 20, 0]
         Verbatim: |
           data->AddComponent<SnoozableComponent>();
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
@@ -50,3 +50,26 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleWeb));
+# Lock mini-game
+
+    - LockKey:
+        Size: [20, 20, 0]
+        Verbatim: |
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));
+    - LockLock:
+        Size: [20, 20, 0]
+        Verbatim: |
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockLockSprite));
+    - LockChainBack:
+        Size: [20, 20, 0]
+        Verbatim: |
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainBackSprite));
+    - LockChainFront:
+        Size: [20, 20, 0]
+        Verbatim: |
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainFrontSprite));
+

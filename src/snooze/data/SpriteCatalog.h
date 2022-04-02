@@ -32,4 +32,12 @@
 
         forge::generated::SpriteFactories::SampleWebFactory m_SampleWebFactory;
 
+        forge::generated::SpriteFactories::LockKeySpriteFactory m_LockKeySpriteFactory;
+
+        forge::generated::SpriteFactories::LockLockSpriteFactory m_LockLockSpriteFactory;
+
+        forge::generated::SpriteFactories::LockChainFrontSpriteFactory m_LockChainFrontSpriteFactory;
+
+        forge::generated::SpriteFactories::LockChainBackSpriteFactory m_LockChainBackSpriteFactory;
+
     };

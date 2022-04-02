@@ -21,6 +21,14 @@
 
         RegisterData(DataList::Sprite::SampleWeb, m_SampleWebFactory);
 
+        RegisterData(DataList::Sprite::LockKeySprite, m_LockKeySpriteFactory);
+
+        RegisterData(DataList::Sprite::LockLockSprite, m_LockLockSpriteFactory);
+
+        RegisterData(DataList::Sprite::LockChainFrontSprite, m_LockChainFrontSpriteFactory);
+
+        RegisterData(DataList::Sprite::LockChainBackSprite, m_LockChainBackSpriteFactory);
+
     }
 
     //----------------------------------------------------------------------------
