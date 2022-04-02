@@ -42,7 +42,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::AlarmScrew);
 
-        data->SetSize(20, 20, 2);
+        data->SetSize(20, 20, 1);
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
 
@@ -50,10 +50,10 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
     }
 
     //----------------------------------------------------------------------------
-    forge::Entity* AlarmButtonNeutralFactory::Create() const
+    forge::Entity* AlarmButtonFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::AlarmButtonNeutral);
+        data->SetDataNameId(DataList::Entity::AlarmButton);
 
         data->SetSize(20, 20, 1);
 data->AddComponent<SnoozableComponent>();

@@ -14,7 +14,7 @@
 
         extern const forge::DataNameId AlarmScrew;
 
-        extern const forge::DataNameId AlarmButtonNeutral;
+        extern const forge::DataNameId AlarmButton;
 
     }
 

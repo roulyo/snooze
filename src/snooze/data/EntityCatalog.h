@@ -30,6 +30,6 @@
 
         forge::generated::EntityFactories::AlarmScrewFactory m_AlarmScrewFactory;
 
-        forge::generated::EntityFactories::AlarmButtonNeutralFactory m_AlarmButtonNeutralFactory;
+        forge::generated::EntityFactories::AlarmButtonFactory m_AlarmButtonFactory;
 
     };

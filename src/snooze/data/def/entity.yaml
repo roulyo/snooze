@@ -27,7 +27,7 @@ Entity:
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
 
-    - AlarmButtonNeutral:
+    - AlarmButton:
         Size: [20, 20, 1]
         Verbatim: |
           data->AddComponent<SnoozableComponent>();

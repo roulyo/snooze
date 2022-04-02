@@ -14,7 +14,7 @@
 
         constexpr forge::DataNameId AlarmScrew = forge::DataNameId("Entity::AlarmScrew");
 
-        constexpr forge::DataNameId AlarmButtonNeutral = forge::DataNameId("Entity::AlarmButtonNeutral");
+        constexpr forge::DataNameId AlarmButton = forge::DataNameId("Entity::AlarmButton");
 
     }
 

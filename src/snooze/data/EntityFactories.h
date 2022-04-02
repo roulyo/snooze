@@ -39,7 +39,7 @@
     };    
 
     //----------------------------------------------------------------------------
-    class AlarmButtonNeutralFactory : public forge::AbstractDataFactory
+    class AlarmButtonFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Entity* Create() const override;

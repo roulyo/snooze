@@ -13,7 +13,7 @@
 
         RegisterData(DataList::Entity::AlarmScrew, m_AlarmScrewFactory);
 
-        RegisterData(DataList::Entity::AlarmButtonNeutral, m_AlarmButtonNeutralFactory);
+        RegisterData(DataList::Entity::AlarmButton, m_AlarmButtonFactory);
 
     }
 
