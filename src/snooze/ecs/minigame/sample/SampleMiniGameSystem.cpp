@@ -72,7 +72,7 @@ void SampleMiniGameSystem::OnEntityClickedEvent(const forge::builtin::EntityClic
     {
         m_BroomAcquiered = true;
     }
-    else if (_event.GetEntity() == m_Web)
+    else if (_event.GetEntity() == m_Web && m_BroomAcquiered)
     {
         ++m_WebCleaning;
 
