@@ -21,17 +21,17 @@ static constexpr u32 FULL_TIMER_MS = 10000;
 void SnoozeSystem::OnStart()
 {
     m_ClickData.IsPressed = false;
-    m_ClickData.Coord = { 0.0f, INVALID_COORD };
+    m_ClickData.Entity = nullptr;
 
-    forge::builtin::MouseClickEvent::Handlers +=
-        forge::builtin::MouseClickEvent::Handler(this, &SnoozeSystem::OnMouseClickEvent);
+    forge::builtin::EntityClickedEvent::Handlers +=
+        forge::builtin::EntityClickedEvent::Handler(this, &SnoozeSystem::OnEntityClickedEvent);
 }
 
 //----------------------------------------------------------------------------
 void SnoozeSystem::OnStop()
 {
-    forge::builtin::MouseClickEvent::Handlers -=
-        forge::builtin::MouseClickEvent::Handler(this, &SnoozeSystem::OnMouseClickEvent);
+    forge::builtin::EntityClickedEvent::Handlers -=
+        forge::builtin::EntityClickedEvent::Handler(this, &SnoozeSystem::OnEntityClickedEvent);
 }
 
 //----------------------------------------------------------------------------
@@ -39,11 +39,12 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
     // first start hack: x != nan but y == nan
     {
-        if (std::isnan(m_ClickData.Coord.y))
+        if (!IsStarted)
         {
             SnoozableComponent& snoozeComp = _entity->GetComponent<SnoozableComponent>();
             snoozeComp.GetTimer().Start(FULL_TIMER_MS);
-            m_ClickData.Coord = INVALID_CLICK_COORD;
+            m_ClickData.Entity = nullptr;
+            IsStarted = true;
 
             return;
         }
@@ -55,40 +56,34 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     forge::builtin::RenderableComponent& renderComp =
         _entity->GetComponent<forge::builtin::RenderableComponent>();
 
-    if (entityAABB.Contains(forge::CameraAPI::ScreenPointToWorld(m_ClickData.Coord)))
+    // click button
+    if (_entity == m_ClickData.Entity && m_ClickData.IsPressed && !snoozeComp.IsPressed())
     {
-        // click button
-        if (m_ClickData.IsPressed && !snoozeComp.IsPressed())
-        {
-            renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonPressedSprite));
-            //renderComp.GetSprite()->SetOverlayColor({ 255, 255, 255, 100 });
-            snoozeComp.SetPressed(true);
-        }
-        // release button
-        else if (!m_ClickData.IsPressed && snoozeComp.IsPressed())
-        {
-            std::cout << "SNOOZE!" << std::endl;
+        renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonPressedSprite));
+        snoozeComp.SetPressed(true);
+    }
+    // release button
+    else if (_entity == m_ClickData.Entity && !m_ClickData.IsPressed && snoozeComp.IsPressed())
+    {
+        std::cout << "SNOOZE!" << std::endl;
 
-            renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
+        renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 
-            snoozeComp.GetTimer().Start(FULL_TIMER_MS);
-            snoozeComp.SetPressed(false);
-
-        }
+        snoozeComp.GetTimer().Start(FULL_TIMER_MS);
+        snoozeComp.SetPressed(false);
     }
 
-    m_ClickData.Coord = INVALID_CLICK_COORD;
+    m_ClickData.Entity = nullptr;
 }
 
 bool SnoozeSystem::IsStandingBy() const
 {
-    return std::isnan(m_ClickData.Coord.x);
+    return m_ClickData.Entity != nullptr && std::isnan(m_ClickData.Entity->GetPosition().x);
 }
 
 //----------------------------------------------------------------------------
-void SnoozeSystem::OnMouseClickEvent(const forge::builtin::MouseClickEvent& _event)
+void SnoozeSystem::OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event)
 {
     m_ClickData.IsPressed = _event.GetIsPressed();
-    m_ClickData.Coord = { static_cast<f32>(_event.GetX()),
-                          static_cast<f32>(_event.GetY()) };
+    m_ClickData.Entity = _event.GetEntity();
 }
