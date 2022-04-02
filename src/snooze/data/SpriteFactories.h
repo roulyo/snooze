@@ -64,4 +64,36 @@
 
     };    
 
+    //----------------------------------------------------------------------------
+    class LockKeySpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class LockLockSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class LockChainFrontSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class LockChainBackSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
     }}}

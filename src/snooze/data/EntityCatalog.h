@@ -38,4 +38,12 @@
 
         forge::generated::EntityFactories::WebFactory m_WebFactory;
 
+        forge::generated::EntityFactories::LockKeyFactory m_LockKeyFactory;
+
+        forge::generated::EntityFactories::LockLockFactory m_LockLockFactory;
+
+        forge::generated::EntityFactories::LockChainBackFactory m_LockChainBackFactory;
+
+        forge::generated::EntityFactories::LockChainFrontFactory m_LockChainFrontFactory;
+
     };

@@ -46,3 +46,28 @@ Sprite:
           from: Texture
           name: SampleSheet
         TextureQuad: [100, 0, 100, 100]
+# Lock mini-game
+
+    - LockKeySprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [600, 1800, 600, 600]
+
+    - LockLockSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1200, 1800, 600, 600]
+
+    - LockChainFrontSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1800, 1800, 600, 600]
+
+    - LockChainBackSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [2400, 1800, 600, 600]

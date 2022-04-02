@@ -103,4 +103,56 @@
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Sprite* LockKeySpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::LockKeySprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(600, 1800, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* LockLockSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::LockLockSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1200, 1800, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* LockChainFrontSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::LockChainFrontSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1800, 1800, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* LockChainBackSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::LockChainBackSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(2400, 1800, 600, 600);
+
+        return data;
+    }
+
     }}}

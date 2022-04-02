@@ -19,6 +19,14 @@
 
         RegisterData(DataList::Entity::Web, m_WebFactory);
 
+        RegisterData(DataList::Entity::LockKey, m_LockKeyFactory);
+
+        RegisterData(DataList::Entity::LockLock, m_LockLockFactory);
+
+        RegisterData(DataList::Entity::LockChainBack, m_LockChainBackFactory);
+
+        RegisterData(DataList::Entity::LockChainFront, m_LockChainFrontFactory);
+
     }
 
     //----------------------------------------------------------------------------

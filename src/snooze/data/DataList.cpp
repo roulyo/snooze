@@ -20,6 +20,14 @@
 
         constexpr forge::DataNameId Web = forge::DataNameId("Entity::Web");
 
+        constexpr forge::DataNameId LockKey = forge::DataNameId("Entity::LockKey");
+
+        constexpr forge::DataNameId LockLock = forge::DataNameId("Entity::LockLock");
+
+        constexpr forge::DataNameId LockChainBack = forge::DataNameId("Entity::LockChainBack");
+
+        constexpr forge::DataNameId LockChainFront = forge::DataNameId("Entity::LockChainFront");
+
     }
 
     namespace Sprite
@@ -38,6 +46,14 @@
         constexpr forge::DataNameId SampleBroom = forge::DataNameId("Sprite::SampleBroom");
 
         constexpr forge::DataNameId SampleWeb = forge::DataNameId("Sprite::SampleWeb");
+
+        constexpr forge::DataNameId LockKeySprite = forge::DataNameId("Sprite::LockKeySprite");
+
+        constexpr forge::DataNameId LockLockSprite = forge::DataNameId("Sprite::LockLockSprite");
+
+        constexpr forge::DataNameId LockChainFrontSprite = forge::DataNameId("Sprite::LockChainFrontSprite");
+
+        constexpr forge::DataNameId LockChainBackSprite = forge::DataNameId("Sprite::LockChainBackSprite");
 
     }
 

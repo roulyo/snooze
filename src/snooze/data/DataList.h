@@ -20,6 +20,14 @@
 
         extern const forge::DataNameId Web;
 
+        extern const forge::DataNameId LockKey;
+
+        extern const forge::DataNameId LockLock;
+
+        extern const forge::DataNameId LockChainBack;
+
+        extern const forge::DataNameId LockChainFront;
+
     }
 
     namespace Sprite
@@ -38,6 +46,14 @@
         extern const forge::DataNameId SampleBroom;
 
         extern const forge::DataNameId SampleWeb;
+
+        extern const forge::DataNameId LockKeySprite;
+
+        extern const forge::DataNameId LockLockSprite;
+
+        extern const forge::DataNameId LockChainFrontSprite;
+
+        extern const forge::DataNameId LockChainBackSprite;
 
     }
 
