@@ -15,13 +15,13 @@ static constexpr f32 INVALID_COORD = NAN;
 static constexpr forge::Vector2f INVALID_CLICK_COORD { INVALID_COORD,
                                                        INVALID_COORD };
 
-static constexpr u32 FULL_TIMER_MS = 120000;
+static constexpr u32 FULL_TIMER_MS = 10000;
 
 //----------------------------------------------------------------------------
 void SnoozeSystem::OnStart()
 {
     m_ClickData.IsPressed = false;
-    m_ClickData.Coord = { INVALID_COORD, INVALID_COORD };
+    m_ClickData.Coord = { 0.0f, INVALID_COORD };
 
     forge::builtin::MouseClickEvent::Handlers +=
         forge::builtin::MouseClickEvent::Handler(this, &SnoozeSystem::OnMouseClickEvent);
@@ -37,6 +37,18 @@ void SnoozeSystem::OnStop()
 //----------------------------------------------------------------------------
 void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
+    // first start hack: x != nan but y == nan
+    {
+        if (std::isnan(m_ClickData.Coord.y))
+        {
+            SnoozableComponent& snoozeComp = _entity->GetComponent<SnoozableComponent>();
+            snoozeComp.GetTimer().Start(FULL_TIMER_MS);
+            m_ClickData.Coord = INVALID_CLICK_COORD;
+
+            return;
+        }
+    }
+
     forge::FloatBox entityAABB({ _entity->GetPosition(), _entity->GetSize() });
 
     SnoozableComponent& snoozeComp = _entity->GetComponent<SnoozableComponent>();

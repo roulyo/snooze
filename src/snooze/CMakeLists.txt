@@ -4,5 +4,5 @@ ADD_SUBDIRECTORY(ecs)
 ADD_SUBDIRECTORY(gamestate)
 
 MACRO_ADD_SOURCES(EXE_SRC
-Precomp.h Snooze.cpp Snooze.h
+GameEvents.h Precomp.h Snooze.cpp Snooze.h
 )
