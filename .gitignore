@@ -8,8 +8,6 @@ CMake/Config.cmake
 
 .vscode/
 build/
-assets/
-src/assets/
 scratch/
 extern/
 
