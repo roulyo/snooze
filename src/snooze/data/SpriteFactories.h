@@ -16,4 +16,36 @@
 
     };    
 
+    //----------------------------------------------------------------------------
+    class AlarmNeutralSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class AlarmScrewSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class AlarmButtonNeutralSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class AlarmButtonPressedSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
     }}}

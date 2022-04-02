@@ -30,11 +30,19 @@ void Snooze::OnInit()
 
     m_World.Init(100.f, 100.f);
 
-    forge::Entity::Ptr mc = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::SnoozeButton);
-    mc->SetPosition(50.f - mc->GetSize().w * 0.5f, 50.f - mc->GetSize().d * 0.5f, 0.f);
-    m_World.AddEntity(mc);
+    forge::Entity::Ptr alarm = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Alarm);
+    alarm->SetPosition(50.f - alarm->GetSize().w * 0.5f, 50.f - alarm->GetSize().d * 0.5f, 0.f);
+    m_World.AddEntity(alarm);
 
-    forge::CameraAPI::SetLookAt({ 50.f, 50.f, 0.f });
+    forge::Entity::Ptr screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmScrew);
+    screw->SetPosition(50.f - screw->GetSize().w * 0.5f, 50.f - screw->GetSize().d * 0.5f, 0.f);
+    m_World.AddEntity(screw);
+
+    forge::Entity::Ptr button = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmButton);
+    button->SetPosition(50.f - button->GetSize().w * 0.5f, 50.f - button->GetSize().d * 0.5f, 0.f);
+    m_World.AddEntity(button);
+
+    forge::CameraAPI::SetLookAt({50.f, 50.f, 0.f});
     forge::CameraAPI::SetDistance(10);
     forge::CameraAPI::SetFieldOfView(90);
     forge::CameraAPI::SetFilmedWorld(GetWorld());

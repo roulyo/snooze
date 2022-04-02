@@ -15,3 +15,22 @@ Entity:
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ForgeSprite));
 
+    - Alarm:
+        Size: [20, 20, 2]
+        Verbatim: |
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmNeutralSprite));
+
+    - AlarmScrew:
+        Size: [20, 20, 1]
+        Verbatim: |
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
+
+    - AlarmButton:
+        Size: [20, 20, 1]
+        Verbatim: |
+          data->AddComponent<SnoozableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
+

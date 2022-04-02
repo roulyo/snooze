@@ -20,4 +20,12 @@
 
         forge::generated::SpriteFactories::ForgeSpriteFactory m_ForgeSpriteFactory;
 
+        forge::generated::SpriteFactories::AlarmNeutralSpriteFactory m_AlarmNeutralSpriteFactory;
+
+        forge::generated::SpriteFactories::AlarmScrewSpriteFactory m_AlarmScrewSpriteFactory;
+
+        forge::generated::SpriteFactories::AlarmButtonNeutralSpriteFactory m_AlarmButtonNeutralSpriteFactory;
+
+        forge::generated::SpriteFactories::AlarmButtonPressedSpriteFactory m_AlarmButtonPressedSpriteFactory;
+
     };

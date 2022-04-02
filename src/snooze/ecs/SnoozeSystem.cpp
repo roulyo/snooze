@@ -1,6 +1,9 @@
 #include <snooze/Precomp.h>
 #include <snooze/ecs/SnoozeSystem.h>
+#include <snooze/data/DataList.h>
 
+#include <snooze/data/SpriteCatalog.h>
+#include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/camera/api/CameraAPI.h>
 #include <forge/engine/math/Types.h>
 
@@ -45,7 +48,8 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         // click button
         if (m_ClickData.IsPressed && !snoozeComp.IsPressed())
         {
-            renderComp.GetSprite()->SetOverlayColor({ 255, 255, 255, 100 });
+            renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonPressedSprite));
+            //renderComp.GetSprite()->SetOverlayColor({ 255, 255, 255, 100 });
             snoozeComp.SetPressed(true);
         }
         // release button
@@ -53,7 +57,7 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         {
             std::cout << "SNOOZE!" << std::endl;
 
-            renderComp.GetSprite()->SetOverlayColor({ 255, 255, 255, 255 });
+            renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 
             snoozeComp.GetTimer().Start(FULL_TIMER_MS);
             snoozeComp.SetPressed(false);

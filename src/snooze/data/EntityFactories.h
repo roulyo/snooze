@@ -22,4 +22,28 @@
 
     };    
 
+    //----------------------------------------------------------------------------
+    class AlarmFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class AlarmScrewFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class AlarmButtonFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
     }}}
