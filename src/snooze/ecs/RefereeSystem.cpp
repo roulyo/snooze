@@ -1,6 +1,8 @@
 #include <snooze/Precomp.h>
 #include <snooze/ecs/RefereeSystem.h>
 
+#include <snooze/SnoozeConfig.h>
+
 //----------------------------------------------------------------------------
 void RefereeSystem::OnStart()
 {
@@ -27,7 +29,7 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     {
         GameOverEvent::Broadcast();
     }
-    else if (comp.GetTimer().GetElapsedRatio() > 0.75)
+    else if (comp.GetTimer().GetElapsedRatio() > SnoozeConfig::MiniGameTimeRatioToSpawn)
     {
         if (!m_MiniGameSpawned)
         {

@@ -7,15 +7,12 @@
 #include <forge/engine/camera/api/CameraAPI.h>
 #include <forge/engine/math/Types.h>
 
-
-#include <iostream>
+#include <snooze/SnoozeConfig.h>
 
 //----------------------------------------------------------------------------
 static constexpr f32 INVALID_COORD = NAN;
 static constexpr forge::Vector2f INVALID_CLICK_COORD { INVALID_COORD,
                                                        INVALID_COORD };
-
-static constexpr u32 FULL_TIMER_MS = 10000;
 
 //----------------------------------------------------------------------------
 void SnoozeSystem::OnStart()
@@ -42,7 +39,7 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         if (!IsStarted)
         {
             SnoozableComponent& snoozeComp = _entity->GetComponent<SnoozableComponent>();
-            snoozeComp.GetTimer().Start(FULL_TIMER_MS);
+            snoozeComp.GetTimer().Start(SnoozeConfig::TimerMaxTimeMs);
             m_ClickData.Entity = nullptr;
             IsStarted = true;
 
@@ -67,11 +64,9 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     else if (   snoozeComp.IsClickable() && _entity == m_ClickData.Entity
              && !m_ClickData.IsPressed && snoozeComp.IsPressed())
     {
-        std::cout << "SNOOZE!" << std::endl;
-
         renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 
-        snoozeComp.GetTimer().Start(FULL_TIMER_MS);
+        snoozeComp.GetTimer().Start(SnoozeConfig::TimerMaxTimeMs);
         snoozeComp.SetPressed(false);
     }
 

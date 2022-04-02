@@ -13,7 +13,7 @@ SnoozeView::SnoozeView()
 
     m_Minutes.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
     m_Minutes.GetText().Gravity = forge::GUIGravity::Left;
-    m_Minutes.GetText().RelativePadding = { 10, 0 };
+    m_Minutes.GetText().RelativePadding = { 13, 0 };
     m_Minutes.GetText()->SetFont(font);
     m_Minutes.GetText()->SetSize(100);
     m_Minutes.GetText()->SetFillColor({ 255, 0, 0 });
