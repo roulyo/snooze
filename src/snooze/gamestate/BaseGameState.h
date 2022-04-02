@@ -3,6 +3,7 @@
 #include <forge/engine/game/GameState.h>
 
 #include <forge/builtin/rendering/SimpleRenderingSystem.h>
+#include <forge/builtin/3Cs/ScreenMappingSystem.h>
 
 #include <snooze/ecs/SnoozeSystem.h>
 #include <snooze/ecs/RefereeSystem.h>
@@ -28,6 +29,7 @@ private:
     RefereeSystem                           m_RefereeSystem;
 
     forge::builtin::SimpleRenderingSystem   m_RenderingSystem;
+    forge::builtin::ScreenMappingSystem     m_ScreenMappingSystem;
 
     BaseInputMapping                        m_InputMapping;
 

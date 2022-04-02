@@ -43,6 +43,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         data->SetDataNameId(DataList::Entity::AlarmScrew);
 
         data->SetSize(20, 20, 1);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
 
@@ -57,6 +58,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 
         data->SetSize(20, 20, 1);
 data->AddComponent<SnoozableComponent>();
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 

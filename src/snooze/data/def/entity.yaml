@@ -4,6 +4,7 @@ Entity:
     - forge/Project.h
     - forge/engine/ecs/Entity.h
     - forge/builtin/rendering/RenderableComponent.h
+    - forge/builtin/3Cs/ScreenMappableComponent.h
     - snooze/data/SpriteCatalog.h
     - snooze/ecs/SnoozableComponent.h
 
@@ -24,6 +25,7 @@ Entity:
     - AlarmScrew:
         Size: [20, 20, 1]
         Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
 
@@ -31,6 +33,7 @@ Entity:
         Size: [20, 20, 1]
         Verbatim: |
           data->AddComponent<SnoozableComponent>();
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 

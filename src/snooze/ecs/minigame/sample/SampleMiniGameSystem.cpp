@@ -23,7 +23,7 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 
     BaseMiniGame::Update(comp);
 
-    std::cout << "SampleMiniGameSystem updates" << std::endl;
+    //std::cout << "SampleMiniGameSystem updates" << std::endl;
 
     if (m_BroomAcquiered && m_Broom != nullptr)
     {
