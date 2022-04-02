@@ -20,4 +20,6 @@
 
         forge::generated::TextureFactories::ForgeSheetFactory m_ForgeSheetFactory;
 
+        forge::generated::TextureFactories::AlarmSheetFactory m_AlarmSheetFactory;
+
     };
