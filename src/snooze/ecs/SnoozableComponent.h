@@ -13,7 +13,7 @@ public:
     SnoozableComponent();
 
     bool IsClickable() const;
-    void SetClickalbe(bool _b);
+    void SetClickable(bool _b);
 
     bool IsPressed() const;
     void SetPressed(bool _b);

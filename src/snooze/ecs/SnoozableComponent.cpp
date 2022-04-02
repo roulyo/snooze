@@ -17,7 +17,7 @@ bool SnoozableComponent::IsClickable() const
 }
 
 //----------------------------------------------------------------------------
-void SnoozableComponent::SetClickalbe(bool _b)
+void SnoozableComponent::SetClickable(bool _b)
 {
     m_IsClickable = _b;
 }
