@@ -12,6 +12,7 @@
 #include <snooze/data/SpriteCatalog.h>
 #include <snooze/data/TextureCatalog.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameComponent.h>
+#include <snooze/ecs/minigame/padlock/PadlockMiniGameComponent.h>
 #include <snooze/gamestate/BaseGameState.h>
 
 
@@ -19,6 +20,7 @@
 Snooze::Snooze()
 {
     m_MiniGames.push_back(SampleMiniGameComponent::Id);
+    m_MiniGames.push_back(PadlockMiniGameComponent::Id);
 }
 
 //----------------------------------------------------------------------------
@@ -83,6 +85,10 @@ void Snooze::OnStartMiniGameRequestEvent(const StartMiniGameRequestEvent& _event
     {
         m_GameEntity->AddComponent<SampleMiniGameComponent>();
     }
+    else if (m_CurrentGame == PadlockMiniGameComponent::Id)
+    {
+        m_GameEntity->AddComponent<PadlockMiniGameComponent>();
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -91,5 +97,9 @@ void Snooze::OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event)
     if (m_CurrentGame == SampleMiniGameComponent::Id)
     {
         m_GameEntity->RemoveComponent<SampleMiniGameComponent>();
+    }
+    else if (m_CurrentGame == PadlockMiniGameComponent::Id)
+    {
+        m_GameEntity->RemoveComponent<PadlockMiniGameComponent>();
     }
 }
