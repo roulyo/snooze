@@ -4,6 +4,7 @@
 //----------------------------------------------------------------------------
 void RefereeSystem::OnStart()
 {
+    m_MiniGameSpawned = false;
     m_MiniGameIsCompleted = false;
 
     MiniGameCompletedEvent::Handlers +=
@@ -28,11 +29,16 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     }
     else if (comp.GetTimer().GetElapsedRatio() > 0.75)
     {
-        if (comp.IsClickable())
+        if (!m_MiniGameSpawned)
         {
             StartMiniGameRequestEvent::Broadcast();
             comp.SetClickable(false);
+            m_MiniGameSpawned = true;
         }
+    }
+    else if (m_MiniGameSpawned)
+    {
+        m_MiniGameSpawned = false;
     }
 
     if (m_MiniGameIsCompleted)

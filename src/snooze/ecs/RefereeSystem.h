@@ -18,6 +18,7 @@ private:
     void OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event);
 
 private:
+    bool    m_MiniGameSpawned;
     bool    m_MiniGameIsCompleted;
 
 };

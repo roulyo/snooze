@@ -60,6 +60,9 @@ void SampleMiniGameSystem::OnMiniGameStop()
 {
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
+
+    m_BroomAcquiered = false;
+    m_WebCleaning = 0;
 }
 
 //----------------------------------------------------------------------------
