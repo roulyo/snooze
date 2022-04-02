@@ -99,7 +99,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::LockKey);
 
-        data->SetSize(5, 5, 0);
+        data->SetSize(20, 20, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));

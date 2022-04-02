@@ -111,7 +111,7 @@
 
         data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(600, 1800, 600, 600);
+        data->SetTextureQuad(1000, 2200, 200, 200);
 
         return data;
     }
