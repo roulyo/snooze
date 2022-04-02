@@ -20,13 +20,13 @@ public:
     bool IsStandingBy() const override;
 
 private:
-    void OnMouseClickEvent(const forge::builtin::MouseClickEvent& _event);
+    void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
 
 private:
     struct ClickData
     {
         bool IsPressed;
-        forge::Vector2f Coord;
+        forge::Entity::CPtr Entity;
     }   m_ClickData;
 
 };

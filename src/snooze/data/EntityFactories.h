@@ -8,6 +8,8 @@
 
     #include <forge/builtin/rendering/RenderableComponent.h>
 
+    #include <forge/builtin/3Cs/ScreenMappableComponent.h>
+
     #include <snooze/data/SpriteCatalog.h>
 
     #include <snooze/ecs/SnoozableComponent.h>
