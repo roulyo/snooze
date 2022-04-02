@@ -26,4 +26,10 @@
 
         forge::generated::EntityFactories::SnoozeButtonFactory m_SnoozeButtonFactory;
 
+        forge::generated::EntityFactories::AlarmFactory m_AlarmFactory;
+
+        forge::generated::EntityFactories::AlarmScrewFactory m_AlarmScrewFactory;
+
+        forge::generated::EntityFactories::AlarmButtonNeutralFactory m_AlarmButtonNeutralFactory;
+
     };

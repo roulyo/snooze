@@ -9,3 +9,6 @@ Texture:
         Singleton: true
         File: assets/forge.png
 
+    - AlarmSheet:
+        Singleton: true
+        File: assets/alarm.png

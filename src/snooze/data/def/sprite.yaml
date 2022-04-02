@@ -11,3 +11,26 @@ Sprite:
           name: ForgeSheet
         TextureQuad: [0, 0, 512, 204]
 
+    - AlarmNeutralSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [0, 0, 600, 600]
+
+    - AlarmScrewSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [600, 0, 600, 600]
+
+    - AlarmButtonNeutralSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1200, 0, 600, 600]
+
+    - AlarmButtonPressedSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1800, 0, 600, 600]

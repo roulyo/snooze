@@ -9,6 +9,8 @@
 
         RegisterData(DataList::Texture::ForgeSheet, m_ForgeSheetFactory);
 
+        RegisterData(DataList::Texture::AlarmSheet, m_AlarmSheetFactory);
+
     }
 
     //----------------------------------------------------------------------------

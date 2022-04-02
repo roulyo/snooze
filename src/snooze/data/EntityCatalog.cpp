@@ -9,6 +9,12 @@
 
         RegisterData(DataList::Entity::SnoozeButton, m_SnoozeButtonFactory);
 
+        RegisterData(DataList::Entity::Alarm, m_AlarmFactory);
+
+        RegisterData(DataList::Entity::AlarmScrew, m_AlarmScrewFactory);
+
+        RegisterData(DataList::Entity::AlarmButtonNeutral, m_AlarmButtonNeutralFactory);
+
     }
 
     //----------------------------------------------------------------------------
