@@ -38,10 +38,9 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     if (m_MiniGameIsCompleted)
     {
         // TODO: Display narration here
-        comp.SetClickable(false);
+        comp.SetClickable(true);
         m_MiniGameIsCompleted = false;
     }
-
 }
 
 //----------------------------------------------------------------------------

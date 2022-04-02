@@ -57,13 +57,15 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         _entity->GetComponent<forge::builtin::RenderableComponent>();
 
     // click button
-    if (_entity == m_ClickData.Entity && m_ClickData.IsPressed && !snoozeComp.IsPressed())
+    if (   snoozeComp.IsClickable() && _entity == m_ClickData.Entity
+        && m_ClickData.IsPressed && !snoozeComp.IsPressed())
     {
         renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonPressedSprite));
         snoozeComp.SetPressed(true);
     }
     // release button
-    else if (_entity == m_ClickData.Entity && !m_ClickData.IsPressed && snoozeComp.IsPressed())
+    else if (   snoozeComp.IsClickable() && _entity == m_ClickData.Entity
+             && !m_ClickData.IsPressed && snoozeComp.IsPressed())
     {
         std::cout << "SNOOZE!" << std::endl;
 

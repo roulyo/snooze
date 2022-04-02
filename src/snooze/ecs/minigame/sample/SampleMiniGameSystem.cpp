@@ -23,8 +23,6 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 
     BaseMiniGame::Update(comp);
 
-    //std::cout << "SampleMiniGameSystem updates" << std::endl;
-
     if (m_BroomAcquiered && m_Broom != nullptr)
     {
         RequestRemoveEntity(m_Broom);
@@ -43,7 +41,8 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 //----------------------------------------------------------------------------
 void SampleMiniGameSystem::OnMiniGameStart()
 {
-    std::cout << "SampleMiniGameSystem starts" << std::endl;
+    forge::builtin::EntityClickedEvent::Handlers +=
+        forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
 
     m_Broom = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Broom);
     m_Broom->SetPosition(57, 57, 0);
@@ -59,6 +58,8 @@ void SampleMiniGameSystem::OnMiniGameStart()
 //----------------------------------------------------------------------------
 void SampleMiniGameSystem::OnMiniGameStop()
 {
+    forge::builtin::EntityClickedEvent::Handlers -=
+        forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
 }
 
 //----------------------------------------------------------------------------

@@ -71,7 +71,8 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::Broom);
 
-        data->SetSize(2, 2, 0);
+        data->SetSize(3, 3, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleBroom));
 
@@ -84,7 +85,8 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::Web);
 
-        data->SetSize(10, 5, 0);
+        data->SetSize(10, 10, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleWeb));
 
