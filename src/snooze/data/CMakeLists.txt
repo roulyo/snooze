@@ -1,0 +1,6 @@
+# CMakeLists.txt for src/snooze/data
+ADD_SUBDIRECTORY(def)
+
+MACRO_ADD_SOURCES(EXE_SRC
+DataList.cpp DataList.h EntityCatalog.cpp EntityCatalog.h EntityFactories.cpp EntityFactories.h SpriteCatalog.cpp SpriteCatalog.h SpriteFactories.cpp SpriteFactories.h TextureCatalog.cpp TextureCatalog.h TextureFactories.cpp TextureFactories.h
+)

@@ -1,0 +1,11 @@
+Texture:
+  Type: forge::Texture
+  Includes:
+    - forge/Project.h
+    - forge/engine/rendering/resource/Texture.h
+
+  Data:
+    - ForgeSheet:
+        Singleton: true
+        File: assets/forge.png
+

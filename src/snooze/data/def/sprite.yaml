@@ -1,0 +1,13 @@
+Sprite:
+  Type: forge::Sprite
+  Includes:
+    - forge/Project.h
+    - forge/engine/rendering/drawable/Sprite.h
+
+  Data:
+    - ForgeSprite:
+        Texture:
+          from: Texture
+          name: ForgeSheet
+        TextureQuad: [0, 0, 512, 204]
+
