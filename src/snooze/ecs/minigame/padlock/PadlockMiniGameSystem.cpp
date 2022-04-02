@@ -43,9 +43,15 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &PadlockMiniGameSystem::OnEntityClickedEvent);
 
+    std::cout << "Padlock start" << std::endl;
+
     m_Lock = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
-    m_Lock->SetPosition(57, 57, 0);
+    m_Lock->SetPosition(57, 57, 10);
     RequestAddEntity(m_Lock);
+
+    m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
+    m_Key->SetPosition(78, 72, 10);
+    RequestAddEntity(m_Key);
 /*
 forge::Entity::Ptr screw1 = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainBack);
     screw1->SetPosition(50.f - screw1->GetSize().w * 0.5f, 50.f - screw1->GetSize().d * 0.5f, 0.f);
