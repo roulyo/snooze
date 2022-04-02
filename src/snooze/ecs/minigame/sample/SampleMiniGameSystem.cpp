@@ -45,12 +45,12 @@ void SampleMiniGameSystem::OnMiniGameStart()
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
 
     m_Broom = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Broom);
-    m_Broom->SetPosition(57, 57, 0);
+    m_Broom->SetPosition(57, 57, 10);
 
     RequestAddEntity(m_Broom);
 
     m_Web = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Web);
-    m_Web->SetPosition(48, 42, 0);
+    m_Web->SetPosition(48, 42, 10);
 
     RequestAddEntity(m_Web);
 }
