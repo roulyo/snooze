@@ -28,5 +28,5 @@ private:
         bool IsPressed;
         forge::Entity::CPtr Entity;
     }   m_ClickData;
-
+    bool IsStarted;
 };

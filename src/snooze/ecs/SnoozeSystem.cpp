@@ -21,7 +21,7 @@ static constexpr u32 FULL_TIMER_MS = 10000;
 void SnoozeSystem::OnStart()
 {
     m_ClickData.IsPressed = false;
-    m_ClickData.Entity = NULL;
+    m_ClickData.Entity = nullptr;
 
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &SnoozeSystem::OnEntityClickedEvent);
@@ -39,11 +39,12 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
     // first start hack: x != nan but y == nan
     {
-        if (m_ClickData.Entity && std::isnan(m_ClickData.Entity->GetPosition().y))
+        if (!IsStarted)
         {
             SnoozableComponent& snoozeComp = _entity->GetComponent<SnoozableComponent>();
             snoozeComp.GetTimer().Start(FULL_TIMER_MS);
-            //m_ClickData.Coord = INVALID_CLICK_COORD;
+            m_ClickData.Entity = nullptr;
+            IsStarted = true;
 
             return;
         }
@@ -72,12 +73,12 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         snoozeComp.SetPressed(false);
     }
 
-    m_ClickData.Entity = NULL;
+    m_ClickData.Entity = nullptr;
 }
 
 bool SnoozeSystem::IsStandingBy() const
 {
-    return m_ClickData.Entity && std::isnan(m_ClickData.Entity->GetPosition().x);
+    return m_ClickData.Entity != nullptr && std::isnan(m_ClickData.Entity->GetPosition().x);
 }
 
 //----------------------------------------------------------------------------
