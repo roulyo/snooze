@@ -31,13 +31,14 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         if (comp.IsClickable())
         {
             StartMiniGameRequestEvent::Broadcast();
-            comp.SetClickalbe(false);
+            comp.SetClickable(false);
         }
     }
+
     if (m_MiniGameIsCompleted)
     {
         // TODO: Display narration here
-        comp.SetClickalbe(false);
+        comp.SetClickable(false);
         m_MiniGameIsCompleted = false;
     }
 
