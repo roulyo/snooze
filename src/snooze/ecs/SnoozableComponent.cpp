@@ -35,6 +35,12 @@ void SnoozableComponent::SetPressed(bool _b)
 }
 
 //----------------------------------------------------------------------------
+const forge::Chrono& SnoozableComponent::GetTimer() const
+{
+    return m_Timer;
+}
+
+//----------------------------------------------------------------------------
 forge::Chrono& SnoozableComponent::GetTimer()
 {
     return m_Timer;

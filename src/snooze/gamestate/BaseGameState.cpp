@@ -12,6 +12,8 @@ BaseGameState::BaseGameState(const forge::AbstractForgeGame& _game)
     AddSystem(&m_RefereeSystem);
     AddSystem(&m_RenderingSystem);
     AddSystem(&m_ScreenMappingSystem);
+
+    AddViewController(&m_ViewController);
 }
 
 //----------------------------------------------------------------------------

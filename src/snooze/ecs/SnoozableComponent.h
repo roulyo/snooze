@@ -18,6 +18,7 @@ public:
     bool IsPressed() const;
     void SetPressed(bool _b);
 
+    const forge::Chrono& GetTimer() const;
     forge::Chrono& GetTimer();
 
 private:

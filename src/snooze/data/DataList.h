@@ -30,6 +30,13 @@
 
     }
 
+    namespace Font
+    {
+
+        extern const forge::DataNameId AlarmClock;
+
+    }
+
     namespace Sprite
     {
 

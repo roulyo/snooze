@@ -1,0 +1,8 @@
+Font:
+  Type: forge::Font
+  Includes:
+    - forge/engine/rendering/resource/Font.h
+  Data:
+    - AlarmClock:
+        Singleton: true
+        File: assets/alarm_clock.ttf

@@ -8,6 +8,7 @@
 
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
+#include <snooze/data/FontCatalog.h>
 #include <snooze/data/SpriteCatalog.h>
 #include <snooze/data/TextureCatalog.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameComponent.h>
@@ -29,8 +30,10 @@ Snooze::~Snooze()
 void Snooze::OnInit()
 {
     RegisterCatalogType<EntityCatalog>();
+    RegisterCatalogType<FontCatalog>();
     RegisterCatalogType<SpriteCatalog>();
     RegisterCatalogType<TextureCatalog>();
+
 
     m_World.Init(100.f, 100.f);
 
