@@ -15,6 +15,10 @@
 
         RegisterData(DataList::Entity::AlarmButton, m_AlarmButtonFactory);
 
+        RegisterData(DataList::Entity::Broom, m_BroomFactory);
+
+        RegisterData(DataList::Entity::Web, m_WebFactory);
+
     }
 
     //----------------------------------------------------------------------------

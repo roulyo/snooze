@@ -32,4 +32,8 @@
 
         forge::generated::EntityFactories::AlarmButtonFactory m_AlarmButtonFactory;
 
+        forge::generated::EntityFactories::BroomFactory m_BroomFactory;
+
+        forge::generated::EntityFactories::WebFactory m_WebFactory;
+
     };

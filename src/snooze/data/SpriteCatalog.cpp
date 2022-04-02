@@ -17,6 +17,10 @@
 
         RegisterData(DataList::Sprite::AlarmButtonPressedSprite, m_AlarmButtonPressedSpriteFactory);
 
+        RegisterData(DataList::Sprite::SampleBroom, m_SampleBroomFactory);
+
+        RegisterData(DataList::Sprite::SampleWeb, m_SampleWebFactory);
+
     }
 
     //----------------------------------------------------------------------------

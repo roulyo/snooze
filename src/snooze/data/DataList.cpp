@@ -16,6 +16,10 @@
 
         constexpr forge::DataNameId AlarmButton = forge::DataNameId("Entity::AlarmButton");
 
+        constexpr forge::DataNameId Broom = forge::DataNameId("Entity::Broom");
+
+        constexpr forge::DataNameId Web = forge::DataNameId("Entity::Web");
+
     }
 
     namespace Sprite
@@ -31,6 +35,10 @@
 
         constexpr forge::DataNameId AlarmButtonPressedSprite = forge::DataNameId("Sprite::AlarmButtonPressedSprite");
 
+        constexpr forge::DataNameId SampleBroom = forge::DataNameId("Sprite::SampleBroom");
+
+        constexpr forge::DataNameId SampleWeb = forge::DataNameId("Sprite::SampleWeb");
+
     }
 
     namespace Texture
@@ -39,6 +47,8 @@
         constexpr forge::DataNameId ForgeSheet = forge::DataNameId("Texture::ForgeSheet");
 
         constexpr forge::DataNameId AlarmSheet = forge::DataNameId("Texture::AlarmSheet");
+
+        constexpr forge::DataNameId SampleSheet = forge::DataNameId("Texture::SampleSheet");
 
     }
 

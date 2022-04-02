@@ -28,4 +28,8 @@
 
         forge::generated::SpriteFactories::AlarmButtonPressedSpriteFactory m_AlarmButtonPressedSpriteFactory;
 
+        forge::generated::SpriteFactories::SampleBroomFactory m_SampleBroomFactory;
+
+        forge::generated::SpriteFactories::SampleWebFactory m_SampleWebFactory;
+
     };

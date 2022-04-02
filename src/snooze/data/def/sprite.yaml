@@ -34,3 +34,15 @@ Sprite:
           from: Texture
           name: AlarmSheet
         TextureQuad: [1800, 0, 600, 600]
+
+    - SampleBroom:
+        Texture:
+          from: Texture
+          name: SampleSheet
+        TextureQuad: [0, 0, 100, 100]
+
+    - SampleWeb:
+        Texture:
+          from: Texture
+          name: SampleSheet
+        TextureQuad: [100, 0, 100, 100]

@@ -12,3 +12,7 @@ Texture:
     - AlarmSheet:
         Singleton: true
         File: assets/alarm.png
+
+    - SampleSheet:
+        Singleton: true
+        File: assets/sample.png

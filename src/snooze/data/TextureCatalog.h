@@ -22,4 +22,6 @@
 
         forge::generated::TextureFactories::AlarmSheetFactory m_AlarmSheetFactory;
 
+        forge::generated::TextureFactories::SampleSheetFactory m_SampleSheetFactory;
+
     };

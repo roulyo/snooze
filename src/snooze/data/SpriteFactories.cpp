@@ -77,4 +77,30 @@
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Sprite* SampleBroomFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::SampleBroom);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::SampleSheet));
+
+        data->SetTextureQuad(0, 0, 100, 100);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* SampleWebFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::SampleWeb);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::SampleSheet));
+
+        data->SetTextureQuad(100, 0, 100, 100);
+
+        return data;
+    }
+
     }}}

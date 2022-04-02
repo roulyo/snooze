@@ -16,6 +16,10 @@
 
         extern const forge::DataNameId AlarmButton;
 
+        extern const forge::DataNameId Broom;
+
+        extern const forge::DataNameId Web;
+
     }
 
     namespace Sprite
@@ -31,6 +35,10 @@
 
         extern const forge::DataNameId AlarmButtonPressedSprite;
 
+        extern const forge::DataNameId SampleBroom;
+
+        extern const forge::DataNameId SampleWeb;
+
     }
 
     namespace Texture
@@ -39,6 +47,8 @@
         extern const forge::DataNameId ForgeSheet;
 
         extern const forge::DataNameId AlarmSheet;
+
+        extern const forge::DataNameId SampleSheet;
 
     }
 

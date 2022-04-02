@@ -3,6 +3,19 @@
 
 #include <iostream>
 
+#include <forge/engine/data/api/DataAPI.h>
+#include <forge/engine/ecs/Entity.h>
+
+#include <snooze/data/DataList.h>
+#include <snooze/data/EntityCatalog.h>
+
+//----------------------------------------------------------------------------
+SampleMiniGameSystem::SampleMiniGameSystem()
+    : m_BroomAcquiered(false)
+    , m_WebCleaning(0)
+{
+}
+
 //----------------------------------------------------------------------------
 void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
@@ -12,8 +25,17 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 
     std::cout << "SampleMiniGameSystem updates" << std::endl;
 
-    if (m_Chrono.IsElapsed())
+    if (m_BroomAcquiered && m_Broom != nullptr)
     {
+        RequestRemoveEntity(m_Broom);
+        m_Broom = nullptr;
+    }
+
+    if (m_WebCleaning > 5)
+    {
+        RequestRemoveEntity(m_Web);
+        m_Web = nullptr;
+
         BaseMiniGame::CompleteGame(comp);
     }
 }
@@ -23,11 +45,37 @@ void SampleMiniGameSystem::OnMiniGameStart()
 {
     std::cout << "SampleMiniGameSystem starts" << std::endl;
 
-    m_Chrono.Start(5000);
+    m_Broom = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Broom);
+    m_Broom->SetPosition(57, 57, 0);
+
+    RequestAddEntity(m_Broom);
+
+    m_Web = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Web);
+    m_Web->SetPosition(48, 42, 0);
+
+    RequestAddEntity(m_Web);
 }
 
 //----------------------------------------------------------------------------
 void SampleMiniGameSystem::OnMiniGameStop()
 {
-    std::cout << "SampleMiniGameSystem stops" << std::endl;
+}
+
+//----------------------------------------------------------------------------
+void SampleMiniGameSystem::OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event)
+{
+    if (_event.GetIsPressed())
+        return;
+
+    if (_event.GetEntity() == m_Broom)
+    {
+        m_BroomAcquiered = true;
+    }
+    else if (_event.GetEntity() == m_Web)
+    {
+        ++m_WebCleaning;
+
+        m_Web->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
+            ->SetOverlayColor({ 255, 255, 255, static_cast<u8>(255 / (m_WebCleaning + 1)) });
+    }
 }

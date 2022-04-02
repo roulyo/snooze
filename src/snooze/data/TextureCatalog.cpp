@@ -11,6 +11,8 @@
 
         RegisterData(DataList::Texture::AlarmSheet, m_AlarmSheetFactory);
 
+        RegisterData(DataList::Texture::SampleSheet, m_SampleSheetFactory);
+
     }
 
     //----------------------------------------------------------------------------
