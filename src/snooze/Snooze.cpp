@@ -4,12 +4,12 @@
 #include <forge/engine/camera/api/CameraAPI.h>
 #include <forge/engine/data/api/DataAPI.h>
 
-#include <forge/builtin/freeroaming/SimpleGameState.h>
-
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
 #include <snooze/data/SpriteCatalog.h>
 #include <snooze/data/TextureCatalog.h>
+
+#include <snooze/gamestate/BaseGameState.h>
 
 //----------------------------------------------------------------------------
 Snooze::Snooze()
@@ -30,7 +30,7 @@ void Snooze::OnInit()
 
     m_World.Init(100.f, 100.f);
 
-    forge::Entity::Ptr mc = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::PlayableCharacter);
+    forge::Entity::Ptr mc = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::SnoozeButton);
     mc->SetPosition(50.f - mc->GetSize().w * 0.5f, 50.f - mc->GetSize().d * 0.5f, 0.f);
     m_World.AddEntity(mc);
 
@@ -39,8 +39,8 @@ void Snooze::OnInit()
     forge::CameraAPI::SetFieldOfView(90);
     forge::CameraAPI::SetFilmedWorld(GetWorld());
 
-    RegisterGameState<forge::builtin::SimpleGameState>();
-    RequestState(forge::builtin::SimpleGameState::Id);
+    RegisterGameState<BaseGameState>();
+    RequestState(BaseGameState::Id);
 }
 
 //----------------------------------------------------------------------------

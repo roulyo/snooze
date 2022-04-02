@@ -3,17 +3,15 @@ Entity:
   Includes:
     - forge/Project.h
     - forge/engine/ecs/Entity.h
-    - forge/builtin/3Cs/PlayableCharacterComponent.h
-    - forge/builtin/physics/PhysicableComponent.h
     - forge/builtin/rendering/RenderableComponent.h
     - snooze/data/SpriteCatalog.h
+    - snooze/ecs/SnoozableComponent.h
 
   Data:
-    - PlayableCharacter:
+    - SnoozeButton:
         Size: [5.12, 2.04, 0]
         Verbatim: |
-          data->AddComponent<forge::builtin::PlayableCharacterComponent>();
-          data->AddComponent<forge::builtin::PhysicableComponent>();
+          data->AddComponent<SnoozableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ForgeSprite));
 

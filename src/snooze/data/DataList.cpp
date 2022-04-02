@@ -8,7 +8,7 @@
     namespace Entity
     {
 
-        constexpr forge::DataNameId PlayableCharacter = forge::DataNameId("Entity::PlayableCharacter");
+        constexpr forge::DataNameId SnoozeButton = forge::DataNameId("Entity::SnoozeButton");
 
     }
 

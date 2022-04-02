@@ -7,7 +7,7 @@
     EntityCatalog::EntityCatalog()
     {
 
-        RegisterData(DataList::Entity::PlayableCharacter, m_PlayableCharacterFactory);
+        RegisterData(DataList::Entity::SnoozeButton, m_SnoozeButtonFactory);
 
     }
 

@@ -8,7 +8,7 @@
     namespace Entity
     {
 
-        extern const forge::DataNameId PlayableCharacter;
+        extern const forge::DataNameId SnoozeButton;
 
     }
 

@@ -10,14 +10,13 @@
     namespace forge { namespace generated { namespace EntityFactories {
 
     //----------------------------------------------------------------------------
-    forge::Entity* PlayableCharacterFactory::Create() const
+    forge::Entity* SnoozeButtonFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::PlayableCharacter);
+        data->SetDataNameId(DataList::Entity::SnoozeButton);
 
         data->SetSize(5.12, 2.04, 0);
-data->AddComponent<forge::builtin::PlayableCharacterComponent>();
-data->AddComponent<forge::builtin::PhysicableComponent>();
+data->AddComponent<SnoozableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ForgeSprite));
 

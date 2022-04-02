@@ -7,13 +7,11 @@
 
     #include <forge/engine/ecs/Entity.h>
 
-    #include <forge/builtin/3Cs/PlayableCharacterComponent.h>
-
-    #include <forge/builtin/physics/PhysicableComponent.h>
-
     #include <forge/builtin/rendering/RenderableComponent.h>
 
     #include <snooze/data/SpriteCatalog.h>
+
+    #include <snooze/ecs/SnoozableComponent.h>
 
     //----------------------------------------------------------------------------
     class EntityCatalog : public forge::DataCatalog<forge::Entity>
@@ -26,6 +24,6 @@
 
     private:
 
-        forge::generated::EntityFactories::PlayableCharacterFactory m_PlayableCharacterFactory;
+        forge::generated::EntityFactories::SnoozeButtonFactory m_SnoozeButtonFactory;
 
     };
