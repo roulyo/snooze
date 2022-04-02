@@ -2,6 +2,7 @@
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameSystem.h>
 
 #include <iostream>
+#include <random>
 
 #include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/ecs/Entity.h>
@@ -42,10 +43,9 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 //----------------------------------------------------------------------------
 void PadlockMiniGameSystem::OnMiniGameStart()
 {
+    static std::random_device rd;
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &PadlockMiniGameSystem::OnEntityClickedEvent);
-
-    std::cout << "Padlock start" << std::endl;
 
     // Setup the lock aesthetics
     m_Lock = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
@@ -58,9 +58,9 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     m_ChainBack->SetPosition(50.f - m_ChainBack->GetSize().w * 0.5f, 50.f - m_ChainBack->GetSize().d * 0.5f, 0.f);
     RequestAddEntity(m_ChainBack);
 
-    // Pop the key at a random place
+    // Pop the key at a random place (40-60)
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
-    m_Key->SetPosition(1, 1, 10);
+    m_Key->SetPosition(rd() % (60 - 40 + 1) + 40, rd() % (60 - 40 + 1) + 40, 10);
     RequestAddEntity(m_Key);
 }
 

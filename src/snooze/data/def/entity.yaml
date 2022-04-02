@@ -53,7 +53,7 @@ Entity:
 # Lock mini-game
 
     - LockKey:
-        Size: [20, 20, 0]
+        Size: [5, 5, 0]
         Verbatim: |
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
