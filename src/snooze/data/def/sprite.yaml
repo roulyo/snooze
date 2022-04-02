@@ -52,7 +52,7 @@ Sprite:
         Texture:
           from: Texture
           name: AlarmSheet
-        TextureQuad: [600, 1800, 600, 600]
+        TextureQuad: [1000, 2200, 200, 200]
 
     - LockLockSprite:
         Texture:

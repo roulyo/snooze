@@ -31,7 +31,9 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     if (m_PadlockUnlocked)
     {
         RequestRemoveEntity(m_Lock);
-        m_Lock = nullptr;
+        RequestRemoveEntity(m_ChainFront);
+        RequestRemoveEntity(m_ChainBack);
+        m_Lock = m_ChainFront = m_ChainBack = nullptr;
 
         BaseMiniGame::CompleteGame(comp);
     }
@@ -45,26 +47,21 @@ void PadlockMiniGameSystem::OnMiniGameStart()
 
     std::cout << "Padlock start" << std::endl;
 
+    // Setup the lock aesthetics
     m_Lock = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
-    m_Lock->SetPosition(57, 57, 10);
+    m_Lock->SetPosition(50.f - m_Lock->GetSize().w * 0.5f, 50.f - m_Lock->GetSize().d * 0.5f, 1.f);
     RequestAddEntity(m_Lock);
+    m_ChainFront = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainFront);
+    m_ChainFront->SetPosition(50.f - m_ChainFront->GetSize().w * 0.5f, 50.f - m_ChainFront->GetSize().d * 0.5f, 1.f);
+    RequestAddEntity(m_ChainFront);
+    m_ChainBack = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainBack);
+    m_ChainBack->SetPosition(50.f - m_ChainBack->GetSize().w * 0.5f, 50.f - m_ChainBack->GetSize().d * 0.5f, 0.f);
+    RequestAddEntity(m_ChainBack);
 
+    // Pop the key at a random place
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
-    m_Key->SetPosition(78, 72, 10);
+    m_Key->SetPosition(1, 1, 10);
     RequestAddEntity(m_Key);
-/*
-forge::Entity::Ptr screw1 = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainBack);
-    screw1->SetPosition(50.f - screw1->GetSize().w * 0.5f, 50.f - screw1->GetSize().d * 0.5f, 0.f);
-    m_World.AddEntity(screw1);
-
-    forge::Entity::Ptr screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainFront);
-    screw->SetPosition(50.f - screw->GetSize().w * 0.5f, 50.f - screw->GetSize().d * 0.5f, 1.f);
-    m_World.AddEntity(screw);
-
-    forge::Entity::Ptr button = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
-    button->SetPosition(50.f - button->GetSize().w * 0.5f, 50.f - button->GetSize().d * 0.5f, 1.f);
-    m_World.AddEntity(button);
-*/
 }
 
 //----------------------------------------------------------------------------
