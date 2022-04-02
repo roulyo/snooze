@@ -1,6 +1,8 @@
 #include <snooze/Precomp.h>
 #include <snooze/Snooze.h>
 
+#include <random>
+
 #include <forge/engine/camera/api/CameraAPI.h>
 #include <forge/engine/data/api/DataAPI.h>
 
@@ -8,12 +10,14 @@
 #include <snooze/data/EntityCatalog.h>
 #include <snooze/data/SpriteCatalog.h>
 #include <snooze/data/TextureCatalog.h>
-
+#include <snooze/ecs/minigame/sample/SampleMiniGameComponent.h>
 #include <snooze/gamestate/BaseGameState.h>
+
 
 //----------------------------------------------------------------------------
 Snooze::Snooze()
 {
+    m_MiniGames.push_back(SampleMiniGameComponent::Id);
 }
 
 //----------------------------------------------------------------------------
@@ -39,6 +43,11 @@ void Snooze::OnInit()
     forge::CameraAPI::SetFieldOfView(90);
     forge::CameraAPI::SetFilmedWorld(GetWorld());
 
+    StartMiniGameRequestEvent::Handlers +=
+        StartMiniGameRequestEvent::Handler(this, &Snooze::OnStartMiniGameRequestEvent);
+    StopMiniGameRequestEvent::Handlers +=
+        StopMiniGameRequestEvent::Handler(this, &Snooze::OnStopMiniGameRequestEvent);
+
     RegisterGameState<BaseGameState>();
     RequestState(BaseGameState::Id);
 }
@@ -46,4 +55,30 @@ void Snooze::OnInit()
 //----------------------------------------------------------------------------
 void Snooze::OnQuit()
 {
+    StartMiniGameRequestEvent::Handlers -=
+        StartMiniGameRequestEvent::Handler(this, &Snooze::OnStartMiniGameRequestEvent);
+    StopMiniGameRequestEvent::Handlers -=
+        StopMiniGameRequestEvent::Handler(this, &Snooze::OnStopMiniGameRequestEvent);
+}
+
+//----------------------------------------------------------------------------
+void Snooze::OnStartMiniGameRequestEvent(const StartMiniGameRequestEvent& _event)
+{
+    static std::random_device rd;
+
+    m_CurrentGame = m_MiniGames[rd() % m_MiniGames.size()];
+
+    if (m_CurrentGame == SampleMiniGameComponent::Id)
+    {
+        m_GameEntity->AddComponent<SampleMiniGameComponent>();
+    }
+}
+
+//----------------------------------------------------------------------------
+void Snooze::OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event)
+{
+    if (m_CurrentGame == SampleMiniGameComponent::Id)
+    {
+        m_GameEntity->RemoveComponent<SampleMiniGameComponent>();
+    }
 }
