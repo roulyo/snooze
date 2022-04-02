@@ -58,9 +58,9 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     m_ChainBack->SetPosition(50.f - m_ChainBack->GetSize().w * 0.5f, 50.f - m_ChainBack->GetSize().d * 0.5f, 0.f);
     RequestAddEntity(m_ChainBack);
 
-    // Pop the key at a random place (40-60)
+    // Pop the key at a random place (40-58)
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
-    m_Key->SetPosition(rd() % (60 - 40 + 1) + 40, rd() % (60 - 40 + 1) + 40, 10);
+    m_Key->SetPosition(rd() % (58 - 40 + 1) + 40, rd() % (58 - 40 + 1) + 40, 10);
     RequestAddEntity(m_Key);
 }
 
