@@ -11,24 +11,27 @@ SnoozeView::SnoozeView()
 {
     forge::Font::Ptr font = forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::AlarmClock);
 
-    m_Minutes.SetGravity(forge::GUIGravity::Left);
     m_Minutes.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
+    m_Minutes.GetText().Gravity = forge::GUIGravity::Left;
+    m_Minutes.GetText().RelativePadding = { 10, 0 };
     m_Minutes.GetText()->SetFont(font);
-    m_Minutes.GetText()->SetSize(22);
+    m_Minutes.GetText()->SetSize(100);
     m_Minutes.GetText()->SetFillColor({ 255, 0, 0 });
     m_Minutes.GetText()->SetString("88");
 
-    m_Colon.SetGravity(forge::GUIGravity::Center);
     m_Colon.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
+    m_Colon.GetText().Gravity = forge::GUIGravity::Top;
+    m_Colon.GetText().RelativePadding = { 0, 15 };
     m_Colon.GetText()->SetFont(font);
-    m_Colon.GetText()->SetSize(22);
+    m_Colon.GetText()->SetSize(100);
     m_Colon.GetText()->SetFillColor({ 255, 0, 0 });
     m_Colon.GetText()->SetString(":");
 
-    m_Colon.SetGravity(forge::GUIGravity::Right);
     m_Seconds.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
+    m_Seconds.GetText().Gravity = forge::GUIGravity::Right;
+    m_Seconds.GetText().RelativePadding = { 10, 0 };
     m_Seconds.GetText()->SetFont(font);
-    m_Seconds.GetText()->SetSize(22);
+    m_Seconds.GetText()->SetSize(100);
     m_Seconds.GetText()->SetFillColor({ 255, 0, 0 });
     m_Seconds.GetText()->SetString("88");
 
