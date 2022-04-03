@@ -1,3 +1,4 @@
+#include <snooze/Precomp.h>
 #include <snooze/Story.h>
 #include <random>
 

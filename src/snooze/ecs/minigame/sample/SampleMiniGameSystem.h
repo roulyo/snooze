@@ -22,6 +22,8 @@ private:
     void OnMiniGameStop() override;
 
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
+    void OnEntityHoveredEnterEvent(const forge::builtin::EntityHoveredEnterEvent& _event);
+    void OnEntityHoveredExitEvent(const forge::builtin::EntityHoveredExitEvent& _event);
 
     static const int numberOfVariants = 3;
 
