@@ -70,17 +70,28 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonPressedSprite));
         snoozeComp.SetPressed(true);
     }
+    // Click with fail state if possible
+    else if (!snoozeComp.IsClickable() && _entity == m_ClickData.Entity
+        && m_ClickData.IsPressed && !snoozeComp.IsPressed())
+    {
+        renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonPressedProblemSprite));
+        snoozeComp.SetPressed(true);
+    }
     // release button
-    else if (   snoozeComp.IsClickable() && _entity == m_ClickData.Entity
+    else if (_entity == m_ClickData.Entity
              && !m_ClickData.IsPressed && snoozeComp.IsPressed())
     {
+        // Resetting the view
+        snoozeComp.SetPressed(false);
         renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 
-        snoozeComp.GetTimer().Start(SnoozeConfig::TimerMaxTimeMs);
-        snoozeComp.SetPressed(false);
+        // If the click was authorized
+        if (snoozeComp.IsClickable()) {
+            snoozeComp.GetTimer().Start(SnoozeConfig::TimerMaxTimeMs);
 
-        ButtonPushedEvent::Broadcast(m_IsPostMiniGame);
-        m_IsPostMiniGame = false;
+            ButtonPushedEvent::Broadcast(m_IsPostMiniGame);
+            m_IsPostMiniGame = false;
+        }
     }
 
     m_ClickData.Entity = nullptr;
