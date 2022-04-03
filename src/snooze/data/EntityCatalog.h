@@ -15,6 +15,8 @@
 
     #include <snooze/ecs/SnoozableComponent.h>
 
+    #include <snooze/ecs/HoverableComponent.h>
+
     //----------------------------------------------------------------------------
     class EntityCatalog : public forge::DataCatalog<forge::Entity>
     {

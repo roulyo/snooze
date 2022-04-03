@@ -5,8 +5,9 @@
 #include <forge/builtin/rendering/SimpleRenderingSystem.h>
 #include <forge/builtin/3Cs/ScreenMappingSystem.h>
 
-#include <snooze/ecs/SnoozeSystem.h>
+#include <snooze/ecs/HoveringSystem.h>
 #include <snooze/ecs/RefereeSystem.h>
+#include <snooze/ecs/SnoozeSystem.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameSystem.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameSystem.h>
 
@@ -25,6 +26,8 @@ public:
     void OnStop() override;
 
 private:
+    HoveringSystem                          m_HoveringSystem;
+
     SampleMiniGameSystem                    m_SampleMiniGameSystem;
     PadlockMiniGameSystem                   m_PadlockMiniGameSystem;
 

@@ -14,6 +14,8 @@
 
     #include <snooze/ecs/SnoozableComponent.h>
 
+    #include <snooze/ecs/HoverableComponent.h>
+
     namespace forge { namespace generated { namespace EntityFactories {
 
     //----------------------------------------------------------------------------

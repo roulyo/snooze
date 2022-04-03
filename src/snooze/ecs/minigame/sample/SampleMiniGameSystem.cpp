@@ -58,10 +58,6 @@ void SampleMiniGameSystem::OnMiniGameStart()
 {
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
-    forge::builtin::EntityHoveredEnterEvent::Handlers +=
-        forge::builtin::EntityHoveredEnterEvent::Handler(this, &SampleMiniGameSystem::OnEntityHoveredEnterEvent);
-    forge::builtin::EntityHoveredExitEvent::Handlers +=
-        forge::builtin::EntityHoveredExitEvent::Handler(this, &SampleMiniGameSystem::OnEntityHoveredExitEvent);
 
     static std::random_device rd;
     forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr> pair = m_Variants[rd() % numberOfVariants];
@@ -79,10 +75,6 @@ void SampleMiniGameSystem::OnMiniGameStart()
 //----------------------------------------------------------------------------
 void SampleMiniGameSystem::OnMiniGameStop()
 {
-    forge::builtin::EntityHoveredEnterEvent::Handlers -=
-        forge::builtin::EntityHoveredEnterEvent::Handler(this, &SampleMiniGameSystem::OnEntityHoveredEnterEvent);
-    forge::builtin::EntityHoveredExitEvent::Handlers -=
-        forge::builtin::EntityHoveredExitEvent::Handler(this, &SampleMiniGameSystem::OnEntityHoveredExitEvent);
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
 
@@ -114,23 +106,4 @@ void SampleMiniGameSystem::OnEntityClickedEvent(const forge::builtin::EntityClic
         m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
             ->SetOverlayColor({ 255, 255, 255, static_cast<u8>(255 / (m_Cleaning + 1)) });
     }
-}
-
-//----------------------------------------------------------------------------
-void SampleMiniGameSystem::OnEntityHoveredEnterEvent(const forge::builtin::EntityHoveredEnterEvent& _event)
-{
-    if (_event.GetEntity() == m_Tool)
-    {
-        forge::PresentationAPI::SetCursor(forge::Cursor::Hand);
-    }
-    else if (_event.GetEntity() == m_Problem && m_ToolAcquired)
-    {
-        forge::PresentationAPI::SetCursor(forge::Cursor::Cross);
-    }
-}
-
-//----------------------------------------------------------------------------
-void SampleMiniGameSystem::OnEntityHoveredExitEvent(const forge::builtin::EntityHoveredExitEvent& _event)
-{
-    forge::PresentationAPI::SetCursor(forge::Cursor::Arrow);
 }

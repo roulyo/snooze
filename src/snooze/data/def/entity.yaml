@@ -7,6 +7,7 @@ Entity:
     - forge/builtin/3Cs/ScreenMappableComponent.h
     - snooze/data/SpriteCatalog.h
     - snooze/ecs/SnoozableComponent.h
+    - snooze/ecs/HoverableComponent.h
 
   Data:
     - SnoozeButton:
@@ -36,6 +37,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Hand);
 
 # Cleaning mini-game
 
@@ -45,6 +48,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningBroom));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Hand);
 
     - CleaningWeb:
         Size: [20, 20, 0]
@@ -52,6 +57,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningWeb));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
 
     - CleaningFire:
         Size: [3, 3, 0]
@@ -59,6 +66,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningFire));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Hand);
 
     - CleaningIce:
         Size: [20, 20, 0]
@@ -66,6 +75,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningIce));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
 
     - CleaningSponge:
         Size: [3, 3, 0]
@@ -73,6 +84,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningSponge));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Hand);
 
     - CleaningGoo:
         Size: [20, 20, 0]
@@ -80,6 +93,8 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningGoo));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
 
 # Lock mini-game
 
@@ -89,12 +104,16 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Hand);
     - LockLock:
         Size: [20, 20, 0]
         Verbatim: |
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockLockSprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
     - LockChainBack:
         Size: [20, 20, 0]
         Verbatim: |
