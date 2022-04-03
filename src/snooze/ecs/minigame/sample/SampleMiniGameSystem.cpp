@@ -67,7 +67,7 @@ void SampleMiniGameSystem::OnMiniGameStart()
 
     m_Problem = pair.first;
     //m_Problem->SetPosition(48, 42, 10);
-    m_Problem->SetPosition(50.f - m_Problem->GetSize().w * 0.5f, 50.f - m_Problem->GetSize().d * 0.5f, 1.f);
+    m_Problem->SetPosition(50.f - m_Problem->GetSize().w * 0.5f, 50.f - m_Problem->GetSize().d * 0.5f, 3.f);
     RequestAddEntity(m_Problem);
 
     m_Tool = pair.second;

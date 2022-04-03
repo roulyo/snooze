@@ -78,21 +78,21 @@ void MouseAttackMiniGameSystem::OnMiniGameStart()
 
     // Setup the entities
     m_Screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmScrew);
-    m_Screw->SetPosition(50.f - m_Screw->GetSize().w * 0.5f, 50.f - m_Screw->GetSize().d * 0.5f, 0.4f);
+    m_Screw->SetPosition(50.f - m_Screw->GetSize().w * 0.5f, 50.f - m_Screw->GetSize().d * 0.5f, 1.3f);
     RequestAddEntity(m_Screw);
 
     m_Smoke = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackSmoke);
-    m_Smoke->SetPosition(50.f - m_Smoke->GetSize().w * 0.5f, 50.f - m_Smoke->GetSize().d * 0.5f, 1.f);
+    m_Smoke->SetPosition(50.f - m_Smoke->GetSize().w * 0.5f, 50.f - m_Smoke->GetSize().d * 0.5f, 2.f);
     RequestAddEntity(m_Smoke);
 
     m_OpenAlarm = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackOpenAlarm);
-    m_OpenAlarm->SetPosition(50.f - m_OpenAlarm->GetSize().w * 0.5f, 50.f - m_OpenAlarm->GetSize().d * 0.5f, 0.4f);
+    m_OpenAlarm->SetPosition(50.f - m_OpenAlarm->GetSize().w * 0.5f, 50.f - m_OpenAlarm->GetSize().d * 0.5f, 1.8f);
 
     m_BbqMouse = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackBbqMouse);
-    m_BbqMouse->SetPosition(50.f - m_BbqMouse->GetSize().w * 0.5f, 50.f - m_BbqMouse->GetSize().d * 0.5f, 0.5f);
+    m_BbqMouse->SetPosition(50.f - m_BbqMouse->GetSize().w * 0.5f, 50.f - m_BbqMouse->GetSize().d * 0.5f, 2.1f);
 
     m_WetMouse = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackWetMouse);
-    m_WetMouse->SetPosition(50.f - m_WetMouse->GetSize().w * 0.5f, 50.f - m_WetMouse->GetSize().d * 0.5f, 0.5f);
+    m_WetMouse->SetPosition(50.f - m_WetMouse->GetSize().w * 0.5f, 50.f - m_WetMouse->GetSize().d * 0.5f, 2.1f);
 
     m_WaterGlass = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackWaterGlass);
     m_WaterGlass->SetPosition(55, 55, 10);
