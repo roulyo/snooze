@@ -73,6 +73,9 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
     m_Key->SetPosition(rand_location.x, rand_location.y, rand_location.z);
     RequestAddEntity(m_Key);
+
+    // Initialize minigame variables
+    m_KeyAcquired = m_PadlockUnlocked = false;
 }
 
 //----------------------------------------------------------------------------
