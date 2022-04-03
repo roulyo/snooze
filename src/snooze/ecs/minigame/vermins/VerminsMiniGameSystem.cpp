@@ -39,30 +39,37 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
         m_Timer.Start(m_TimeToVermin);
     }
 
-    // Check for clicked vermins, purge them with holy fire
-    u8 i = 0;
-    u8 PosToRemove = -1;
-    for (auto & vermin : m_Vermins)
+    // Lock'n'loaded?
+    if (m_ToolAcquired)
     {
-        if (vermin.second)
+        if (m_Tool != nullptr)
         {
-            RequestRemoveEntity(vermin.first);
-            PosToRemove = i;
+            RequestRemoveEntity(m_Tool);
+            m_Tool = nullptr;
         }
-        ++i;
-    }
-    if (PosToRemove != -1 && PosToRemove < m_Vermins.size())
-    {
-        std::cout << "Removing from vermins list" << std::endl;
-        m_Vermins.erase(m_Vermins.begin() + PosToRemove);
-    }
 
-    // Are you winning son
-    if (m_ToolAcquired && m_Tool != nullptr && m_Vermins.size() == 0)
-    {
-        RequestRemoveEntity(m_Tool);
-        m_Tool = nullptr;
-        BaseMiniGame::CompleteGame(comp);
+        // Check for clicked vermins, purge them with holy fire
+        u8 i = 0;
+        u8 PosToRemove = -1;
+        for (auto & vermin : m_Vermins)
+        {
+            if (vermin.second)
+            {
+                RequestRemoveEntity(vermin.first);
+                PosToRemove = i;
+            }
+            ++i;
+        }
+        if (PosToRemove != -1 && PosToRemove < m_Vermins.size())
+        {
+            m_Vermins.erase(m_Vermins.begin() + PosToRemove);
+        }
+
+        // Are you winning son
+        if (m_Vermins.size() == 0)
+        {
+            BaseMiniGame::CompleteGame(comp);
+        }
     }
 }
 
@@ -101,16 +108,19 @@ void VerminsMiniGameSystem::OnEntityClickedEvent(const forge::builtin::EntityCli
     if (_event.GetIsPressed())
         return;
 
-    if (_event.GetEntity() == m_Tool && m_Vermins.size() == 0)
+    if (_event.GetEntity() == m_Tool)
     {
         m_ToolAcquired = true;
     }
 
-    for (auto & vermin : m_Vermins)
+    if (m_ToolAcquired)
     {
-        if (_event.GetEntity() == vermin.first)
+        for (auto & vermin : m_Vermins)
         {
-            vermin.second = true;
+            if (_event.GetEntity() == vermin.first)
+            {
+                vermin.second = true;
+            }
         }
     }
 }
