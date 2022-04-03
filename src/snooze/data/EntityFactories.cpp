@@ -231,6 +231,9 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::VerminEnemySprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+
         return data;
     }
 
