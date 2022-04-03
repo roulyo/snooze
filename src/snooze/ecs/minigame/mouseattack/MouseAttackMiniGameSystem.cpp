@@ -26,8 +26,27 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 
     BaseMiniGame::Update(comp);
 
-    // TODO Later
-    if (m_gameSolved)
+    if (m_alarmOpened && m_Screw != nullptr)
+    {
+        RequestRemoveEntity(m_Screw);
+        m_Screw = nullptr;
+
+        RequestAddEntity(m_OpenAlarm);
+        RequestAddEntity(m_BbqMouse);
+        RequestAddEntity(m_WaterGlass);
+    } else if (m_gotWater && m_WaterGlass != nullptr)
+    {
+        RequestRemoveEntity(m_WaterGlass);
+        m_WaterGlass = nullptr;
+    } else if (m_fireStopped && m_BbqMouse != nullptr)
+    {
+        RequestRemoveEntity(m_BbqMouse);
+        m_BbqMouse = nullptr;
+        RequestRemoveEntity(m_Smoke);
+        m_Smoke = nullptr;
+        RequestAddEntity(m_WetMouse);
+    }
+    else if (m_gameSolved)
     {
         std::cout << "Mouse attack finished" << std::endl;
         RequestRemoveEntity(m_SnoozeButton);
@@ -76,7 +95,7 @@ void MouseAttackMiniGameSystem::OnMiniGameStart()
     m_WaterGlass->SetPosition(55, 55, 10);
 
     // Initialize minigame variables
-    m_alarmOpened = false;
+    m_alarmOpened = m_fireStopped = m_gotWater = m_gameSolved = false;
 }
 
 //----------------------------------------------------------------------------
@@ -93,21 +112,13 @@ void MouseAttackMiniGameSystem::OnEntityClickedEvent(const forge::builtin::Entit
         return;
     if (_event.GetEntity() == m_Screw)
     {
-        RequestRemoveEntity(m_Screw);
-        RequestAddEntity(m_OpenAlarm);
-        RequestAddEntity(m_BbqMouse);
-        RequestAddEntity(m_WaterGlass);
         m_alarmOpened = true;
     } else if (_event.GetEntity() == m_WaterGlass)
     {
-        RequestRemoveEntity(m_WaterGlass);
         m_gotWater = true;
     } else if (_event.GetEntity() == m_BbqMouse)
     {
         if (m_gotWater) {
-            RequestRemoveEntity(m_BbqMouse);
-            RequestRemoveEntity(m_Smoke);
-            RequestAddEntity(m_WetMouse);
             m_fireStopped = true;
         }
     } else if (_event.GetEntity() == m_WetMouse)
