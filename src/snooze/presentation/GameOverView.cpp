@@ -40,17 +40,18 @@ void GameOverView::SetupGameOverText(bool _success)
     m_GameOverText.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
 
     m_GameOverText.GetText()->SetFont(forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::AlarmClock));
-    m_GameOverText.GetText()->SetSize(128);
 
     if (_success)
     {
         m_GameOverText.GetText()->SetString("Thanks for playing");
         m_GameOverText.GetText()->SetFillColor({ 0, 255, 0 });
+        m_GameOverText.GetText()->SetSize(96);
     }
     else
     {
         m_GameOverText.GetText()->SetString("Game Over");
         m_GameOverText.GetText()->SetFillColor({ 255, 0, 0 });
+        m_GameOverText.GetText()->SetSize(128);
     }
 }
 
@@ -63,17 +64,18 @@ void GameOverView::SetupMiscText(bool _success)
     m_MiscText.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
 
     m_MiscText.GetText()->SetFont(forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::StoryFont));
-    m_MiscText.GetText()->SetSize(78);
 
     if (_success)
     {
         m_MiscText.GetText()->SetString("Mogmi - Roulyo - Sp1d3b0y");
         m_MiscText.GetText()->SetFillColor({ 0, 200, 0 });
+        m_MiscText.GetText()->SetSize(64);
     }
     else
     {
         m_MiscText.GetText()->SetString("Time's out...");
         m_MiscText.GetText()->SetFillColor({ 200, 0, 0 });
+        m_MiscText.GetText()->SetSize(78);
     }
 }
 

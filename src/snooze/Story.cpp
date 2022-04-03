@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include <snooze/GameEvents.h>
+
 //----------------------------------------------------------------------------
 void Story::InitInstance()
 {
@@ -39,21 +41,28 @@ void Story::Reset()
 }
 
 //----------------------------------------------------------------------------
-forge::Vector<forge::String> Story::GetNextStory()
+const forge::Vector<forge::String>& Story::GetNextStory()
 {
     if (m_StoryAdvancement < m_Storylines.size())
     {
-        return m_Storylines[m_StoryAdvancement++];
+        const forge::Vector<forge::String>& story =
+            m_Storylines[m_StoryAdvancement++];
+
+        if (m_StoryAdvancement >= m_Storylines.size())
+        {
+            StoryCompletedEvent::Broadcast();
+        }
+
+        return story;
     }
-    // Story is finished, GTFO
-    else
-    {
-        return forge::Vector<forge::String> ();
-    }
+
+    FRG__ASSERT(false, "No story left.");
+
+    return m_Storylines[0];
 }
 
 //----------------------------------------------------------------------------
-forge::Vector<forge::String> Story::GetRandomThought()
+const forge::Vector<forge::String>& Story::GetRandomThought()
 {
     static std::random_device rd;
 

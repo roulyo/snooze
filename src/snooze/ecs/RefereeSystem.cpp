@@ -11,6 +11,8 @@ void RefereeSystem::OnStart()
 
     MiniGameCompletedEvent::Handlers +=
         MiniGameCompletedEvent::Handler(this, &RefereeSystem::OnMiniGameCompletedEvent);
+    StoryCompletedEvent::Handlers +=
+        StoryCompletedEvent::Handler(this, &RefereeSystem::OnStoryCompletedEvent);
 }
 
 //----------------------------------------------------------------------------
@@ -18,6 +20,8 @@ void RefereeSystem::OnStop()
 {
     MiniGameCompletedEvent::Handlers -=
         MiniGameCompletedEvent::Handler(this, &RefereeSystem::OnMiniGameCompletedEvent);
+    StoryCompletedEvent::Handlers -=
+        StoryCompletedEvent::Handler(this, &RefereeSystem::OnStoryCompletedEvent);
 }
 
 //----------------------------------------------------------------------------
@@ -28,6 +32,20 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     if (!comp.GetTimer().IsStarted())
     {
         return;
+    }
+
+    if (m_EndGameTimer.IsStarted())
+    {
+        if (comp.IsClickable())
+        {
+            comp.SetClickable(false);
+        }
+
+        if (m_EndGameTimer.IsElapsed())
+        {
+            GameOverRequestedEvent::Broadcast(true);
+            m_EndGameTimer.Stop();
+        }
     }
 
     if (comp.GetTimer().IsElapsed())
@@ -62,4 +80,10 @@ void RefereeSystem::OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _even
 {
     StopMiniGameRequestEvent::Broadcast();
     m_MiniGameIsCompleted = true;
+}
+
+//----------------------------------------------------------------------------
+void RefereeSystem::OnStoryCompletedEvent(const StoryCompletedEvent& _event)
+{
+    m_EndGameTimer.Start(5000);
 }

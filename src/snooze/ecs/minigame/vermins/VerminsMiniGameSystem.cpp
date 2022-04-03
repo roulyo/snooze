@@ -81,6 +81,29 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 }
 
 //----------------------------------------------------------------------------
+void VerminsMiniGameSystem::Reset()
+{
+    RequestRemoveEntity(m_Tool);
+    m_Tool = nullptr;
+
+    auto it = m_Vermins.begin();
+
+    while (it != m_Vermins.end())
+    {
+        RequestRemoveEntity(it->first);
+        it = m_Vermins.erase(it);
+    }
+
+    ItemLostEvent::Broadcast();
+
+    m_ToolAcquired = false;
+    m_Tool = nullptr;
+    m_MaxVermins = 0;
+    m_Timer.Stop();
+    m_Vermins.clear();
+}
+
+//----------------------------------------------------------------------------
 void VerminsMiniGameSystem::OnMiniGameStart()
 {
     forge::builtin::EntityClickedEvent::Handlers +=
@@ -102,11 +125,7 @@ void VerminsMiniGameSystem::OnMiniGameStop()
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &VerminsMiniGameSystem::OnEntityClickedEvent);
 
-    m_ToolAcquired = false;
-    m_Tool = nullptr;
-    m_MaxVermins = 0;
-    m_Timer.Stop();
-    m_Vermins.clear();
+    Reset();
 }
 
 //----------------------------------------------------------------------------

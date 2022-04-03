@@ -1,6 +1,7 @@
 #pragma once
 
 #include <forge/engine/ecs/System.h>
+#include <forge/engine/time/api/TimeAPI.h>
 
 #include <snooze/ecs/SnoozableComponent.h>
 #include <snooze/GameEvents.h>
@@ -16,9 +17,12 @@ public:
 
 private:
     void OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event);
+    void OnStoryCompletedEvent(const StoryCompletedEvent& _event);
 
 private:
-    bool    m_MiniGameSpawned;
-    bool    m_MiniGameIsCompleted;
+    bool            m_MiniGameSpawned;
+    bool            m_MiniGameIsCompleted;
+
+    forge::Chrono   m_EndGameTimer;
 
 };

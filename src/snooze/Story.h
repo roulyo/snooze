@@ -13,8 +13,8 @@ public:
 
     void Reset();
 
-    forge::Vector<forge::String> GetNextStory();
-    forge::Vector<forge::String> GetRandomThought();
+    const forge::Vector<forge::String>& GetNextStory();
+    const forge::Vector<forge::String>& GetRandomThought();
 
 private:
     forge::u32 m_StoryAdvancement;

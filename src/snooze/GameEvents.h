@@ -58,6 +58,12 @@ struct ItemLostEvent : forge::Event<ItemLostEvent>
 };
 
 //----------------------------------------------------------------------------
+struct StoryCompletedEvent : forge::Event<StoryCompletedEvent>
+{
+    FRG__DECL_EVENT(StoryCompletedEvent);
+};
+
+//----------------------------------------------------------------------------
 struct GameOverRequestedEvent : forge::Event<GameOverRequestedEvent>
 {
     FRG__DECL_EVENT(GameOverRequestedEvent);
