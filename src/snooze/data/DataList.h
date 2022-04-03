@@ -36,6 +36,16 @@
 
         extern const forge::DataNameId LockChainFront;
 
+        extern const forge::DataNameId MouseAttackOpenAlarm;
+
+        extern const forge::DataNameId MouseAttackSmoke;
+
+        extern const forge::DataNameId MouseAttackBbqMouse;
+
+        extern const forge::DataNameId MouseAttackWetMouse;
+
+        extern const forge::DataNameId MouseAttackWaterGlass;
+
     }
 
     namespace Font
@@ -79,6 +89,16 @@
         extern const forge::DataNameId LockChainFrontSprite;
 
         extern const forge::DataNameId LockChainBackSprite;
+
+        extern const forge::DataNameId MouseAttackOpenAlarmSprite;
+
+        extern const forge::DataNameId MouseAttackSmokeSprite;
+
+        extern const forge::DataNameId MouseAttackBbqMouseSprite;
+
+        extern const forge::DataNameId MouseAttackWetMouseSprite;
+
+        extern const forge::DataNameId MouseAttackWaterGlassSprite;
 
     }
 

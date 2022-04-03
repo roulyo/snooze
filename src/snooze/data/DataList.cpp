@@ -36,6 +36,16 @@
 
         constexpr forge::DataNameId LockChainFront = forge::DataNameId("Entity::LockChainFront");
 
+        constexpr forge::DataNameId MouseAttackOpenAlarm = forge::DataNameId("Entity::MouseAttackOpenAlarm");
+
+        constexpr forge::DataNameId MouseAttackSmoke = forge::DataNameId("Entity::MouseAttackSmoke");
+
+        constexpr forge::DataNameId MouseAttackBbqMouse = forge::DataNameId("Entity::MouseAttackBbqMouse");
+
+        constexpr forge::DataNameId MouseAttackWetMouse = forge::DataNameId("Entity::MouseAttackWetMouse");
+
+        constexpr forge::DataNameId MouseAttackWaterGlass = forge::DataNameId("Entity::MouseAttackWaterGlass");
+
     }
 
     namespace Font
@@ -79,6 +89,16 @@
         constexpr forge::DataNameId LockChainFrontSprite = forge::DataNameId("Sprite::LockChainFrontSprite");
 
         constexpr forge::DataNameId LockChainBackSprite = forge::DataNameId("Sprite::LockChainBackSprite");
+
+        constexpr forge::DataNameId MouseAttackOpenAlarmSprite = forge::DataNameId("Sprite::MouseAttackOpenAlarmSprite");
+
+        constexpr forge::DataNameId MouseAttackSmokeSprite = forge::DataNameId("Sprite::MouseAttackSmokeSprite");
+
+        constexpr forge::DataNameId MouseAttackBbqMouseSprite = forge::DataNameId("Sprite::MouseAttackBbqMouseSprite");
+
+        constexpr forge::DataNameId MouseAttackWetMouseSprite = forge::DataNameId("Sprite::MouseAttackWetMouseSprite");
+
+        constexpr forge::DataNameId MouseAttackWaterGlassSprite = forge::DataNameId("Sprite::MouseAttackWaterGlassSprite");
 
     }
 

@@ -35,6 +35,16 @@
 
         RegisterData(DataList::Entity::LockChainFront, m_LockChainFrontFactory);
 
+        RegisterData(DataList::Entity::MouseAttackOpenAlarm, m_MouseAttackOpenAlarmFactory);
+
+        RegisterData(DataList::Entity::MouseAttackSmoke, m_MouseAttackSmokeFactory);
+
+        RegisterData(DataList::Entity::MouseAttackBbqMouse, m_MouseAttackBbqMouseFactory);
+
+        RegisterData(DataList::Entity::MouseAttackWetMouse, m_MouseAttackWetMouseFactory);
+
+        RegisterData(DataList::Entity::MouseAttackWaterGlass, m_MouseAttackWaterGlassFactory);
+
     }
 
     //----------------------------------------------------------------------------

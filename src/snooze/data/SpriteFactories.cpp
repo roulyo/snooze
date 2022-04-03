@@ -207,4 +207,69 @@
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Sprite* MouseAttackOpenAlarmSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MouseAttackOpenAlarmSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(0, 600, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* MouseAttackSmokeSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MouseAttackSmokeSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(0, 1200, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* MouseAttackBbqMouseSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MouseAttackBbqMouseSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(600, 1200, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* MouseAttackWetMouseSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MouseAttackWetMouseSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1800, 1200, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* MouseAttackWaterGlassSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MouseAttackWaterGlassSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1200, 1200, 200, 200);
+
+        return data;
+    }
+
     }}}

@@ -48,4 +48,14 @@
 
         forge::generated::SpriteFactories::LockChainBackSpriteFactory m_LockChainBackSpriteFactory;
 
+        forge::generated::SpriteFactories::MouseAttackOpenAlarmSpriteFactory m_MouseAttackOpenAlarmSpriteFactory;
+
+        forge::generated::SpriteFactories::MouseAttackSmokeSpriteFactory m_MouseAttackSmokeSpriteFactory;
+
+        forge::generated::SpriteFactories::MouseAttackBbqMouseSpriteFactory m_MouseAttackBbqMouseSpriteFactory;
+
+        forge::generated::SpriteFactories::MouseAttackWetMouseSpriteFactory m_MouseAttackWetMouseSpriteFactory;
+
+        forge::generated::SpriteFactories::MouseAttackWaterGlassSpriteFactory m_MouseAttackWaterGlassSpriteFactory;
+
     };

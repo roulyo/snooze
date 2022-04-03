@@ -54,4 +54,14 @@
 
         forge::generated::EntityFactories::LockChainFrontFactory m_LockChainFrontFactory;
 
+        forge::generated::EntityFactories::MouseAttackOpenAlarmFactory m_MouseAttackOpenAlarmFactory;
+
+        forge::generated::EntityFactories::MouseAttackSmokeFactory m_MouseAttackSmokeFactory;
+
+        forge::generated::EntityFactories::MouseAttackBbqMouseFactory m_MouseAttackBbqMouseFactory;
+
+        forge::generated::EntityFactories::MouseAttackWetMouseFactory m_MouseAttackWetMouseFactory;
+
+        forge::generated::EntityFactories::MouseAttackWaterGlassFactory m_MouseAttackWaterGlassFactory;
+
     };
