@@ -2,5 +2,5 @@
 ADD_SUBDIRECTORY(def)
 
 MACRO_ADD_SOURCES(EXE_SRC
-CursorCatalog.cpp CursorCatalog.h CursorFactories.cpp CursorFactories.h DataList.cpp DataList.h EntityCatalog.cpp EntityCatalog.h EntityFactories.cpp EntityFactories.h FontCatalog.cpp FontCatalog.h FontFactories.cpp FontFactories.h SpriteCatalog.cpp SpriteCatalog.h SpriteFactories.cpp SpriteFactories.h TextureCatalog.cpp TextureCatalog.h TextureFactories.cpp TextureFactories.h
+DataList.cpp DataList.h EntityCatalog.cpp EntityCatalog.h EntityFactories.cpp EntityFactories.h FontCatalog.cpp FontCatalog.h FontFactories.cpp FontFactories.h SpriteCatalog.cpp SpriteCatalog.h SpriteFactories.cpp SpriteFactories.h TextureCatalog.cpp TextureCatalog.h TextureFactories.cpp TextureFactories.h
 )
