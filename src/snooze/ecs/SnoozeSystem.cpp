@@ -17,16 +17,24 @@ static constexpr forge::Vector2f INVALID_CLICK_COORD { INVALID_COORD,
 //----------------------------------------------------------------------------
 void SnoozeSystem::OnStart()
 {
+    m_IsStarted = false;
+    m_IsPostMiniGame = false;
     m_ClickData.IsPressed = false;
     m_ClickData.Entity = nullptr;
 
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &SnoozeSystem::OnEntityClickedEvent);
+
+    MiniGameCompletedEvent::Handlers +=
+        MiniGameCompletedEvent::Handler(this, &SnoozeSystem::OnMiniGameCompletedEvent);
 }
 
 //----------------------------------------------------------------------------
 void SnoozeSystem::OnStop()
 {
+    MiniGameCompletedEvent::Handlers -=
+        MiniGameCompletedEvent::Handler(this, &SnoozeSystem::OnMiniGameCompletedEvent);
+
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &SnoozeSystem::OnEntityClickedEvent);
 }
@@ -36,12 +44,12 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
     // first start hack: x != nan but y == nan
     {
-        if (!IsStarted)
+        if (!m_IsStarted)
         {
             SnoozableComponent& snoozeComp = _entity->GetComponent<SnoozableComponent>();
             snoozeComp.GetTimer().Start(SnoozeConfig::TimerMaxTimeMs);
             m_ClickData.Entity = nullptr;
-            IsStarted = true;
+            m_IsStarted = true;
 
             return;
         }
@@ -68,6 +76,9 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 
         snoozeComp.GetTimer().Start(SnoozeConfig::TimerMaxTimeMs);
         snoozeComp.SetPressed(false);
+
+        ButtonPushedEvent::Broadcast(m_IsPostMiniGame);
+        m_IsPostMiniGame = false;
     }
 
     m_ClickData.Entity = nullptr;
@@ -83,4 +94,10 @@ void SnoozeSystem::OnEntityClickedEvent(const forge::builtin::EntityClickedEvent
 {
     m_ClickData.IsPressed = _event.GetIsPressed();
     m_ClickData.Entity = _event.GetEntity();
+}
+
+//----------------------------------------------------------------------------
+void SnoozeSystem::OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event)
+{
+    m_IsPostMiniGame = true;
 }

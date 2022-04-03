@@ -5,6 +5,7 @@
 #include <forge/builtin/3Cs/events/MouseEvent.h>
 #include <forge/builtin/rendering/RenderableComponent.h>
 
+#include <snooze/GameEvents.h>
 #include <snooze/ecs/SnoozableComponent.h>
 
 //----------------------------------------------------------------------------
@@ -21,6 +22,7 @@ public:
 
 private:
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
+    void OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event);
 
 private:
     struct ClickData
@@ -28,5 +30,8 @@ private:
         bool IsPressed;
         forge::Entity::CPtr Entity;
     }   m_ClickData;
-    bool IsStarted;
+
+    bool m_IsStarted;
+    bool m_IsPostMiniGame;
+
 };

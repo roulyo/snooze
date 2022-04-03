@@ -21,14 +21,17 @@ public:
     void Update() override;
 
 private:
-    void OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event);
+    void OnButtonPushedEvent(const ButtonPushedEvent& _event);
+
+    void DisplayNextAvailableStoryPage();
 
 private:
-    SnoozeView*         m_SnoozeView;
-    StoryView*          m_StoryView;
+    SnoozeView*                     m_SnoozeView;
+    StoryView*                      m_StoryView;
 
-    forge::Chrono       m_StoryTimer;
+    forge::Chrono                   m_StoryTimer;
+    forge::Vector<forge::String>    m_StoryPages;
 
-    SnoozeDataAccessor  m_SDA;
+    SnoozeDataAccessor              m_SDA;
 
 };

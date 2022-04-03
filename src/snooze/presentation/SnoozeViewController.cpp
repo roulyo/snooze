@@ -12,8 +12,8 @@ SnoozeViewController::SnoozeViewController()
 //----------------------------------------------------------------------------
 void SnoozeViewController::OnStart()
 {
-    MiniGameCompletedEvent::Handlers +=
-        MiniGameCompletedEvent::Handler(this, &SnoozeViewController::OnMiniGameCompletedEvent);
+    ButtonPushedEvent::Handlers +=
+        ButtonPushedEvent::Handler(this, &SnoozeViewController::OnButtonPushedEvent);
 
     m_SnoozeView = new SnoozeView();
     m_SnoozeView->SetPixelSize({ 202 * HUD_SCALE, 64  * HUD_SCALE });
@@ -25,8 +25,8 @@ void SnoozeViewController::OnStart()
 //----------------------------------------------------------------------------
 void SnoozeViewController::OnStop()
 {
-    MiniGameCompletedEvent::Handlers -=
-        MiniGameCompletedEvent::Handler(this, &SnoozeViewController::OnMiniGameCompletedEvent);
+    ButtonPushedEvent::Handlers -=
+        ButtonPushedEvent::Handler(this, &SnoozeViewController::OnButtonPushedEvent);
 
     CloseView(m_SnoozeView);
     delete m_SnoozeView;
@@ -57,25 +57,50 @@ void SnoozeViewController::Update()
 
         if (m_StoryTimer.IsElapsed())
         {
-            CloseView(m_StoryView);
-            delete m_StoryView;
-            m_StoryView = nullptr;
+            if (m_StoryPages.size() > 0)
+            {
+                DisplayNextAvailableStoryPage();
+            }
+            else
+            {
+                CloseView(m_StoryView);
+                delete m_StoryView;
+                m_StoryView = nullptr;
+            }
         }
     }
 }
 
 //----------------------------------------------------------------------------
-void SnoozeViewController::OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event)
+void SnoozeViewController::OnButtonPushedEvent(const ButtonPushedEvent& _event)
 {
-    m_StoryView = new StoryView();
+    if (m_StoryView == nullptr)
+    {
+        m_StoryView = new StoryView();
+        m_StoryView->SetGravity(forge::GUIGravity::Bottom);
+        m_StoryView->SetRelativeSize({ 90, 20 });
+        m_StoryView->SetRelativePadding({ 0, 2 });
+    }
 
-    m_StoryView->GetStoryPanel().GetText()->SetString("Well played");
+    // TODO: Get next texts from Story Singleton
+    {
+        m_StoryPages.clear();
+        if (_event.GetIsPostMiniGame())
+            m_StoryPages.push_back("SUPER");
+        m_StoryPages.push_back("WELL");
+        m_StoryPages.push_back("PLAYED");
+    }
 
-    m_StoryView->SetGravity(forge::GUIGravity::Bottom);
-    m_StoryView->SetRelativeSize({ 90, 20 });
-    m_StoryView->SetRelativePadding({ 0, 2 });
-
-    m_StoryTimer.Start(3000);
+    DisplayNextAvailableStoryPage();
 
     OpenView(m_StoryView);
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::DisplayNextAvailableStoryPage()
+{
+    forge::String str = m_StoryPages[0];
+    m_StoryPages.erase(m_StoryPages.cbegin());
+    m_StoryView->GetStoryPanel().GetText()->SetString(str);
+    m_StoryTimer.Start(2000);
 }

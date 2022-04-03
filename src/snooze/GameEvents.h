@@ -24,6 +24,19 @@ struct MiniGameCompletedEvent : forge::Event<MiniGameCompletedEvent>
 };
 
 //----------------------------------------------------------------------------
+struct ButtonPushedEvent : forge::Event<ButtonPushedEvent>
+{
+    FRG__DECL_EVENT(ButtonPushedEvent);
+
+    ButtonPushedEvent(bool _b)
+        : m_IsPostMiniGame(_b)
+    {}
+
+    FRG__CLASS_ATTR_R_(bool, IsPostMiniGame);
+
+};
+
+//----------------------------------------------------------------------------
 struct GameOverEvent : forge::Event<GameOverEvent>
 {
     FRG__DECL_EVENT(GameOverEvent);
