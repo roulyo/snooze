@@ -23,11 +23,13 @@ private:
 
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
 
+    static const int numberOfVariants = 2;
+
 private:
-    forge::Entity::Ptr m_Broom;
-    forge::Entity::Ptr m_Web;
+    forge::Entity::Ptr m_Tool;
+    forge::Entity::Ptr m_Problem;
 
-    bool    m_BroomAcquiered;
-    u8      m_WebCleaning;
-
+    bool      m_ToolAcquired;
+    u8        m_Cleaning;
+    forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr> m_Variants[numberOfVariants];
 };
