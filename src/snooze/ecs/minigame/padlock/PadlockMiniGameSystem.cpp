@@ -43,7 +43,17 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 //----------------------------------------------------------------------------
 void PadlockMiniGameSystem::OnMiniGameStart()
 {
+    static forge::Vector<forge::Vector3f> predefined_locations;
     static std::random_device rd;
+
+    // Initialize predefined locations
+    predefined_locations.push_back({40.f, 40.f, 10.f});
+    predefined_locations.push_back({56.f, 56.f, 10.f});
+    predefined_locations.push_back({40.f, 56.f, 10.f});
+    predefined_locations.push_back({56.f, 40.f, 10.f});
+    predefined_locations.push_back({41.f, 50.f, 1.f});
+    predefined_locations.push_back({54.f, 49.f, 1.f});
+
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &PadlockMiniGameSystem::OnEntityClickedEvent);
 
@@ -58,10 +68,14 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     m_ChainBack->SetPosition(50.f - m_ChainBack->GetSize().w * 0.5f, 50.f - m_ChainBack->GetSize().d * 0.5f, 0.f);
     RequestAddEntity(m_ChainBack);
 
-    // Pop the key at a random place (40-60)
+    // Pop the key at a random place (40-58)
+    forge::Vector3f rand_location = predefined_locations[rd() % predefined_locations.size()];
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
-    m_Key->SetPosition(rd() % (60 - 40 + 1) + 40, rd() % (60 - 40 + 1) + 40, 10);
+    m_Key->SetPosition(rand_location.x, rand_location.y, rand_location.z);
     RequestAddEntity(m_Key);
+
+    // Initialize minigame variables
+    m_KeyAcquired = m_PadlockUnlocked = false;
 }
 
 //----------------------------------------------------------------------------
