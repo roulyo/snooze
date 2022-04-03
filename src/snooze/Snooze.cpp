@@ -15,6 +15,7 @@
 #include <snooze/ecs/minigame/sample/SampleMiniGameComponent.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameComponent.h>
 #include <snooze/ecs/minigame/mouseattack/MouseAttackMiniGameComponent.h>
+#include <snooze/ecs/minigame/vermins/VerminsMiniGameComponent.h>
 #include <snooze/gamestate/BaseGameState.h>
 #include <snooze/gamestate/GameOverState.h>
 
@@ -25,6 +26,7 @@ Snooze::Snooze()
     m_MiniGames.push_back(SampleMiniGameComponent::Id);
     m_MiniGames.push_back(PadlockMiniGameComponent::Id);
     m_MiniGames.push_back(MouseAttackMiniGameComponent::Id);
+    m_MiniGames.push_back(VerminsMiniGameComponent::Id);
 }
 
 //----------------------------------------------------------------------------
@@ -106,6 +108,10 @@ void Snooze::OnStartMiniGameRequestEvent(const StartMiniGameRequestEvent& _event
     {
         m_GameEntity->AddComponent<MouseAttackMiniGameComponent>();
     }
+    else if (m_CurrentGame == VerminsMiniGameComponent::Id)
+    {
+        m_GameEntity->AddComponent<VerminsMiniGameComponent>();
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -122,6 +128,10 @@ void Snooze::OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event)
     else if (m_CurrentGame == MouseAttackMiniGameComponent::Id)
     {
         m_GameEntity->RemoveComponent<MouseAttackMiniGameComponent>();
+    }
+    else if (m_CurrentGame == VerminsMiniGameComponent::Id)
+    {
+        m_GameEntity->RemoveComponent<VerminsMiniGameComponent>();
     }
 }
 

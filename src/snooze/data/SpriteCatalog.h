@@ -58,4 +58,6 @@
 
         forge::generated::SpriteFactories::MouseAttackWaterGlassSpriteFactory m_MouseAttackWaterGlassSpriteFactory;
 
+        forge::generated::SpriteFactories::VerminEnemySpriteFactory m_VerminEnemySpriteFactory;
+
     };

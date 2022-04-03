@@ -287,6 +287,23 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* VerminEnemyFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::VerminEnemy);
+
+        data->SetSize(6.5, 6.5, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::VerminEnemySprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+
         return data;
     }
 
