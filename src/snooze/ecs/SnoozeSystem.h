@@ -22,6 +22,8 @@ public:
 
 private:
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
+    void OnEntityHoveredEnterEvent(const forge::builtin::EntityHoveredEnterEvent& _event);
+    void OnEntityHoveredExitEvent(const forge::builtin::EntityHoveredExitEvent& _event);
     void OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _event);
 
 private:
