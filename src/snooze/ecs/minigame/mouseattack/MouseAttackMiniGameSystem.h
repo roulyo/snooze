@@ -24,12 +24,17 @@ private:
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
 
 private:
-    forge::Entity::Ptr m_Key;
-    forge::Entity::Ptr m_Lock;
-    forge::Entity::Ptr m_ChainFront;
-    forge::Entity::Ptr m_ChainBack;
+    forge::Entity::Ptr m_SnoozeButton;
+    forge::Entity::Ptr m_Screw;
+    forge::Entity::Ptr m_Smoke;
+    forge::Entity::Ptr m_BbqMouse;
+    forge::Entity::Ptr m_WetMouse;
+    forge::Entity::Ptr m_OpenAlarm;
+    forge::Entity::Ptr m_WaterGlass;
 
-    bool    m_KeyAcquired;
-    bool    m_MouseAttackUnlocked;
+    bool    m_gameSolved;
+    bool    m_alarmOpened;
+    bool    m_fireStopped;
+    bool    m_gotWater;
 
 };

@@ -12,8 +12,10 @@
 
 //----------------------------------------------------------------------------
 MouseAttackMiniGameSystem::MouseAttackMiniGameSystem()
-    : m_KeyAcquired(false)
-    , m_MouseAttackUnlocked(false)
+    : m_alarmOpened(false)
+    , m_gameSolved(false)
+    , m_fireStopped(false)
+    , m_gotWater(false)
 {
 }
 
@@ -24,17 +26,21 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 
     BaseMiniGame::Update(comp);
 
-    if (m_KeyAcquired && m_Key != nullptr)
+    // TODO Later
+    if (m_gameSolved)
     {
-        RequestRemoveEntity(m_Key);
-        m_Key = nullptr;
-    }
-    if (m_MouseAttackUnlocked)
-    {
-        RequestRemoveEntity(m_Lock);
-        RequestRemoveEntity(m_ChainFront);
-        RequestRemoveEntity(m_ChainBack);
-        m_Lock = m_ChainFront = m_ChainBack = nullptr;
+        std::cout << "Mouse attack finished" << std::endl;
+        RequestRemoveEntity(m_SnoozeButton);
+        RequestRemoveEntity(m_Smoke);
+        RequestRemoveEntity(m_Screw);
+        RequestRemoveEntity(m_BbqMouse);
+        RequestRemoveEntity(m_WetMouse);
+        RequestRemoveEntity(m_OpenAlarm);
+        RequestRemoveEntity(m_WaterGlass);
+
+        m_SnoozeButton = m_Smoke = m_Screw = nullptr;
+        m_BbqMouse = m_WetMouse = m_OpenAlarm = nullptr;
+        m_WaterGlass = nullptr;
 
         BaseMiniGame::CompleteGame(comp);
     }
@@ -43,39 +49,34 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 //----------------------------------------------------------------------------
 void MouseAttackMiniGameSystem::OnMiniGameStart()
 {
-    static forge::Vector<forge::Vector3f> predefined_locations;
     static std::random_device rd;
-
-    // Initialize predefined locations
-    predefined_locations.push_back({40.f, 40.f, 10.f});
-    predefined_locations.push_back({56.f, 56.f, 10.f});
-    predefined_locations.push_back({40.f, 56.f, 10.f});
-    predefined_locations.push_back({56.f, 40.f, 10.f});
-    predefined_locations.push_back({41.f, 50.f, 1.f});
-    predefined_locations.push_back({54.f, 49.f, 1.f});
 
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &MouseAttackMiniGameSystem::OnEntityClickedEvent);
 
-    // Setup the lock aesthetics
-    m_Lock = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
-    m_Lock->SetPosition(50.f - m_Lock->GetSize().w * 0.5f, 50.f - m_Lock->GetSize().d * 0.5f, 1.f);
-    RequestAddEntity(m_Lock);
-    m_ChainFront = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainFront);
-    m_ChainFront->SetPosition(50.f - m_ChainFront->GetSize().w * 0.5f, 50.f - m_ChainFront->GetSize().d * 0.5f, 1.f);
-    RequestAddEntity(m_ChainFront);
-    m_ChainBack = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainBack);
-    m_ChainBack->SetPosition(50.f - m_ChainBack->GetSize().w * 0.5f, 50.f - m_ChainBack->GetSize().d * 0.5f, 0.f);
-    RequestAddEntity(m_ChainBack);
+    // Setup the entities
+    m_Screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmScrew);
+    m_Screw->SetPosition(50.f - m_Screw->GetSize().w * 0.5f, 50.f - m_Screw->GetSize().d * 0.5f, 0.4f);
+    RequestAddEntity(m_Screw);
 
-    // Pop the key at a random place (40-58)
-    forge::Vector3f rand_location = predefined_locations[rd() % predefined_locations.size()];
-    m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
-    m_Key->SetPosition(rand_location.x, rand_location.y, rand_location.z);
-    RequestAddEntity(m_Key);
+    m_Smoke = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackSmoke);
+    m_Smoke->SetPosition(50.f - m_Smoke->GetSize().w * 0.5f, 50.f - m_Smoke->GetSize().d * 0.5f, 1.f);
+    RequestAddEntity(m_Smoke);
+
+    m_OpenAlarm = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackOpenAlarm);
+    m_OpenAlarm->SetPosition(50.f - m_OpenAlarm->GetSize().w * 0.5f, 50.f - m_OpenAlarm->GetSize().d * 0.5f, 0.4f);
+
+    m_BbqMouse = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackBbqMouse);
+    m_BbqMouse->SetPosition(50.f - m_BbqMouse->GetSize().w * 0.5f, 50.f - m_BbqMouse->GetSize().d * 0.5f, 0.5f);
+
+    m_WetMouse = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackWetMouse);
+    m_WetMouse->SetPosition(50.f - m_WetMouse->GetSize().w * 0.5f, 50.f - m_WetMouse->GetSize().d * 0.5f, 0.5f);
+
+    m_WaterGlass = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackWaterGlass);
+    m_WaterGlass->SetPosition(55, 55, 10);
 
     // Initialize minigame variables
-    m_KeyAcquired = m_MouseAttackUnlocked = false;
+    m_alarmOpened = false;
 }
 
 //----------------------------------------------------------------------------
@@ -90,13 +91,29 @@ void MouseAttackMiniGameSystem::OnEntityClickedEvent(const forge::builtin::Entit
 {
     if (_event.GetIsPressed())
         return;
-
-    if (_event.GetEntity() == m_Key)
+    if (_event.GetEntity() == m_Screw)
     {
-        m_KeyAcquired = true;
-    }
-    else if (_event.GetEntity() == m_Lock && m_KeyAcquired)
+        RequestRemoveEntity(m_Screw);
+        RequestAddEntity(m_OpenAlarm);
+        RequestAddEntity(m_BbqMouse);
+        RequestAddEntity(m_WaterGlass);
+        m_alarmOpened = true;
+    } else if (_event.GetEntity() == m_WaterGlass)
     {
-        m_MouseAttackUnlocked = true;
+        RequestRemoveEntity(m_WaterGlass);
+        m_gotWater = true;
+    } else if (_event.GetEntity() == m_BbqMouse)
+    {
+        if (m_gotWater) {
+            RequestRemoveEntity(m_BbqMouse);
+            RequestRemoveEntity(m_Smoke);
+            RequestAddEntity(m_WetMouse);
+            m_fireStopped = true;
+        }
+    } else if (_event.GetEntity() == m_WetMouse)
+    {
+        if (m_fireStopped) {
+            m_gameSolved = true;
+        }
     }
 }
