@@ -1,5 +1,6 @@
 #include <snooze/Precomp.h>
 #include <snooze/Snooze.h>
+#include <snooze/Story.h>
 
 #include <random>
 
@@ -36,6 +37,9 @@ void Snooze::OnInit()
     RegisterCatalogType<SpriteCatalog>();
     RegisterCatalogType<TextureCatalog>();
 
+
+    // Instanciate story singleton
+    Story::Instantiate();
 
     m_World.Init(100.f, 100.f);
 

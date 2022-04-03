@@ -15,5 +15,5 @@ public:
     forge::Vector<forge::String> GetRandomThought();
 
 private:
-    forge::u8 m_StoryAdvancement;
+    forge::u32 m_StoryAdvancement;
 };
