@@ -272,4 +272,17 @@
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Sprite* VerminEnemySpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::VerminEnemySprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1600, 1200, 200, 200);
+
+        return data;
+    }
+
     }}}

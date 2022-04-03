@@ -66,4 +66,6 @@
 
         forge::generated::EntityFactories::MouseAttackWaterGlassFactory m_MouseAttackWaterGlassFactory;
 
+        forge::generated::EntityFactories::VerminEnemyFactory m_VerminEnemyFactory;
+
     };

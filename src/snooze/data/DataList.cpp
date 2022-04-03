@@ -46,6 +46,8 @@
 
         constexpr forge::DataNameId MouseAttackWaterGlass = forge::DataNameId("Entity::MouseAttackWaterGlass");
 
+        constexpr forge::DataNameId VerminEnemy = forge::DataNameId("Entity::VerminEnemy");
+
     }
 
     namespace Font
@@ -99,6 +101,8 @@
         constexpr forge::DataNameId MouseAttackWetMouseSprite = forge::DataNameId("Sprite::MouseAttackWetMouseSprite");
 
         constexpr forge::DataNameId MouseAttackWaterGlassSprite = forge::DataNameId("Sprite::MouseAttackWaterGlassSprite");
+
+        constexpr forge::DataNameId VerminEnemySprite = forge::DataNameId("Sprite::VerminEnemySprite");
 
     }
 

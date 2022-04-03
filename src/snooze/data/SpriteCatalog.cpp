@@ -47,6 +47,8 @@
 
         RegisterData(DataList::Sprite::MouseAttackWaterGlassSprite, m_MouseAttackWaterGlassSpriteFactory);
 
+        RegisterData(DataList::Sprite::VerminEnemySprite, m_VerminEnemySpriteFactory);
+
     }
 
     //----------------------------------------------------------------------------
