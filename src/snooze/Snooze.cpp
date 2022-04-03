@@ -16,6 +16,7 @@
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameComponent.h>
 #include <snooze/ecs/minigame/mouseattack/MouseAttackMiniGameComponent.h>
 #include <snooze/gamestate/BaseGameState.h>
+#include <snooze/gamestate/GameOverState.h>
 
 
 //----------------------------------------------------------------------------
@@ -66,8 +67,12 @@ void Snooze::OnInit()
         StartMiniGameRequestEvent::Handler(this, &Snooze::OnStartMiniGameRequestEvent);
     StopMiniGameRequestEvent::Handlers +=
         StopMiniGameRequestEvent::Handler(this, &Snooze::OnStopMiniGameRequestEvent);
+    GameOverEvent::Handlers +=
+        GameOverEvent::Handler(this, &Snooze::OnGameOverEvent);
 
     RegisterGameState<BaseGameState>();
+    RegisterGameState<GameOverState>();
+    AddBidirectionalLink(BaseGameState::Id, GameOverState::Id);
     RequestState(BaseGameState::Id);
 }
 
@@ -78,6 +83,8 @@ void Snooze::OnQuit()
         StartMiniGameRequestEvent::Handler(this, &Snooze::OnStartMiniGameRequestEvent);
     StopMiniGameRequestEvent::Handlers -=
         StopMiniGameRequestEvent::Handler(this, &Snooze::OnStopMiniGameRequestEvent);
+    GameOverEvent::Handlers -=
+        GameOverEvent::Handler(this, &Snooze::OnGameOverEvent);
 }
 
 //----------------------------------------------------------------------------
@@ -116,4 +123,9 @@ void Snooze::OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event)
     {
         m_GameEntity->RemoveComponent<MouseAttackMiniGameComponent>();
     }
+}
+
+void Snooze::OnGameOverEvent(const GameOverEvent& _event)
+{
+    RequestState(GameOverState::Id);
 }
