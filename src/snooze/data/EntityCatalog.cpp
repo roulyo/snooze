@@ -45,6 +45,8 @@
 
         RegisterData(DataList::Entity::MouseAttackWaterGlass, m_MouseAttackWaterGlassFactory);
 
+        RegisterData(DataList::Entity::VerminEnemy, m_VerminEnemyFactory);
+
     }
 
     //----------------------------------------------------------------------------

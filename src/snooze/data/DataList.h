@@ -46,6 +46,8 @@
 
         extern const forge::DataNameId MouseAttackWaterGlass;
 
+        extern const forge::DataNameId VerminEnemy;
+
     }
 
     namespace Font
@@ -99,6 +101,8 @@
         extern const forge::DataNameId MouseAttackWetMouseSprite;
 
         extern const forge::DataNameId MouseAttackWaterGlassSprite;
+
+        extern const forge::DataNameId VerminEnemySprite;
 
     }
 

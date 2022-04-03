@@ -170,4 +170,12 @@
 
     };    
 
+    //----------------------------------------------------------------------------
+    class VerminEnemyFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
     }}}

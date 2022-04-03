@@ -35,7 +35,7 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [1800, 0, 600, 600]
 
-# Lock mini-game
+# Sample mini-game
 
     - CleaningBroom:
         Texture:
@@ -130,3 +130,11 @@ Sprite:
           from: Texture
           name: AlarmSheet
         TextureQuad: [1200, 1200, 200, 200]
+
+# Vermins mini-game
+
+    - VerminEnemySprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1600, 1200, 200, 200]

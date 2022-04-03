@@ -125,7 +125,7 @@ Entity:
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainFrontSprite));
 
-# Lock mini-game
+# MouseAttack mini-game
 
     - MouseAttackOpenAlarm:
         Size: [20, 20, 0]
@@ -162,3 +162,12 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));
+
+# Vermins mini-game
+
+    - VerminEnemy:
+        Size: [6.5, 6.5, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::VerminEnemySprite));
