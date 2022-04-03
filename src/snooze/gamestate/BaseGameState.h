@@ -9,6 +9,7 @@
 #include <snooze/ecs/RefereeSystem.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameSystem.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameSystem.h>
+#include <snooze/ecs/minigame/vermins/VerminsMiniGameSystem.h>
 
 #include <snooze/gamestate/BaseInputMapping.h>
 #include <snooze/presentation/SnoozeViewController.h>
@@ -27,6 +28,7 @@ public:
 private:
     SampleMiniGameSystem                    m_SampleMiniGameSystem;
     PadlockMiniGameSystem                   m_PadlockMiniGameSystem;
+    VerminsMiniGameSystem                   m_VerminsMiniGameSystem;
 
     SnoozeSystem                            m_SnoozeSystem;
     RefereeSystem                           m_RefereeSystem;
