@@ -36,6 +36,8 @@
 
         extern const forge::DataNameId LockChainFront;
 
+        extern const forge::DataNameId VerminEnemy;
+
     }
 
     namespace Font
@@ -79,6 +81,8 @@
         extern const forge::DataNameId LockChainFrontSprite;
 
         extern const forge::DataNameId LockChainBackSprite;
+
+        extern const forge::DataNameId VerminEnemySprite;
 
     }
 

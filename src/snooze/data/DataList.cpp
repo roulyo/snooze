@@ -36,6 +36,8 @@
 
         constexpr forge::DataNameId LockChainFront = forge::DataNameId("Entity::LockChainFront");
 
+        constexpr forge::DataNameId VerminEnemy = forge::DataNameId("Entity::VerminEnemy");
+
     }
 
     namespace Font
@@ -79,6 +81,8 @@
         constexpr forge::DataNameId LockChainFrontSprite = forge::DataNameId("Sprite::LockChainFrontSprite");
 
         constexpr forge::DataNameId LockChainBackSprite = forge::DataNameId("Sprite::LockChainBackSprite");
+
+        constexpr forge::DataNameId VerminEnemySprite = forge::DataNameId("Sprite::VerminEnemySprite");
 
     }
 

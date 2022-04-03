@@ -128,4 +128,12 @@
 
     };    
 
+    //----------------------------------------------------------------------------
+    class VerminEnemySpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
     }}}
