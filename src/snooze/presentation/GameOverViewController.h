@@ -17,10 +17,4 @@ public:
     void OnStop() override;
 
     void Update() override;
-
-private:
-    SnoozeView*                     m_SnoozeView;
-
-    SnoozeDataAccessor              m_SDA;
-
 };
