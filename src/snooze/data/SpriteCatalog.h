@@ -48,4 +48,6 @@
 
         forge::generated::SpriteFactories::LockChainBackSpriteFactory m_LockChainBackSpriteFactory;
 
+        forge::generated::SpriteFactories::VerminEnemySpriteFactory m_VerminEnemySpriteFactory;
+
     };

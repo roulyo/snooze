@@ -203,4 +203,17 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Entity* VerminEnemyFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::VerminEnemy);
+
+        data->SetSize(6.5, 6.5, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::VerminEnemySprite));
+        return data;
+    }
+
     }}}
