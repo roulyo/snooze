@@ -22,10 +22,7 @@ public:
     void OnStop() override;
 
 private:
-    HoveringSystem                          m_HoveringSystem;
-
     forge::builtin::SimpleRenderingSystem   m_RenderingSystem;
-    forge::builtin::ScreenMappingSystem     m_ScreenMappingSystem;
 
     GameOverViewController                  m_ViewController;
     BaseInputMapping                        m_InputMapping;

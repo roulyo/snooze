@@ -7,9 +7,7 @@
 GameOverState::GameOverState(const forge::AbstractForgeGame& _game)
     : AbstractGameState(_game)
 {
-    AddSystem(&m_HoveringSystem);
     AddSystem(&m_RenderingSystem);
-    AddSystem(&m_ScreenMappingSystem);
 
     AddViewController(&m_ViewController);
 }
