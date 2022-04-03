@@ -1,3 +1,5 @@
+#pragma once
+
 #include <forge/engine/game/Game.h>
 
 #include <snooze/GameEvents.h>
