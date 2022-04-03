@@ -81,6 +81,22 @@
     };    
 
     //----------------------------------------------------------------------------
+    class CleaningSpongeFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class CleaningGooFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
     class LockKeySpriteFactory : public forge::AbstractDataFactory
     {
     public:

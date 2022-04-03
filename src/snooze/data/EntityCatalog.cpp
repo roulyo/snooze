@@ -23,6 +23,10 @@
 
         RegisterData(DataList::Entity::CleaningIce, m_CleaningIceFactory);
 
+        RegisterData(DataList::Entity::CleaningSponge, m_CleaningSpongeFactory);
+
+        RegisterData(DataList::Entity::CleaningGoo, m_CleaningGooFactory);
+
         RegisterData(DataList::Entity::LockKey, m_LockKeyFactory);
 
         RegisterData(DataList::Entity::LockLock, m_LockLockFactory);

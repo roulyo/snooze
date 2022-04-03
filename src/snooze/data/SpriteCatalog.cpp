@@ -25,6 +25,10 @@
 
         RegisterData(DataList::Sprite::CleaningIce, m_CleaningIceFactory);
 
+        RegisterData(DataList::Sprite::CleaningSponge, m_CleaningSpongeFactory);
+
+        RegisterData(DataList::Sprite::CleaningGoo, m_CleaningGooFactory);
+
         RegisterData(DataList::Sprite::LockKeySprite, m_LockKeySpriteFactory);
 
         RegisterData(DataList::Sprite::LockLockSprite, m_LockLockSpriteFactory);

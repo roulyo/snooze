@@ -23,7 +23,7 @@ private:
 
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
 
-    static const int numberOfVariants = 2;
+    static const int numberOfVariants = 3;
 
 private:
     forge::Entity::Ptr m_Tool;

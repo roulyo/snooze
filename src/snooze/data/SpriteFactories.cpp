@@ -130,6 +130,32 @@
     }
 
     //----------------------------------------------------------------------------
+    forge::Sprite* CleaningSpongeFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::CleaningSponge);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(600, 2200, 200, 200);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* CleaningGooFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::CleaningGoo);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1200, 2400, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Sprite* LockKeySpriteFactory::Create() const
     {
         forge::Sprite* data = new forge::Sprite();

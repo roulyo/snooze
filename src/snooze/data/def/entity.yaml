@@ -67,6 +67,20 @@ Entity:
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningIce));
 
+    - CleaningSponge:
+        Size: [3, 3, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningSponge));
+
+    - CleaningGoo:
+        Size: [20, 20, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningGoo));
+
 # Lock mini-game
 
     - LockKey:

@@ -24,6 +24,10 @@
 
         extern const forge::DataNameId CleaningIce;
 
+        extern const forge::DataNameId CleaningSponge;
+
+        extern const forge::DataNameId CleaningGoo;
+
         extern const forge::DataNameId LockKey;
 
         extern const forge::DataNameId LockLock;
@@ -63,6 +67,10 @@
         extern const forge::DataNameId CleaningFire;
 
         extern const forge::DataNameId CleaningIce;
+
+        extern const forge::DataNameId CleaningSponge;
+
+        extern const forge::DataNameId CleaningGoo;
 
         extern const forge::DataNameId LockKeySprite;
 

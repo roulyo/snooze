@@ -36,6 +36,10 @@
 
         forge::generated::SpriteFactories::CleaningIceFactory m_CleaningIceFactory;
 
+        forge::generated::SpriteFactories::CleaningSpongeFactory m_CleaningSpongeFactory;
+
+        forge::generated::SpriteFactories::CleaningGooFactory m_CleaningGooFactory;
+
         forge::generated::SpriteFactories::LockKeySpriteFactory m_LockKeySpriteFactory;
 
         forge::generated::SpriteFactories::LockLockSpriteFactory m_LockLockSpriteFactory;

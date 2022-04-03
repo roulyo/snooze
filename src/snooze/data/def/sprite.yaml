@@ -61,6 +61,18 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [0, 2400, 600, 600]
 
+    - CleaningSponge:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [600, 2200, 200, 200]
+
+    - CleaningGoo:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1200, 2400, 600, 600]
+
 # Lock mini-game
 
     - LockKeySprite:
