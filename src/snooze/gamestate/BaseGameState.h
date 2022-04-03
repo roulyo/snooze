@@ -18,7 +18,7 @@
 //----------------------------------------------------------------------------
 class BaseGameState : public forge::AbstractGameState
 {
-    FRG__DECL_GAMESTATE(SimpleGameState);
+    FRG__DECL_GAMESTATE(BaseGameState);
 
 public:
     BaseGameState(const forge::AbstractForgeGame& _game);
