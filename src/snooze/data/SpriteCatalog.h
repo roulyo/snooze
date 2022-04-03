@@ -28,9 +28,13 @@
 
         forge::generated::SpriteFactories::AlarmButtonPressedSpriteFactory m_AlarmButtonPressedSpriteFactory;
 
-        forge::generated::SpriteFactories::SampleBroomFactory m_SampleBroomFactory;
+        forge::generated::SpriteFactories::CleaningBroomFactory m_CleaningBroomFactory;
 
-        forge::generated::SpriteFactories::SampleWebFactory m_SampleWebFactory;
+        forge::generated::SpriteFactories::CleaningWebFactory m_CleaningWebFactory;
+
+        forge::generated::SpriteFactories::CleaningFireFactory m_CleaningFireFactory;
+
+        forge::generated::SpriteFactories::CleaningIceFactory m_CleaningIceFactory;
 
         forge::generated::SpriteFactories::LockKeySpriteFactory m_LockKeySpriteFactory;
 

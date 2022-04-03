@@ -2,6 +2,7 @@
 #include <snooze/ecs/minigame/sample/SampleMiniGameSystem.h>
 
 #include <iostream>
+#include <random>
 
 #include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/ecs/Entity.h>
@@ -11,9 +12,17 @@
 
 //----------------------------------------------------------------------------
 SampleMiniGameSystem::SampleMiniGameSystem()
-    : m_BroomAcquiered(false)
-    , m_WebCleaning(0)
+    : m_ToolAcquired(false)
+    , m_Cleaning(0)
 {
+    m_Variants[0] = forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr>(
+        forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningIce),
+        forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningFire)
+    );
+    m_Variants[1] = forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr>(
+        forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningWeb),
+        forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningBroom)
+    );
 }
 
 //----------------------------------------------------------------------------
@@ -23,18 +32,18 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 
     BaseMiniGame::Update(comp);
 
-    if (m_BroomAcquiered && m_Broom != nullptr)
+    if (m_ToolAcquired && m_Tool != nullptr)
     {
-        RequestRemoveEntity(m_Broom);
-        m_Broom = nullptr;
+        RequestRemoveEntity(m_Tool);
+        m_Tool = nullptr;
     }
 
-    if (m_WebCleaning > 5)
+    if (m_Cleaning > 5)
     {
-        RequestRemoveEntity(m_Web);
-        m_Web = nullptr;
-
+        RequestRemoveEntity(m_Problem);
         BaseMiniGame::CompleteGame(comp);
+
+        m_Problem = nullptr;
     }
 }
 
@@ -44,15 +53,17 @@ void SampleMiniGameSystem::OnMiniGameStart()
     forge::builtin::EntityClickedEvent::Handlers +=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
 
-    m_Broom = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Broom);
-    m_Broom->SetPosition(57, 57, 10);
+    static std::random_device rd;
+    forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr> pair = m_Variants[rd() % numberOfVariants];
 
-    RequestAddEntity(m_Broom);
+    m_Problem = pair.first;
+    //m_Problem->SetPosition(48, 42, 10);
+    m_Problem->SetPosition(50.f - m_Problem->GetSize().w * 0.5f, 50.f - m_Problem->GetSize().d * 0.5f, 1.f);
+    RequestAddEntity(m_Problem);
 
-    m_Web = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Web);
-    m_Web->SetPosition(48, 42, 10);
-
-    RequestAddEntity(m_Web);
+    m_Tool = pair.second;
+    m_Tool->SetPosition(57, 57, 10);
+    RequestAddEntity(m_Tool);
 }
 
 //----------------------------------------------------------------------------
@@ -61,8 +72,12 @@ void SampleMiniGameSystem::OnMiniGameStop()
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
 
-    m_BroomAcquiered = false;
-    m_WebCleaning = 0;
+    // Resetting the alpha for future
+    m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
+            ->SetOverlayColor({ 255, 255, 255, 255 });
+
+    m_ToolAcquired = false;
+    m_Cleaning = 0;
 }
 
 //----------------------------------------------------------------------------
@@ -71,15 +86,15 @@ void SampleMiniGameSystem::OnEntityClickedEvent(const forge::builtin::EntityClic
     if (_event.GetIsPressed())
         return;
 
-    if (_event.GetEntity() == m_Broom)
+    if (_event.GetEntity() == m_Tool)
     {
-        m_BroomAcquiered = true;
+        m_ToolAcquired = true;
     }
-    else if (_event.GetEntity() == m_Web && m_BroomAcquiered)
+    else if (_event.GetEntity() == m_Problem && m_ToolAcquired)
     {
-        ++m_WebCleaning;
+        ++m_Cleaning;
 
-        m_Web->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
-            ->SetOverlayColor({ 255, 255, 255, static_cast<u8>(255 / (m_WebCleaning + 1)) });
+        m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
+            ->SetOverlayColor({ 255, 255, 255, static_cast<u8>(255 / (m_Cleaning + 1)) });
     }
 }

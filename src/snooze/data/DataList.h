@@ -16,9 +16,13 @@
 
         extern const forge::DataNameId AlarmButton;
 
-        extern const forge::DataNameId Broom;
+        extern const forge::DataNameId CleaningBroom;
 
-        extern const forge::DataNameId Web;
+        extern const forge::DataNameId CleaningWeb;
+
+        extern const forge::DataNameId CleaningFire;
+
+        extern const forge::DataNameId CleaningIce;
 
         extern const forge::DataNameId LockKey;
 
@@ -52,9 +56,13 @@
 
         extern const forge::DataNameId AlarmButtonPressedSprite;
 
-        extern const forge::DataNameId SampleBroom;
+        extern const forge::DataNameId CleaningBroom;
 
-        extern const forge::DataNameId SampleWeb;
+        extern const forge::DataNameId CleaningWeb;
+
+        extern const forge::DataNameId CleaningFire;
+
+        extern const forge::DataNameId CleaningIce;
 
         extern const forge::DataNameId LockKeySprite;
 

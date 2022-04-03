@@ -49,7 +49,7 @@
     };    
 
     //----------------------------------------------------------------------------
-    class BroomFactory : public forge::AbstractDataFactory
+    class CleaningBroomFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Entity* Create() const override;
@@ -57,7 +57,23 @@
     };    
 
     //----------------------------------------------------------------------------
-    class WebFactory : public forge::AbstractDataFactory
+    class CleaningWebFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class CleaningFireFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class CleaningIceFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Entity* Create() const override;

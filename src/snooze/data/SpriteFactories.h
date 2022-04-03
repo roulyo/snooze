@@ -49,7 +49,7 @@
     };    
 
     //----------------------------------------------------------------------------
-    class SampleBroomFactory : public forge::AbstractDataFactory
+    class CleaningBroomFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Sprite* Create() const override;
@@ -57,7 +57,23 @@
     };    
 
     //----------------------------------------------------------------------------
-    class SampleWebFactory : public forge::AbstractDataFactory
+    class CleaningWebFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class CleaningFireFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class CleaningIceFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Sprite* Create() const override;

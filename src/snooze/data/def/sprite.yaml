@@ -35,17 +35,32 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [1800, 0, 600, 600]
 
-    - SampleBroom:
-        Texture:
-          from: Texture
-          name: SampleSheet
-        TextureQuad: [0, 0, 100, 100]
+# Lock mini-game
 
-    - SampleWeb:
+    - CleaningBroom:
         Texture:
           from: Texture
-          name: SampleSheet
-        TextureQuad: [100, 0, 100, 100]
+          name: AlarmSheet
+        TextureQuad: [1000, 1800, 200, 200]
+
+    - CleaningWeb:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [600, 2400, 600, 600]
+
+    - CleaningFire:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [600, 1800, 200, 200]
+
+    - CleaningIce:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [0, 2400, 600, 600]
+
 # Lock mini-game
 
     - LockKeySprite:

@@ -34,9 +34,13 @@
 
         forge::generated::EntityFactories::AlarmButtonFactory m_AlarmButtonFactory;
 
-        forge::generated::EntityFactories::BroomFactory m_BroomFactory;
+        forge::generated::EntityFactories::CleaningBroomFactory m_CleaningBroomFactory;
 
-        forge::generated::EntityFactories::WebFactory m_WebFactory;
+        forge::generated::EntityFactories::CleaningWebFactory m_CleaningWebFactory;
+
+        forge::generated::EntityFactories::CleaningFireFactory m_CleaningFireFactory;
+
+        forge::generated::EntityFactories::CleaningIceFactory m_CleaningIceFactory;
 
         forge::generated::EntityFactories::LockKeyFactory m_LockKeyFactory;
 

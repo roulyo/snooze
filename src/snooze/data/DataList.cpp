@@ -16,9 +16,13 @@
 
         constexpr forge::DataNameId AlarmButton = forge::DataNameId("Entity::AlarmButton");
 
-        constexpr forge::DataNameId Broom = forge::DataNameId("Entity::Broom");
+        constexpr forge::DataNameId CleaningBroom = forge::DataNameId("Entity::CleaningBroom");
 
-        constexpr forge::DataNameId Web = forge::DataNameId("Entity::Web");
+        constexpr forge::DataNameId CleaningWeb = forge::DataNameId("Entity::CleaningWeb");
+
+        constexpr forge::DataNameId CleaningFire = forge::DataNameId("Entity::CleaningFire");
+
+        constexpr forge::DataNameId CleaningIce = forge::DataNameId("Entity::CleaningIce");
 
         constexpr forge::DataNameId LockKey = forge::DataNameId("Entity::LockKey");
 
@@ -52,9 +56,13 @@
 
         constexpr forge::DataNameId AlarmButtonPressedSprite = forge::DataNameId("Sprite::AlarmButtonPressedSprite");
 
-        constexpr forge::DataNameId SampleBroom = forge::DataNameId("Sprite::SampleBroom");
+        constexpr forge::DataNameId CleaningBroom = forge::DataNameId("Sprite::CleaningBroom");
 
-        constexpr forge::DataNameId SampleWeb = forge::DataNameId("Sprite::SampleWeb");
+        constexpr forge::DataNameId CleaningWeb = forge::DataNameId("Sprite::CleaningWeb");
+
+        constexpr forge::DataNameId CleaningFire = forge::DataNameId("Sprite::CleaningFire");
+
+        constexpr forge::DataNameId CleaningIce = forge::DataNameId("Sprite::CleaningIce");
 
         constexpr forge::DataNameId LockKeySprite = forge::DataNameId("Sprite::LockKeySprite");
 

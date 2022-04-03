@@ -78,27 +78,53 @@
     }
 
     //----------------------------------------------------------------------------
-    forge::Sprite* SampleBroomFactory::Create() const
+    forge::Sprite* CleaningBroomFactory::Create() const
     {
         forge::Sprite* data = new forge::Sprite();
-        data->SetDataNameId(DataList::Sprite::SampleBroom);
+        data->SetDataNameId(DataList::Sprite::CleaningBroom);
 
-        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::SampleSheet));
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(0, 0, 100, 100);
+        data->SetTextureQuad(1000, 1800, 200, 200);
 
         return data;
     }
 
     //----------------------------------------------------------------------------
-    forge::Sprite* SampleWebFactory::Create() const
+    forge::Sprite* CleaningWebFactory::Create() const
     {
         forge::Sprite* data = new forge::Sprite();
-        data->SetDataNameId(DataList::Sprite::SampleWeb);
+        data->SetDataNameId(DataList::Sprite::CleaningWeb);
 
-        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::SampleSheet));
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(100, 0, 100, 100);
+        data->SetTextureQuad(600, 2400, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* CleaningFireFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::CleaningFire);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(600, 1800, 200, 200);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* CleaningIceFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::CleaningIce);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(0, 2400, 600, 600);
 
         return data;
     }
