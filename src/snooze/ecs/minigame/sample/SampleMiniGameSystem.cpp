@@ -41,9 +41,9 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
     if (m_Cleaning > 5)
     {
         RequestRemoveEntity(m_Problem);
-        m_Problem = nullptr;
-
         BaseMiniGame::CompleteGame(comp);
+
+        m_Problem = nullptr;
     }
 }
 
@@ -55,8 +55,6 @@ void SampleMiniGameSystem::OnMiniGameStart()
 
     static std::random_device rd;
     forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr> pair = m_Variants[rd() % numberOfVariants];
-
-
 
     m_Problem = pair.first;
     //m_Problem->SetPosition(48, 42, 10);
@@ -73,6 +71,10 @@ void SampleMiniGameSystem::OnMiniGameStop()
 {
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
+
+    // Resetting the alpha for future
+    m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
+            ->SetOverlayColor({ 255, 255, 255, 255 });
 
     m_ToolAcquired = false;
     m_Cleaning = 0;
