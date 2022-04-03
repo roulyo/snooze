@@ -16,4 +16,6 @@ public:
 
 private:
     forge::u32 m_StoryAdvancement;
+    forge::Vector<forge::Vector<forge::String>> m_RandomThoughts;
+    forge::Vector<forge::Vector<forge::String>> m_Storylines;
 };
