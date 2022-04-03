@@ -37,6 +37,8 @@
 
         RegisterData(DataList::Sprite::LockChainBackSprite, m_LockChainBackSpriteFactory);
 
+        RegisterData(DataList::Sprite::VerminEnemySprite, m_VerminEnemySpriteFactory);
+
     }
 
     //----------------------------------------------------------------------------

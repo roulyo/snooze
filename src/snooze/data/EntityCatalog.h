@@ -54,4 +54,6 @@
 
         forge::generated::EntityFactories::LockChainFrontFactory m_LockChainFrontFactory;
 
+        forge::generated::EntityFactories::VerminEnemyFactory m_VerminEnemyFactory;
+
     };

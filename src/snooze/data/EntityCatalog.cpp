@@ -35,6 +35,8 @@
 
         RegisterData(DataList::Entity::LockChainFront, m_LockChainFrontFactory);
 
+        RegisterData(DataList::Entity::VerminEnemy, m_VerminEnemyFactory);
+
     }
 
     //----------------------------------------------------------------------------
