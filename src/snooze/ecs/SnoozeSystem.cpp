@@ -12,17 +12,6 @@
 #include <snooze/SnoozeConfig.h>
 
 //----------------------------------------------------------------------------
-namespace static_utils
-{
-    static struct
-    {
-        bool NewEvent;
-        bool Entered;
-        forge::Entity::Ptr HoveredEntity;
-     } CursorData = { false, false, nullptr };
-}
-
-//----------------------------------------------------------------------------
 static constexpr f32 INVALID_COORD = NAN;
 static constexpr forge::Vector2f INVALID_CLICK_COORD { INVALID_COORD,
                                                        INVALID_COORD };
@@ -40,19 +29,11 @@ void SnoozeSystem::OnStart()
 
     MiniGameCompletedEvent::Handlers +=
         MiniGameCompletedEvent::Handler(this, &SnoozeSystem::OnMiniGameCompletedEvent);
-    forge::builtin::EntityHoveredEnterEvent::Handlers +=
-        forge::builtin::EntityHoveredEnterEvent::Handler(this, &SnoozeSystem::OnEntityHoveredEnterEvent);
-    forge::builtin::EntityHoveredExitEvent::Handlers +=
-        forge::builtin::EntityHoveredExitEvent::Handler(this, &SnoozeSystem::OnEntityHoveredExitEvent);
 }
 
 //----------------------------------------------------------------------------
 void SnoozeSystem::OnStop()
 {
-    forge::builtin::EntityHoveredEnterEvent::Handlers -=
-        forge::builtin::EntityHoveredEnterEvent::Handler(this, &SnoozeSystem::OnEntityHoveredEnterEvent);
-    forge::builtin::EntityHoveredExitEvent::Handlers -=
-        forge::builtin::EntityHoveredExitEvent::Handler(this, &SnoozeSystem::OnEntityHoveredExitEvent);
     MiniGameCompletedEvent::Handlers -=
         MiniGameCompletedEvent::Handler(this, &SnoozeSystem::OnMiniGameCompletedEvent);
 
@@ -102,22 +83,6 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         m_IsPostMiniGame = false;
     }
 
-    if (static_utils::CursorData.NewEvent)
-    {
-        if (   static_utils::CursorData.Entered
-            && static_utils::CursorData.HoveredEntity == _entity)
-        {
-            forge::PresentationAPI::SetCursor(forge::Cursor::Hand);
-        }
-        else if (   !static_utils::CursorData.Entered
-                 && static_utils::CursorData.HoveredEntity == _entity)
-        {
-            forge::PresentationAPI::SetCursor(forge::Cursor::Arrow);
-        }
-
-        static_utils::CursorData.NewEvent = false;
-    }
-
     m_ClickData.Entity = nullptr;
 }
 
@@ -131,22 +96,6 @@ void SnoozeSystem::OnEntityClickedEvent(const forge::builtin::EntityClickedEvent
 {
     m_ClickData.IsPressed = _event.GetIsPressed();
     m_ClickData.Entity = _event.GetEntity();
-}
-
-//----------------------------------------------------------------------------
-void SnoozeSystem::OnEntityHoveredEnterEvent(const forge::builtin::EntityHoveredEnterEvent& _event)
-{
-    static_utils::CursorData.NewEvent = true;
-    static_utils::CursorData.Entered = true;
-    static_utils::CursorData.HoveredEntity = _event.GetEntity();
-}
-
-//----------------------------------------------------------------------------
-void SnoozeSystem::OnEntityHoveredExitEvent(const forge::builtin::EntityHoveredExitEvent& _event)
-{
-    static_utils::CursorData.NewEvent = true;
-    static_utils::CursorData.Entered = false;
-    static_utils::CursorData.HoveredEntity = _event.GetEntity();
 }
 
 //----------------------------------------------------------------------------
