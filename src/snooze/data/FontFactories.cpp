@@ -29,4 +29,24 @@
         return m_Data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Font* StoryFontFactory::m_Data = nullptr;
+
+    //----------------------------------------------------------------------------
+    forge::Font* StoryFontFactory::Create() const
+    {
+    if (m_Data == nullptr)
+    {
+        forge::Font* data = new forge::Font();
+        m_Data = data;
+        data->SetInstanceAddr(&m_Data);
+        data->SetDataNameId(DataList::Font::StoryFont);
+
+        data->SetFile("assets/zekton_rg.ttf");
+
+    }
+
+        return m_Data;
+    }
+
     }}}

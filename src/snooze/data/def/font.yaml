@@ -6,3 +6,7 @@ Font:
     - AlarmClock:
         Singleton: true
         File: assets/alarm_clock.ttf
+
+    - StoryFont:
+        Singleton: true
+        File: assets/zekton_rg.ttf

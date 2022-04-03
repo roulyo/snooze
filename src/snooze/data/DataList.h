@@ -35,6 +35,8 @@
 
         extern const forge::DataNameId AlarmClock;
 
+        extern const forge::DataNameId StoryFont;
+
     }
 
     namespace Sprite

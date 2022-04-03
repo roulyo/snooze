@@ -18,4 +18,6 @@
 
         forge::generated::FontFactories::AlarmClockFactory m_AlarmClockFactory;
 
+        forge::generated::FontFactories::StoryFontFactory m_StoryFontFactory;
+
     };

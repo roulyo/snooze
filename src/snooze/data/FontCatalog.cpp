@@ -9,6 +9,8 @@
 
         RegisterData(DataList::Font::AlarmClock, m_AlarmClockFactory);
 
+        RegisterData(DataList::Font::StoryFont, m_StoryFontFactory);
+
     }
 
     //----------------------------------------------------------------------------

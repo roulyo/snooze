@@ -17,4 +17,15 @@
 
     };
 
+    //----------------------------------------------------------------------------
+    class StoryFontFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Font* Create() const override;
+
+    private:
+        static forge::Font* m_Data;
+
+    };
+
     }}}

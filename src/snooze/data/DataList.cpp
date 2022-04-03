@@ -35,6 +35,8 @@
 
         constexpr forge::DataNameId AlarmClock = forge::DataNameId("Font::AlarmClock");
 
+        constexpr forge::DataNameId StoryFont = forge::DataNameId("Font::StoryFont");
+
     }
 
     namespace Sprite
