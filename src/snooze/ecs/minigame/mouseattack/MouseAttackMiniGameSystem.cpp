@@ -7,6 +7,7 @@
 #include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/ecs/Entity.h>
 
+#include <snooze/GameEvents.h>
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
 
@@ -36,10 +37,12 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
         RequestAddEntity(m_WaterGlass);
     } else if (m_gotWater && m_WaterGlass != nullptr)
     {
+        ItemAcquieredEvent::Broadcast(m_WaterGlass);
         RequestRemoveEntity(m_WaterGlass);
         m_WaterGlass = nullptr;
     } else if (m_fireStopped && m_BbqMouse != nullptr)
     {
+        ItemLostEvent::Broadcast();
         RequestRemoveEntity(m_BbqMouse);
         m_BbqMouse = nullptr;
         RequestRemoveEntity(m_Smoke);

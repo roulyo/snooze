@@ -3,6 +3,7 @@
 #include <forge/engine/presentation/ViewController.h>
 #include <forge/engine/time/Chrono.h>
 
+#include <snooze/presentation/ItemView.h>
 #include <snooze/presentation/SnoozeDataAccessor.h>
 #include <snooze/presentation/SnoozeView.h>
 #include <snooze/presentation/StoryView.h>
@@ -22,10 +23,13 @@ public:
 
 private:
     void OnButtonPushedEvent(const ButtonPushedEvent& _event);
+    void OnItemAcquieredEvent(const ItemAcquieredEvent& _event);
+    void OnItemLostEvent(const ItemLostEvent& _event);
 
     void DisplayNextAvailableStoryPage();
 
 private:
+    ItemView*                       m_ItemView;
     SnoozeView*                     m_SnoozeView;
     StoryView*                      m_StoryView;
 

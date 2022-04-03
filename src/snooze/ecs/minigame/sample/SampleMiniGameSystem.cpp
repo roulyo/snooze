@@ -11,6 +11,7 @@
 
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
+#include <snooze/GameEvents.h>
 
 //----------------------------------------------------------------------------
 SampleMiniGameSystem::SampleMiniGameSystem()
@@ -40,12 +41,14 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 
     if (m_ToolAcquired && m_Tool != nullptr)
     {
+        ItemAcquieredEvent::Broadcast(m_Tool);
         RequestRemoveEntity(m_Tool);
         m_Tool = nullptr;
     }
 
     if (m_Cleaning > 5)
     {
+        ItemLostEvent::Broadcast();
         RequestRemoveEntity(m_Problem);
         BaseMiniGame::CompleteGame(comp);
 

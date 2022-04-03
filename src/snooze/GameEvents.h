@@ -37,6 +37,25 @@ struct ButtonPushedEvent : forge::Event<ButtonPushedEvent>
 };
 
 //----------------------------------------------------------------------------
+struct ItemAcquieredEvent : forge::Event<ItemAcquieredEvent>
+{
+    FRG__DECL_EVENT(ItemAcquieredEvent);
+
+    ItemAcquieredEvent(const forge::Entity::CPtr& _item)
+        : m_Item(_item)
+    {}
+
+    FRG__CLASS_ATTR_R_(forge::Entity::CPtr, Item);
+
+};
+
+//----------------------------------------------------------------------------
+struct ItemLostEvent : forge::Event<ItemLostEvent>
+{
+    FRG__DECL_EVENT(ItemLostEvent);
+};
+
+//----------------------------------------------------------------------------
 struct GameOverEvent : forge::Event<GameOverEvent>
 {
     FRG__DECL_EVENT(GameOverEvent);

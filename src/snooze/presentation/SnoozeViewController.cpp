@@ -1,7 +1,11 @@
 #include <snooze/Precomp.h>
-#include <snooze/Story.h>
 #include <snooze/presentation/SnoozeViewController.h>
 
+#include <forge/builtin/rendering/RenderableComponent.h>
+
+#include <snooze/Story.h>
+
+//----------------------------------------------------------------------------
 static constexpr f32 HUD_SCALE = 1080.f / 600.f;
 
 //----------------------------------------------------------------------------
@@ -15,6 +19,10 @@ void SnoozeViewController::OnStart()
 {
     ButtonPushedEvent::Handlers +=
         ButtonPushedEvent::Handler(this, &SnoozeViewController::OnButtonPushedEvent);
+    ItemAcquieredEvent::Handlers +=
+        ItemAcquieredEvent::Handler(this, &SnoozeViewController::OnItemAcquieredEvent);
+    ItemLostEvent::Handlers +=
+        ItemLostEvent::Handler(this, &SnoozeViewController::OnItemLostEvent);
 
     m_SnoozeView = new SnoozeView();
     m_SnoozeView->SetPixelSize({ 202 * HUD_SCALE, 64  * HUD_SCALE });
@@ -28,6 +36,10 @@ void SnoozeViewController::OnStop()
 {
     ButtonPushedEvent::Handlers -=
         ButtonPushedEvent::Handler(this, &SnoozeViewController::OnButtonPushedEvent);
+    ItemAcquieredEvent::Handlers -=
+        ItemAcquieredEvent::Handler(this, &SnoozeViewController::OnItemAcquieredEvent);
+    ItemLostEvent::Handlers -=
+        ItemLostEvent::Handler(this, &SnoozeViewController::OnItemLostEvent);
 
     CloseView(m_SnoozeView);
     delete m_SnoozeView;
@@ -97,6 +109,26 @@ void SnoozeViewController::OnButtonPushedEvent(const ButtonPushedEvent& _event)
     DisplayNextAvailableStoryPage();
 
     OpenView(m_StoryView);
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::OnItemAcquieredEvent(const ItemAcquieredEvent& _event)
+{
+    m_ItemView = new ItemView();
+    m_ItemView->SetPixelSize({ 170, 170 });
+    m_ItemView->SetPixelPadding({ 30, 30 });
+    m_ItemView->GetItemPanel().GetBackground()->SetSprite(
+        _event.GetItem()->GetComponent<forge::builtin::RenderableComponent>()
+        .GetSprite());
+
+    OpenView(m_ItemView);
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::OnItemLostEvent(const ItemLostEvent& _event)
+{
+    CloseView(m_ItemView);
+    delete m_ItemView;
 }
 
 //----------------------------------------------------------------------------

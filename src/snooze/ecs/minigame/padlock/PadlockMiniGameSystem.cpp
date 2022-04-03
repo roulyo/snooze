@@ -7,6 +7,7 @@
 #include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/ecs/Entity.h>
 
+#include <snooze/GameEvents.h>
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
 
@@ -26,11 +27,13 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 
     if (m_KeyAcquired && m_Key != nullptr)
     {
+        ItemAcquieredEvent::Broadcast(m_Key);
         RequestRemoveEntity(m_Key);
         m_Key = nullptr;
     }
     if (m_PadlockUnlocked)
     {
+        ItemLostEvent::Broadcast();
         RequestRemoveEntity(m_Lock);
         RequestRemoveEntity(m_ChainFront);
         RequestRemoveEntity(m_ChainBack);
