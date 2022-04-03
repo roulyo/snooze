@@ -66,29 +66,57 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
     }
 
     //----------------------------------------------------------------------------
-    forge::Entity* BroomFactory::Create() const
+    forge::Entity* CleaningBroomFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::Broom);
+        data->SetDataNameId(DataList::Entity::CleaningBroom);
 
         data->SetSize(3, 3, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleBroom));
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningBroom));
 
         return data;
     }
 
     //----------------------------------------------------------------------------
-    forge::Entity* WebFactory::Create() const
+    forge::Entity* CleaningWebFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::Web);
+        data->SetDataNameId(DataList::Entity::CleaningWeb);
 
-        data->SetSize(10, 10, 0);
+        data->SetSize(20, 20, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleWeb));
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningWeb));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* CleaningFireFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::CleaningFire);
+
+        data->SetSize(3, 3, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningFire));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* CleaningIceFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::CleaningIce);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningIce));
 
         return data;
     }

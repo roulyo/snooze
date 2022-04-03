@@ -15,9 +15,13 @@
 
         RegisterData(DataList::Entity::AlarmButton, m_AlarmButtonFactory);
 
-        RegisterData(DataList::Entity::Broom, m_BroomFactory);
+        RegisterData(DataList::Entity::CleaningBroom, m_CleaningBroomFactory);
 
-        RegisterData(DataList::Entity::Web, m_WebFactory);
+        RegisterData(DataList::Entity::CleaningWeb, m_CleaningWebFactory);
+
+        RegisterData(DataList::Entity::CleaningFire, m_CleaningFireFactory);
+
+        RegisterData(DataList::Entity::CleaningIce, m_CleaningIceFactory);
 
         RegisterData(DataList::Entity::LockKey, m_LockKeyFactory);
 

@@ -37,19 +37,36 @@ Entity:
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 
-    - Broom:
+# Cleaning mini-game
+
+    - CleaningBroom:
         Size: [3, 3, 0]
         Verbatim: |
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleBroom));
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningBroom));
 
-    - Web:
-        Size: [10, 10, 0]
+    - CleaningWeb:
+        Size: [20, 20, 0]
         Verbatim: |
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::SampleWeb));
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningWeb));
+
+    - CleaningFire:
+        Size: [3, 3, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningFire));
+
+    - CleaningIce:
+        Size: [20, 20, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningIce));
+
 # Lock mini-game
 
     - LockKey:
