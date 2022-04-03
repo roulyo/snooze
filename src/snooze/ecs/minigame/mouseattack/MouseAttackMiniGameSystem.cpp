@@ -51,7 +51,6 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
     }
     else if (m_gameSolved)
     {
-        std::cout << "Mouse attack finished" << std::endl;
         RequestRemoveEntity(m_SnoozeButton);
         RequestRemoveEntity(m_Smoke);
         RequestRemoveEntity(m_Screw);
