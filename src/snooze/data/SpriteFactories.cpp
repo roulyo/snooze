@@ -78,6 +78,19 @@
     }
 
     //----------------------------------------------------------------------------
+    forge::Sprite* AlarmButtonPressedProblemSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::AlarmButtonPressedProblemSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(2400, 0, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Sprite* CleaningBroomFactory::Create() const
     {
         forge::Sprite* data = new forge::Sprite();

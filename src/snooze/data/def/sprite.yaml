@@ -35,7 +35,17 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [1800, 0, 600, 600]
 
+<<<<<<< HEAD
 # Sample mini-game
+=======
+    - AlarmButtonPressedProblemSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [2400, 0, 600, 600]
+
+# Lock mini-game
+>>>>>>> Updated assets
 
     - CleaningBroom:
         Texture:
