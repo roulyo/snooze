@@ -13,7 +13,7 @@
 //----------------------------------------------------------------------------
 class GameOverState : public forge::AbstractGameState
 {
-    FRG__DECL_GAMESTATE(SimpleGameState);
+    FRG__DECL_GAMESTATE(GameOverState);
 
 public:
     GameOverState(const forge::AbstractForgeGame& _game);
