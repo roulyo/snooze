@@ -85,5 +85,5 @@ void RefereeSystem::OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _even
 //----------------------------------------------------------------------------
 void RefereeSystem::OnStoryCompletedEvent(const StoryCompletedEvent& _event)
 {
-    m_EndGameTimer.Start(5000);
+    m_EndGameTimer.Start(2000);
 }
