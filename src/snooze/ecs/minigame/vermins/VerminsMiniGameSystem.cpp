@@ -34,7 +34,13 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     {
         m_FirstRun = false;
         forge::Entity::Ptr vermin = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::VerminEnemy);
-        vermin->SetPosition(rd() % (57 - 40 + 1) + 40, rd() % (57 - 40 + 1) + 40, 10.f);
+        u8 randX, randY = 0;
+        do
+        {
+            randX = rd() % (56 - 40 + 1) + 40;
+            randY = rd() % (56 - 40 + 1) + 40;
+        } while (randX < 42 and randY < 42);
+        vermin->SetPosition(randX, randY, 10.f);
         RequestAddEntity(vermin);
         m_Vermins.push_back({vermin, false});
         m_Timer.Start(m_TimeToVermin);
@@ -51,20 +57,18 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
         }
 
         // Check for clicked vermins, purge them with holy fire
-        u8 i = 0;
-        u8 PosToRemove = -1;
-        for (auto & vermin : m_Vermins)
+        auto it = m_Vermins.begin();
+
+        while (it != m_Vermins.end())
         {
-            if (vermin.second)
+            if (it->second)
             {
-                RequestRemoveEntity(vermin.first);
-                PosToRemove = i;
+                RequestRemoveEntity(it->first);
+                it = m_Vermins.erase(it);
             }
-            ++i;
-        }
-        if (PosToRemove != -1 && PosToRemove < m_Vermins.size())
-        {
-            m_Vermins.erase(m_Vermins.begin() + PosToRemove);
+            else {
+                ++it;
+            }
         }
 
         // Are you winning son
