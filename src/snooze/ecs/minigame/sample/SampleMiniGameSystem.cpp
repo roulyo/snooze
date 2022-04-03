@@ -23,6 +23,10 @@ SampleMiniGameSystem::SampleMiniGameSystem()
         forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningWeb),
         forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningBroom)
     );
+    m_Variants[2] = forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr>(
+        forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningGoo),
+        forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::CleaningSponge)
+    );
 }
 
 //----------------------------------------------------------------------------

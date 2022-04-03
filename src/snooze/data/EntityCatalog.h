@@ -42,6 +42,10 @@
 
         forge::generated::EntityFactories::CleaningIceFactory m_CleaningIceFactory;
 
+        forge::generated::EntityFactories::CleaningSpongeFactory m_CleaningSpongeFactory;
+
+        forge::generated::EntityFactories::CleaningGooFactory m_CleaningGooFactory;
+
         forge::generated::EntityFactories::LockKeyFactory m_LockKeyFactory;
 
         forge::generated::EntityFactories::LockLockFactory m_LockLockFactory;

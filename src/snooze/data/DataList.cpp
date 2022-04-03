@@ -24,6 +24,10 @@
 
         constexpr forge::DataNameId CleaningIce = forge::DataNameId("Entity::CleaningIce");
 
+        constexpr forge::DataNameId CleaningSponge = forge::DataNameId("Entity::CleaningSponge");
+
+        constexpr forge::DataNameId CleaningGoo = forge::DataNameId("Entity::CleaningGoo");
+
         constexpr forge::DataNameId LockKey = forge::DataNameId("Entity::LockKey");
 
         constexpr forge::DataNameId LockLock = forge::DataNameId("Entity::LockLock");
@@ -63,6 +67,10 @@
         constexpr forge::DataNameId CleaningFire = forge::DataNameId("Sprite::CleaningFire");
 
         constexpr forge::DataNameId CleaningIce = forge::DataNameId("Sprite::CleaningIce");
+
+        constexpr forge::DataNameId CleaningSponge = forge::DataNameId("Sprite::CleaningSponge");
+
+        constexpr forge::DataNameId CleaningGoo = forge::DataNameId("Sprite::CleaningGoo");
 
         constexpr forge::DataNameId LockKeySprite = forge::DataNameId("Sprite::LockKeySprite");
 

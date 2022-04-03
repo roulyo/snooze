@@ -122,6 +122,34 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
     }
 
     //----------------------------------------------------------------------------
+    forge::Entity* CleaningSpongeFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::CleaningSponge);
+
+        data->SetSize(3, 3, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningSponge));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* CleaningGooFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::CleaningGoo);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningGoo));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Entity* LockKeyFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
