@@ -32,7 +32,7 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     if (m_FirstRun or (m_Timer.IsElapsed() && m_Vermins.size() <= m_MaxVermins))
     {
         m_FirstRun = false;
-        forge::Entity::Ptr vermin = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
+        forge::Entity::Ptr vermin = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::VerminEnemy);
         vermin->SetPosition(rd() % (57 - 40 + 1) + 40, rd() % (57 - 40 + 1) + 40, 10.f);
         RequestAddEntity(vermin);
         m_Vermins.push_back({vermin, false});
