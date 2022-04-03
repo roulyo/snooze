@@ -1,4 +1,5 @@
 #include <snooze/Precomp.h>
+#include <snooze/Story.h>
 #include <snooze/presentation/SnoozeViewController.h>
 
 static constexpr f32 HUD_SCALE = 1080.f / 600.f;
@@ -82,13 +83,15 @@ void SnoozeViewController::OnButtonPushedEvent(const ButtonPushedEvent& _event)
         m_StoryView->SetRelativePadding({ 0, 2 });
     }
 
-    // TODO: Get next texts from Story Singleton
     {
-        m_StoryPages.clear();
         if (_event.GetIsPostMiniGame())
-            m_StoryPages.push_back("SUPER");
-        m_StoryPages.push_back("WELL");
-        m_StoryPages.push_back("PLAYED");
+        {
+            m_StoryPages = Story::GetInstance().GetNextStory();
+        }
+        else
+        {
+            m_StoryPages = Story::GetInstance().GetRandomThought();
+        }
     }
 
     DisplayNextAvailableStoryPage();
@@ -99,8 +102,11 @@ void SnoozeViewController::OnButtonPushedEvent(const ButtonPushedEvent& _event)
 //----------------------------------------------------------------------------
 void SnoozeViewController::DisplayNextAvailableStoryPage()
 {
-    forge::String str = m_StoryPages[0];
-    m_StoryPages.erase(m_StoryPages.cbegin());
-    m_StoryView->GetStoryPanel().GetText()->SetString(str);
-    m_StoryTimer.Start(2000);
+    if (m_StoryPages.size() > 0)
+    {
+        forge::String str = m_StoryPages[0];
+        m_StoryPages.erase(m_StoryPages.cbegin());
+        m_StoryView->GetStoryPanel().GetText()->SetString(str);
+        m_StoryTimer.Start(2000);
+    }
 }
