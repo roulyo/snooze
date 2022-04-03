@@ -17,7 +17,7 @@ void SnoozeViewController::OnStart()
 
     m_SnoozeView = new SnoozeView();
     m_SnoozeView->SetPixelSize({ 202 * HUD_SCALE, 64  * HUD_SCALE });
-    m_SnoozeView->SetPixelPadding({ 154 * HUD_SCALE, 222 * HUD_SCALE });
+    m_SnoozeView->SetPixelPadding({ 154 * HUD_SCALE, 212 * HUD_SCALE });
 
     OpenView(m_SnoozeView);
 }
