@@ -17,6 +17,7 @@ public:
 private:
     void OnStartMiniGameRequestEvent(const StartMiniGameRequestEvent& _event);
     void OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event);
+    void OnGameOverEvent(const GameOverEvent& _event);
 
 private:
     forge::Vector<ComponentId>  m_MiniGames;

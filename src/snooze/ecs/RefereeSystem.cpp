@@ -25,11 +25,12 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
     SnoozableComponent& comp = _entity->GetComponent<SnoozableComponent>();
 
-    if (comp.GetTimer().IsElapsed())
+    if (comp.GetTimer().IsStarted() && comp.GetTimer().IsElapsed())
     {
+        comp.GetTimer().Stop();
         GameOverEvent::Broadcast();
     }
-    else if (comp.GetTimer().GetElapsedRatio() > SnoozeConfig::MiniGameTimeRatioToSpawn)
+    else if (comp.GetTimer().IsStarted() && comp.GetTimer().GetElapsedRatio() > SnoozeConfig::MiniGameTimeRatioToSpawn)
     {
         if (!m_MiniGameSpawned)
         {
