@@ -11,6 +11,7 @@ public:
     GameOverView(bool _success);
 
     forge::builtin::gui::QuadTextPanel&  GetButton();
+    forge::builtin::gui::QuadTextPanel&  GetMiscText();
 
 private:
     void SetupBackground();

@@ -17,6 +17,8 @@ public:
     void Update() override;
 
 private:
+    void RollCredits();
+
     void OnRetryClicked(forge::GUIWidget* _widget,
                         const forge::SystemEvent& _event);
     void OnQuitClicked(forge::GUIWidget* _widget,

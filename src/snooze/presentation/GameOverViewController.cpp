@@ -1,6 +1,8 @@
 #include <snooze/Precomp.h>
 #include <snooze/presentation/GameOverViewController.h>
 
+#include <forge/engine/time/Chrono.h>
+
 #include <forge/builtin/presentation/behaviors/ClickableBehavior.h>
 #include <forge/builtin/presentation/behaviors/HoverableBehavior.h>
 
@@ -49,6 +51,24 @@ void GameOverViewController::OnStop()
 //----------------------------------------------------------------------------
 void GameOverViewController::Update()
 {
+    if (Snooze::IsGameCompleted())
+    {
+        RollCredits();
+    }
+}
+
+//----------------------------------------------------------------------------
+void GameOverViewController::RollCredits()
+{
+    static forge::Chrono chrono;
+
+    if (!chrono.IsStarted())
+    {
+        chrono.Start(10000);
+    }
+
+    m_GameOverView->GetMiscText().SetRelativePadding(
+        { 0.f, 100.f - chrono.GetElapsedRatio() * 100.f - 25.f });
 }
 
 //----------------------------------------------------------------------------

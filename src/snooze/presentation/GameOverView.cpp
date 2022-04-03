@@ -15,8 +15,8 @@ GameOverView::GameOverView(bool _success)
     SetupButton(_success);
 
     AddWidget(&m_Background);
-    AddWidget(&m_GameOverText);
     AddWidget(&m_MiscText);
+    AddWidget(&m_GameOverText);
     AddWidget(&m_Button);
 }
 
@@ -24,6 +24,12 @@ GameOverView::GameOverView(bool _success)
 forge::builtin::gui::QuadTextPanel& GameOverView::GetButton()
 {
     return m_Button;
+}
+
+//----------------------------------------------------------------------------
+forge::builtin::gui::QuadTextPanel& GameOverView::GetMiscText()
+{
+    return m_MiscText;
 }
 
 //----------------------------------------------------------------------------
@@ -37,7 +43,7 @@ void GameOverView::SetupGameOverText(bool _success)
 {
     m_GameOverText.SetRelativeSize({ 100.f, 100.f / 3.f });
 
-    m_GameOverText.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
+    m_GameOverText.GetBackground()->SetFillColor({ 51, 51, 51 });
 
     m_GameOverText.GetText()->SetFont(forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::AlarmClock));
 
@@ -67,7 +73,7 @@ void GameOverView::SetupMiscText(bool _success)
 
     if (_success)
     {
-        m_MiscText.GetText()->SetString("Mogmi - Roulyo - Sp1d3b0y");
+        m_MiscText.GetText()->SetString("  Mogmi\n\n  Roulyo\n\nSp1d3b0y");
         m_MiscText.GetText()->SetFillColor({ 0, 200, 0 });
         m_MiscText.GetText()->SetSize(64);
     }
@@ -85,7 +91,7 @@ void GameOverView::SetupButton(bool _success)
     m_Button.SetRelativeSize({ 33.f, 100.f / 3.f });
     m_Button.SetRelativePadding({ 33.f, 200.f / 3.f });
 
-    m_Button.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
+    m_Button.GetBackground()->SetFillColor({ 51, 51, 51 });
 
     m_Button.GetText()->SetFont(forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::StoryFont));
     m_Button.GetText()->SetFillColor({ 200, 200, 200 });
