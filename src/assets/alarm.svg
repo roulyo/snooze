@@ -629,6 +629,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
 <<<<<<< HEAD
+<<<<<<< HEAD
      inkscape:zoom="5.6568543"
      inkscape:cx="310.42323"
      inkscape:cy="173.46947"
@@ -637,6 +638,11 @@
      inkscape:cx="277.98057"
      inkscape:cy="292.42544"
 >>>>>>> 4aa411c (Added asset for flying nuisance)
+=======
+     inkscape:zoom="11.313709"
+     inkscape:cx="277.98057"
+     inkscape:cy="292.42544"
+>>>>>>> 6864548 (Added asset for flying nuisance)
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -936,6 +942,7 @@
         </g>
       </g>
     </g>
+<<<<<<< HEAD
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
@@ -1213,6 +1220,8 @@
         </g>
       </g>
     </g>
+=======
+>>>>>>> 6864548 (Added asset for flying nuisance)
     <path
        style="opacity:0.84799966;fill:#a4bd5e;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 63.227002,294.44948 c -0.01707,-0.28989 1.109108,-0.91616 1.284184,-1.14784 0.866097,-1.14615 3.139916,-2.27178 4.568686,-2.4214 3.548113,-0.37155 2.699919,-1.99312 5.02005,-0.93775 0.369035,0.16786 1.95062,0.96714 2.124085,1.33359 0.130673,0.27604 1.002184,1.70547 1.252409,2.04423 0.34154,0.46238 -1.24017,0.29331 -2.421958,1.0959 -0.344685,0.23409 -0.39364,0.0772 -0.576382,0.30185 -1.321749,1.6248 -4.223911,-0.48625 -6.271,-0.39704 -1.58417,0.069 -4.780012,3.52655 -4.980074,0.12846 z"
@@ -1619,7 +1628,10 @@
        d="m 114.23752,172.82997 2.65702,-1.64482 h 7.51917 l -2.58472,1.59059 z"
        style="fill:#666666;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
+<<<<<<< HEAD
 >>>>>>> 4aa411c (Added asset for flying nuisance)
+=======
+>>>>>>> 6864548 (Added asset for flying nuisance)
        style="fill:#000000;stroke:#000000;stroke-width:0.3176685px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 36.484595,208.83435 h 3.330556 c -0.140907,-1.671 -1.235175,-1.22797 -1.661147,-0.81388 -0.643936,-0.69496 -1.743005,-0.37058 -1.669409,0.81388 z"
        id="path13295"
@@ -5346,6 +5358,7 @@
     </g>
     <rect
 <<<<<<< HEAD
+<<<<<<< HEAD
        y="138.24997"
        x="-79.375"
        height="26.458344"
@@ -5353,13 +5366,18 @@
        id="rect11184"
        style="opacity:0.806;fill:#0088aa;fill-opacity:0.75294118;stroke:none;stroke-width:0.02645834;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
 =======
+=======
+>>>>>>> 6864548 (Added asset for flying nuisance)
        style="opacity:0.806;fill:#0088aa;fill-opacity:0.75294118;stroke:none;stroke-width:0.02645834;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect10640-4"
        width="26.458344"
        height="26.458344"
        x="-79.375"
        y="138.24997" />
+<<<<<<< HEAD
 >>>>>>> 4aa411c (Added asset for flying nuisance)
+=======
+>>>>>>> 6864548 (Added asset for flying nuisance)
     <rect
        style="opacity:0.806;fill:#0088aa;fill-opacity:0.75294118;stroke:none;stroke-width:0.00873125;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect10640-1"
@@ -5579,6 +5597,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <path
        style="opacity:1;fill:#ececec;fill-opacity:1;stroke:#e6e6e6;stroke-width:0.02645833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
        d="m 6.6416473,178.05836 8.5966987,0.16536 1.122956,0.17364 -0.388607,0.26772 v 5.54382 H 6.6416473 Z"
@@ -5640,5 +5659,7 @@
          style="fill:#c83737;stroke-width:0.02543301">*BONK*</tspan></text>
 =======
 >>>>>>> 4aa411c (Added asset for flying nuisance)
+=======
+>>>>>>> 6864548 (Added asset for flying nuisance)
   </g>
 </svg>
