@@ -14,6 +14,7 @@
 #include <snooze/data/TextureCatalog.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameComponent.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameComponent.h>
+#include <snooze/ecs/minigame/mouseattack/MouseAttackMiniGameComponent.h>
 #include <snooze/gamestate/BaseGameState.h>
 
 
@@ -22,6 +23,7 @@ Snooze::Snooze()
 {
     m_MiniGames.push_back(SampleMiniGameComponent::Id);
     m_MiniGames.push_back(PadlockMiniGameComponent::Id);
+    m_MiniGames.push_back(MouseAttackMiniGameComponent::Id);
 }
 
 //----------------------------------------------------------------------------
@@ -48,7 +50,7 @@ void Snooze::OnInit()
     m_World.AddEntity(alarm);
 
     forge::Entity::Ptr screw = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmScrew);
-    screw->SetPosition(50.f - screw->GetSize().w * 0.5f, 50.f - screw->GetSize().d * 0.5f, 0.5f);
+    screw->SetPosition(50.f - screw->GetSize().w * 0.5f, 50.f - screw->GetSize().d * 0.5f, 0.2f);
     m_World.AddEntity(screw);
 
     forge::Entity::Ptr button = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::AlarmButton);
@@ -93,6 +95,10 @@ void Snooze::OnStartMiniGameRequestEvent(const StartMiniGameRequestEvent& _event
     {
         m_GameEntity->AddComponent<PadlockMiniGameComponent>();
     }
+    else if (m_CurrentGame == MouseAttackMiniGameComponent::Id)
+    {
+        m_GameEntity->AddComponent<MouseAttackMiniGameComponent>();
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -105,5 +111,9 @@ void Snooze::OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event)
     else if (m_CurrentGame == PadlockMiniGameComponent::Id)
     {
         m_GameEntity->RemoveComponent<PadlockMiniGameComponent>();
+    }
+    else if (m_CurrentGame == MouseAttackMiniGameComponent::Id)
+    {
+        m_GameEntity->RemoveComponent<MouseAttackMiniGameComponent>();
     }
 }

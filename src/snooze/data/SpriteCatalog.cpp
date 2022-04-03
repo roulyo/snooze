@@ -37,6 +37,16 @@
 
         RegisterData(DataList::Sprite::LockChainBackSprite, m_LockChainBackSpriteFactory);
 
+        RegisterData(DataList::Sprite::MouseAttackOpenAlarmSprite, m_MouseAttackOpenAlarmSpriteFactory);
+
+        RegisterData(DataList::Sprite::MouseAttackSmokeSprite, m_MouseAttackSmokeSpriteFactory);
+
+        RegisterData(DataList::Sprite::MouseAttackBbqMouseSprite, m_MouseAttackBbqMouseSpriteFactory);
+
+        RegisterData(DataList::Sprite::MouseAttackWetMouseSprite, m_MouseAttackWetMouseSpriteFactory);
+
+        RegisterData(DataList::Sprite::MouseAttackWaterGlassSprite, m_MouseAttackWaterGlassSpriteFactory);
+
     }
 
     //----------------------------------------------------------------------------

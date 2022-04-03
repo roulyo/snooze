@@ -221,4 +221,73 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Entity* MouseAttackOpenAlarmFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::MouseAttackOpenAlarm);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackOpenAlarmSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* MouseAttackSmokeFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::MouseAttackSmoke);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackSmokeSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* MouseAttackBbqMouseFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::MouseAttackBbqMouse);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackBbqMouseSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* MouseAttackWetMouseFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::MouseAttackWetMouse);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWetMouseSprite));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* MouseAttackWaterGlassFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::MouseAttackWaterGlass);
+
+        data->SetSize(5, 5, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));
+        return data;
+    }
+
     }}}

@@ -125,3 +125,40 @@ Entity:
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainFrontSprite));
 
+# Lock mini-game
+
+    - MouseAttackOpenAlarm:
+        Size: [20, 20, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackOpenAlarmSprite));
+
+
+    - MouseAttackSmoke:
+        Size: [20, 20, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackSmokeSprite));
+
+    - MouseAttackBbqMouse:
+        Size: [20, 20, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackBbqMouseSprite));
+
+    - MouseAttackWetMouse:
+        Size: [20, 20, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWetMouseSprite));
+
+    - MouseAttackWaterGlass:
+        Size: [5, 5, 0]
+        Verbatim: |
+          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));

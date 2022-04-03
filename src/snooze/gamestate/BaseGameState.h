@@ -10,6 +10,7 @@
 #include <snooze/ecs/SnoozeSystem.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameSystem.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameSystem.h>
+#include <snooze/ecs/minigame/mouseattack/MouseAttackMiniGameSystem.h>
 
 #include <snooze/gamestate/BaseInputMapping.h>
 #include <snooze/presentation/SnoozeViewController.h>
@@ -30,6 +31,7 @@ private:
 
     SampleMiniGameSystem                    m_SampleMiniGameSystem;
     PadlockMiniGameSystem                   m_PadlockMiniGameSystem;
+    MouseAttackMiniGameSystem               m_MouseAttackMiniGameSystem;
 
     SnoozeSystem                            m_SnoozeSystem;
     RefereeSystem                           m_RefereeSystem;
