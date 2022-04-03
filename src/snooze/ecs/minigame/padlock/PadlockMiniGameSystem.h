@@ -18,6 +18,8 @@ public:
     void Execute(const u64& _dt, const forge::Entity::Ptr& _entity) override;
 
 private:
+    void Reset();
+
     void OnMiniGameStart() override;
     void OnMiniGameStop() override;
 

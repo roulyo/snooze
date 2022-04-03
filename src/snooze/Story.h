@@ -11,6 +11,8 @@ class Story : public forge::Singleton<Story>
 public:
     void InitInstance() override;
 
+    void Reset();
+
     forge::Vector<forge::String> GetNextStory();
     forge::Vector<forge::String> GetRandomThought();
 

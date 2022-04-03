@@ -69,6 +69,27 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 }
 
 //----------------------------------------------------------------------------
+void MouseAttackMiniGameSystem::Reset()
+{
+    RequestRemoveEntity(m_SnoozeButton);
+    RequestRemoveEntity(m_Smoke);
+    RequestRemoveEntity(m_Screw);
+    RequestRemoveEntity(m_BbqMouse);
+    RequestRemoveEntity(m_WetMouse);
+    RequestRemoveEntity(m_OpenAlarm);
+    RequestRemoveEntity(m_WaterGlass);
+
+    m_SnoozeButton = m_Smoke = m_Screw = nullptr;
+    m_BbqMouse = m_WetMouse = m_OpenAlarm = nullptr;
+    m_WaterGlass = nullptr;
+
+    ItemLostEvent::Broadcast();
+
+    // Initialize minigame variables
+    m_alarmOpened = m_fireStopped = m_gotWater = m_gameSolved = false;
+}
+
+//----------------------------------------------------------------------------
 void MouseAttackMiniGameSystem::OnMiniGameStart()
 {
     static std::random_device rd;
@@ -96,9 +117,6 @@ void MouseAttackMiniGameSystem::OnMiniGameStart()
 
     m_WaterGlass = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackWaterGlass);
     m_WaterGlass->SetPosition(55, 55, 10);
-
-    // Initialize minigame variables
-    m_alarmOpened = m_fireStopped = m_gotWater = m_gameSolved = false;
 }
 
 //----------------------------------------------------------------------------
@@ -106,6 +124,8 @@ void MouseAttackMiniGameSystem::OnMiniGameStop()
 {
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &MouseAttackMiniGameSystem::OnEntityClickedEvent);
+
+    Reset();
 }
 
 //----------------------------------------------------------------------------

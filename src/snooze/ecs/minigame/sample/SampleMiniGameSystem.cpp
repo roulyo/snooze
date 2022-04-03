@@ -57,6 +57,24 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 }
 
 //----------------------------------------------------------------------------
+void SampleMiniGameSystem::Reset()
+{
+    RequestRemoveEntity(m_Tool);
+    RequestRemoveEntity(m_Problem);
+
+    m_Tool = nullptr;
+    m_Problem = nullptr;
+
+    ItemLostEvent::Broadcast();
+
+    // reset cursor
+    forge::PresentationAPI::SetCursor(forge::Cursor::Arrow);
+
+    m_ToolAcquired = false;
+    m_Cleaning = 0;
+}
+
+//----------------------------------------------------------------------------
 void SampleMiniGameSystem::OnMiniGameStart()
 {
     forge::builtin::EntityClickedEvent::Handlers +=
@@ -85,11 +103,7 @@ void SampleMiniGameSystem::OnMiniGameStop()
     m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
             ->SetOverlayColor({ 255, 255, 255, 255 });
 
-    // reset cursor
-    forge::PresentationAPI::SetCursor(forge::Cursor::Arrow);
-
-    m_ToolAcquired = false;
-    m_Cleaning = 0;
+    Reset();
 }
 
 //----------------------------------------------------------------------------

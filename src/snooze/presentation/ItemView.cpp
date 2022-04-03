@@ -5,7 +5,6 @@
 
 #include <snooze/data/DataList.h>
 #include <snooze/data/FontCatalog.h>
-#include <snooze/data/SpriteCatalog.h>
 
 //----------------------------------------------------------------------------
 ItemView::ItemView()

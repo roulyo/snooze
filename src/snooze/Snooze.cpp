@@ -6,6 +6,8 @@
 
 #include <forge/engine/camera/api/CameraAPI.h>
 #include <forge/engine/data/api/DataAPI.h>
+#include <forge/engine/presentation/api/PresentationAPI.h>
+#include <forge/engine/window/Cursor.h>
 
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
@@ -18,6 +20,14 @@
 #include <snooze/gamestate/BaseGameState.h>
 #include <snooze/gamestate/GameOverState.h>
 
+
+//----------------------------------------------------------------------------
+static bool s_GameCompleted = false;
+
+bool Snooze::IsGameCompleted()
+{
+    return s_GameCompleted;
+}
 
 //----------------------------------------------------------------------------
 Snooze::Snooze()
@@ -67,8 +77,14 @@ void Snooze::OnInit()
         StartMiniGameRequestEvent::Handler(this, &Snooze::OnStartMiniGameRequestEvent);
     StopMiniGameRequestEvent::Handlers +=
         StopMiniGameRequestEvent::Handler(this, &Snooze::OnStopMiniGameRequestEvent);
+    GameOverRequestedEvent::Handlers +=
+        GameOverRequestedEvent::Handler(this, &Snooze::OnGameOverRequestedEvent);
     GameOverEvent::Handlers +=
         GameOverEvent::Handler(this, &Snooze::OnGameOverEvent);
+    RetryRequestedEvent::Handlers +=
+        RetryRequestedEvent::Handler(this, &Snooze::OnRetryRequestedEvent);
+    QuitRequestedEvent::Handlers +=
+        QuitRequestedEvent::Handler(this, &Snooze::OnQuitRequestedEvent);
 
     RegisterGameState<BaseGameState>();
     RegisterGameState<GameOverState>();
@@ -83,8 +99,14 @@ void Snooze::OnQuit()
         StartMiniGameRequestEvent::Handler(this, &Snooze::OnStartMiniGameRequestEvent);
     StopMiniGameRequestEvent::Handlers -=
         StopMiniGameRequestEvent::Handler(this, &Snooze::OnStopMiniGameRequestEvent);
+    GameOverRequestedEvent::Handlers -=
+        GameOverRequestedEvent::Handler(this, &Snooze::OnGameOverRequestedEvent);
     GameOverEvent::Handlers -=
         GameOverEvent::Handler(this, &Snooze::OnGameOverEvent);
+    RetryRequestedEvent::Handlers -=
+        RetryRequestedEvent::Handler(this, &Snooze::OnRetryRequestedEvent);
+    QuitRequestedEvent::Handlers -=
+        QuitRequestedEvent::Handler(this, &Snooze::OnQuitRequestedEvent);
 }
 
 //----------------------------------------------------------------------------
@@ -123,9 +145,39 @@ void Snooze::OnStopMiniGameRequestEvent(const StopMiniGameRequestEvent& _event)
     {
         m_GameEntity->RemoveComponent<MouseAttackMiniGameComponent>();
     }
+
+    m_CurrentGame = forge::AbstractComponent::Id;
 }
 
+//----------------------------------------------------------------------------
+void Snooze::OnGameOverRequestedEvent(const GameOverRequestedEvent& _event)
+{
+    // Let minigame clean and send GameOverEvent
+    if (m_CurrentGame != forge::AbstractComponent::Id)
+        return;
+
+    GameOverEvent::Broadcast(_event.GetIsSuccessful());
+}
+
+//----------------------------------------------------------------------------
 void Snooze::OnGameOverEvent(const GameOverEvent& _event)
 {
+    s_GameCompleted = _event.GetIsSuccessful();
+
+    Story::GetInstance().Reset();
+    forge::PresentationAPI::SetCursor(forge::Cursor::Arrow);
+
     RequestState(GameOverState::Id);
+}
+
+//----------------------------------------------------------------------------
+void Snooze::OnRetryRequestedEvent(const RetryRequestedEvent& _event)
+{
+    RequestState(BaseGameState::Id);
+}
+
+//----------------------------------------------------------------------------
+void Snooze::OnQuitRequestedEvent(const QuitRequestedEvent& _event)
+{
+    Stop();
 }

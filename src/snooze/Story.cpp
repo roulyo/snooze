@@ -33,6 +33,12 @@ void Story::InitInstance()
 }
 
 //----------------------------------------------------------------------------
+void Story::Reset()
+{
+    m_StoryAdvancement = 0;
+}
+
+//----------------------------------------------------------------------------
 forge::Vector<forge::String> Story::GetNextStory()
 {
     if (m_StoryAdvancement < m_Storylines.size())

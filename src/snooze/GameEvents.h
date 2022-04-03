@@ -2,6 +2,8 @@
 
 #include <forge/engine/event/Event.h>
 
+#include <forge/engine/ecs/Entity.h>
+
 //------------------------------------------------------------------------
 typedef rtb::StringId   ComponentId;
 
@@ -56,7 +58,37 @@ struct ItemLostEvent : forge::Event<ItemLostEvent>
 };
 
 //----------------------------------------------------------------------------
+struct GameOverRequestedEvent : forge::Event<GameOverRequestedEvent>
+{
+    FRG__DECL_EVENT(GameOverRequestedEvent);
+
+    GameOverRequestedEvent(bool _b)
+        : m_IsSuccessful(_b)
+    {}
+
+    FRG__CLASS_ATTR_R_(bool, IsSuccessful);
+};
+
+//----------------------------------------------------------------------------
 struct GameOverEvent : forge::Event<GameOverEvent>
 {
     FRG__DECL_EVENT(GameOverEvent);
+
+    GameOverEvent(bool _b)
+        : m_IsSuccessful(_b)
+    {}
+
+    FRG__CLASS_ATTR_R_(bool, IsSuccessful);
+};
+
+//----------------------------------------------------------------------------
+struct RetryRequestedEvent : forge::Event<RetryRequestedEvent>
+{
+    FRG__DECL_EVENT(RetryRequestedEvent);
+};
+
+//----------------------------------------------------------------------------
+struct QuitRequestedEvent : forge::Event<QuitRequestedEvent>
+{
+    FRG__DECL_EVENT(QuitRequestedEvent);
 };

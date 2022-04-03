@@ -44,6 +44,24 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 }
 
 //----------------------------------------------------------------------------
+void PadlockMiniGameSystem::Reset()
+{
+
+    RequestRemoveEntity(m_Key);
+    RequestRemoveEntity(m_Lock);
+    RequestRemoveEntity(m_ChainFront);
+    RequestRemoveEntity(m_ChainBack);
+
+    m_Key = nullptr;
+    m_Lock = m_ChainFront = m_ChainBack = nullptr;
+
+    ItemLostEvent::Broadcast();
+
+    // Initialize minigame variables
+    m_KeyAcquired = m_PadlockUnlocked = false;
+}
+
+//----------------------------------------------------------------------------
 void PadlockMiniGameSystem::OnMiniGameStart()
 {
     static forge::Vector<forge::Vector3f> predefined_locations;
@@ -76,9 +94,6 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
     m_Key->SetPosition(rand_location.x, rand_location.y, rand_location.z);
     RequestAddEntity(m_Key);
-
-    // Initialize minigame variables
-    m_KeyAcquired = m_PadlockUnlocked = false;
 }
 
 //----------------------------------------------------------------------------
@@ -86,6 +101,8 @@ void PadlockMiniGameSystem::OnMiniGameStop()
 {
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &PadlockMiniGameSystem::OnEntityClickedEvent);
+
+    Reset();
 }
 
 //----------------------------------------------------------------------------

@@ -33,7 +33,7 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
     if (comp.GetTimer().IsElapsed())
     {
         comp.GetTimer().Stop();
-        GameOverEvent::Broadcast();
+        GameOverRequestedEvent::Broadcast(false);
     }
     else if (comp.GetTimer().GetElapsedRatio() > SnoozeConfig::MiniGameTimeRatioToSpawn)
     {

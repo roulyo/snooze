@@ -10,6 +10,9 @@ static constexpr f32 HUD_SCALE = 1080.f / 600.f;
 
 //----------------------------------------------------------------------------
 SnoozeViewController::SnoozeViewController()
+    : m_ItemView(nullptr)
+    , m_SnoozeView(nullptr)
+    , m_StoryView(nullptr)
 {
     m_SDA.Init();
 }
@@ -44,6 +47,21 @@ void SnoozeViewController::OnStop()
     CloseView(m_SnoozeView);
     delete m_SnoozeView;
     m_SnoozeView = nullptr;
+    m_StoryTimer.Stop();
+
+    if (m_ItemView != nullptr)
+    {
+        CloseView(m_ItemView);
+        delete m_ItemView;
+        m_ItemView = nullptr;
+    }
+
+    if (m_StoryView != nullptr)
+    {
+        CloseView(m_StoryView);
+        delete m_StoryView;
+        m_StoryView = nullptr;
+    }
 }
 
 //----------------------------------------------------------------------------
@@ -127,8 +145,12 @@ void SnoozeViewController::OnItemAcquieredEvent(const ItemAcquieredEvent& _event
 //----------------------------------------------------------------------------
 void SnoozeViewController::OnItemLostEvent(const ItemLostEvent& _event)
 {
-    CloseView(m_ItemView);
-    delete m_ItemView;
+    if (m_ItemView != nullptr)
+    {
+        CloseView(m_ItemView);
+        delete m_ItemView;
+        m_ItemView = nullptr;
+    }
 }
 
 //----------------------------------------------------------------------------
