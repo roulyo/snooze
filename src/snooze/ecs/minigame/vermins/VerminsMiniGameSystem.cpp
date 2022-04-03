@@ -9,6 +9,7 @@
 
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
+#include <snooze/GameEvents.h>
 
 //----------------------------------------------------------------------------
 VerminsMiniGameSystem::VerminsMiniGameSystem()
@@ -44,6 +45,7 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     {
         if (m_Tool != nullptr)
         {
+            ItemAcquieredEvent::Broadcast(m_Tool);
             RequestRemoveEntity(m_Tool);
             m_Tool = nullptr;
         }
@@ -68,6 +70,7 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
         // Are you winning son
         if (m_Vermins.size() == 0)
         {
+            ItemLostEvent::Broadcast();
             BaseMiniGame::CompleteGame(comp);
         }
     }
