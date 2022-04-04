@@ -32,9 +32,7 @@
 
         constexpr forge::DataNameId LockLock = forge::DataNameId("Entity::LockLock");
 
-        constexpr forge::DataNameId LockChainBack = forge::DataNameId("Entity::LockChainBack");
-
-        constexpr forge::DataNameId LockChainFront = forge::DataNameId("Entity::LockChainFront");
+        constexpr forge::DataNameId LockMetalBox = forge::DataNameId("Entity::LockMetalBox");
 
         constexpr forge::DataNameId MouseAttackOpenAlarm = forge::DataNameId("Entity::MouseAttackOpenAlarm");
 
@@ -164,9 +162,7 @@
 
         constexpr forge::DataNameId LockLockSprite = forge::DataNameId("Sprite::LockLockSprite");
 
-        constexpr forge::DataNameId LockChainFrontSprite = forge::DataNameId("Sprite::LockChainFrontSprite");
-
-        constexpr forge::DataNameId LockChainBackSprite = forge::DataNameId("Sprite::LockChainBackSprite");
+        constexpr forge::DataNameId LockMetalBoxSprite = forge::DataNameId("Sprite::LockMetalBoxSprite");
 
         constexpr forge::DataNameId MouseAttackOpenAlarmSprite = forge::DataNameId("Sprite::MouseAttackOpenAlarmSprite");
 

@@ -225,27 +225,15 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
     }
 
     //----------------------------------------------------------------------------
-    forge::Entity* LockChainBackFactory::Create() const
+    forge::Entity* LockMetalBoxFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::LockChainBack);
+        data->SetDataNameId(DataList::Entity::LockMetalBox);
 
         data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainBackSprite));
-
-        return data;
-    }
-
-    //----------------------------------------------------------------------------
-    forge::Entity* LockChainFrontFactory::Create() const
-    {
-        forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::LockChainFront);
-
-        data->SetSize(20, 20, 0);
-auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockChainFrontSprite));
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockMetalBoxSprite));
 
         return data;
     }

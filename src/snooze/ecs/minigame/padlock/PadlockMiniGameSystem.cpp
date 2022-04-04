@@ -35,9 +35,8 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     {
         ItemLostEvent::Broadcast();
         RequestRemoveEntity(m_Lock);
-        RequestRemoveEntity(m_ChainFront);
-        RequestRemoveEntity(m_ChainBack);
-        m_Lock = m_ChainFront = m_ChainBack = nullptr;
+        RequestRemoveEntity(m_MetalBox);
+        m_Lock = m_MetalBox = nullptr;
 
         BaseMiniGame::CompleteGame(comp);
     }
@@ -49,11 +48,10 @@ void PadlockMiniGameSystem::Reset()
 
     RequestRemoveEntity(m_Key);
     RequestRemoveEntity(m_Lock);
-    RequestRemoveEntity(m_ChainFront);
-    RequestRemoveEntity(m_ChainBack);
+    RequestRemoveEntity(m_MetalBox);
 
     m_Key = nullptr;
-    m_Lock = m_ChainFront = m_ChainBack = nullptr;
+    m_Lock = m_MetalBox = nullptr;
 
     ItemLostEvent::Broadcast();
 
@@ -71,14 +69,11 @@ void PadlockMiniGameSystem::OnMiniGameStart()
 
     // Setup the lock aesthetics
     m_Lock = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockLock);
-    m_Lock->SetPosition(50.f - m_Lock->GetSize().w * 0.5f, 50.f - m_Lock->GetSize().d * 0.5f, 2.f);
+    m_Lock->SetPosition(50.f - m_Lock->GetSize().w * 0.5f, 50.f - m_Lock->GetSize().d * 0.5f, 4.f);
     RequestAddEntity(m_Lock);
-    m_ChainFront = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainFront);
-    m_ChainFront->SetPosition(50.f - m_ChainFront->GetSize().w * 0.5f, 50.f - m_ChainFront->GetSize().d * 0.5f, 1.f);
-    RequestAddEntity(m_ChainFront);
-    m_ChainBack = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockChainBack);
-    m_ChainBack->SetPosition(50.f - m_ChainBack->GetSize().w * 0.5f, 50.f - m_ChainBack->GetSize().d * 0.5f, 0.f);
-    RequestAddEntity(m_ChainBack);
+    m_MetalBox = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockMetalBox);
+    m_MetalBox->SetPosition(50.f - m_MetalBox->GetSize().w * 0.5f, 50.f - m_MetalBox->GetSize().d * 0.5f, 3.f);
+    RequestAddEntity(m_MetalBox);
 
     // Pop the key at a random place (40-58)
     forge::Vector3f rand_location = SnoozeConfig::ToolSpawnPoints[rd() % SnoozeConfig::ToolSpawnPointCount];

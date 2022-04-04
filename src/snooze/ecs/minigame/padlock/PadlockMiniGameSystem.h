@@ -28,8 +28,7 @@ private:
 private:
     forge::Entity::Ptr m_Key;
     forge::Entity::Ptr m_Lock;
-    forge::Entity::Ptr m_ChainFront;
-    forge::Entity::Ptr m_ChainBack;
+    forge::Entity::Ptr m_MetalBox;
 
     bool    m_KeyAcquired;
     bool    m_PadlockUnlocked;

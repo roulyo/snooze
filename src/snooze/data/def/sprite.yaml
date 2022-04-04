@@ -100,17 +100,11 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [1200, 1800, 600, 600]
 
-    - LockChainFrontSprite:
+    - LockMetalBoxSprite:
         Texture:
           from: Texture
           name: AlarmSheet
-        TextureQuad: [1800, 1800, 600, 600]
-
-    - LockChainBackSprite:
-        Texture:
-          from: Texture
-          name: AlarmSheet
-        TextureQuad: [2400, 1800, 600, 600]
+        TextureQuad: [0, 1800, 600, 600]
 
 # Mouse Attack mini-game
 

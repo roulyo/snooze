@@ -32,9 +32,7 @@
 
         extern const forge::DataNameId LockLock;
 
-        extern const forge::DataNameId LockChainBack;
-
-        extern const forge::DataNameId LockChainFront;
+        extern const forge::DataNameId LockMetalBox;
 
         extern const forge::DataNameId MouseAttackOpenAlarm;
 
@@ -164,9 +162,7 @@
 
         extern const forge::DataNameId LockLockSprite;
 
-        extern const forge::DataNameId LockChainFrontSprite;
-
-        extern const forge::DataNameId LockChainBackSprite;
+        extern const forge::DataNameId LockMetalBoxSprite;
 
         extern const forge::DataNameId MouseAttackOpenAlarmSprite;
 

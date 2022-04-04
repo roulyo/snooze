@@ -129,15 +129,7 @@
     };    
 
     //----------------------------------------------------------------------------
-    class LockChainFrontSpriteFactory : public forge::AbstractDataFactory
-    {
-    public:
-        forge::Sprite* Create() const override;
-
-    };    
-
-    //----------------------------------------------------------------------------
-    class LockChainBackSpriteFactory : public forge::AbstractDataFactory
+    class LockMetalBoxSpriteFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Sprite* Create() const override;

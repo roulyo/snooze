@@ -37,9 +37,7 @@
 
         RegisterData(DataList::Sprite::LockLockSprite, m_LockLockSpriteFactory);
 
-        RegisterData(DataList::Sprite::LockChainFrontSprite, m_LockChainFrontSpriteFactory);
-
-        RegisterData(DataList::Sprite::LockChainBackSprite, m_LockChainBackSpriteFactory);
+        RegisterData(DataList::Sprite::LockMetalBoxSprite, m_LockMetalBoxSpriteFactory);
 
         RegisterData(DataList::Sprite::MouseAttackOpenAlarmSprite, m_MouseAttackOpenAlarmSpriteFactory);
 

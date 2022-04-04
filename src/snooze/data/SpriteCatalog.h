@@ -48,9 +48,7 @@
 
         forge::generated::SpriteFactories::LockLockSpriteFactory m_LockLockSpriteFactory;
 
-        forge::generated::SpriteFactories::LockChainFrontSpriteFactory m_LockChainFrontSpriteFactory;
-
-        forge::generated::SpriteFactories::LockChainBackSpriteFactory m_LockChainBackSpriteFactory;
+        forge::generated::SpriteFactories::LockMetalBoxSpriteFactory m_LockMetalBoxSpriteFactory;
 
         forge::generated::SpriteFactories::MouseAttackOpenAlarmSpriteFactory m_MouseAttackOpenAlarmSpriteFactory;
 

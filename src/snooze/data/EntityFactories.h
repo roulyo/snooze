@@ -119,15 +119,7 @@
     };    
 
     //----------------------------------------------------------------------------
-    class LockChainBackFactory : public forge::AbstractDataFactory
-    {
-    public:
-        forge::Entity* Create() const override;
-
-    };    
-
-    //----------------------------------------------------------------------------
-    class LockChainFrontFactory : public forge::AbstractDataFactory
+    class LockMetalBoxFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Entity* Create() const override;

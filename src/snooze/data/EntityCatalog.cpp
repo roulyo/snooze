@@ -31,9 +31,7 @@
 
         RegisterData(DataList::Entity::LockLock, m_LockLockFactory);
 
-        RegisterData(DataList::Entity::LockChainBack, m_LockChainBackFactory);
-
-        RegisterData(DataList::Entity::LockChainFront, m_LockChainFrontFactory);
+        RegisterData(DataList::Entity::LockMetalBox, m_LockMetalBoxFactory);
 
         RegisterData(DataList::Entity::MouseAttackOpenAlarm, m_MouseAttackOpenAlarmFactory);
 

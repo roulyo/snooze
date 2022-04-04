@@ -56,9 +56,7 @@
 
         forge::generated::EntityFactories::LockLockFactory m_LockLockFactory;
 
-        forge::generated::EntityFactories::LockChainBackFactory m_LockChainBackFactory;
-
-        forge::generated::EntityFactories::LockChainFrontFactory m_LockChainFrontFactory;
+        forge::generated::EntityFactories::LockMetalBoxFactory m_LockMetalBoxFactory;
 
         forge::generated::EntityFactories::MouseAttackOpenAlarmFactory m_MouseAttackOpenAlarmFactory;
 
