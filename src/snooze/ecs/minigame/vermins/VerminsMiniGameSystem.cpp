@@ -30,7 +30,7 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     BaseMiniGame::Update(comp);
 
     // Spawn new vermin, restart Timer
-    if (m_FirstRun or (m_Timer.IsElapsed() && m_Vermins.size() <= m_MaxVermins))
+    if (m_FirstRun || (m_Timer.IsElapsed() && m_Vermins.size() <= m_MaxVermins))
     {
         m_FirstRun = false;
         forge::Entity::Ptr vermin = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::VerminEnemy);
@@ -39,7 +39,7 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
         {
             randX = rd() % (56 - 40 + 1) + 40;
             randY = rd() % (56 - 40 + 1) + 40;
-        } while (randX < 42 and randY < 42);
+        } while (randX < 42 && randY < 42);
         vermin->SetPosition(randX, randY, 10.f);
         RequestAddEntity(vermin);
         m_Vermins.push_back({vermin, false});

@@ -23,6 +23,7 @@ SnoozeViewController::SnoozeViewController()
     : m_ItemView(nullptr)
     , m_SnoozeView(nullptr)
     , m_StoryView(nullptr)
+    , m_ThoughtView(nullptr)
 {
     m_SDA.Init();
     s_SpeechSound = forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Speech);
