@@ -12,6 +12,7 @@
 #include <snooze/ecs/minigame/sample/SampleMiniGameSystem.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameSystem.h>
 #include <snooze/ecs/minigame/mouseattack/MouseAttackMiniGameSystem.h>
+#include <snooze/ecs/minigame/battery/BatteryMiniGameSystem.h>
 #include <snooze/ecs/minigame/vermins/VerminsMiniGameSystem.h>
 
 #include <snooze/gamestate/BaseInputMapping.h>
@@ -35,6 +36,7 @@ private:
     SampleMiniGameSystem                    m_SampleMiniGameSystem;
     PadlockMiniGameSystem                   m_PadlockMiniGameSystem;
     MouseAttackMiniGameSystem               m_MouseAttackMiniGameSystem;
+    BatteryMiniGameSystem                   m_BatteryMiniGameSystem;
     VerminsMiniGameSystem                   m_VerminsMiniGameSystem;
 
     SnoozeSystem                            m_SnoozeSystem;

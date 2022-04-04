@@ -53,6 +53,16 @@
 
         RegisterData(DataList::Sprite::VerminEnemySprite, m_VerminEnemySpriteFactory);
 
+        RegisterData(DataList::Sprite::BatteryMissingOneSprite, m_BatteryMissingOneSpriteFactory);
+
+        RegisterData(DataList::Sprite::BatteryCompleteSprite, m_BatteryCompleteSpriteFactory);
+
+        RegisterData(DataList::Sprite::BatteryStealingMouseSprite, m_BatteryStealingMouseSpriteFactory);
+
+        RegisterData(DataList::Sprite::BatteryKOMouse, m_BatteryKOMouseFactory);
+
+        RegisterData(DataList::Sprite::BatteryItemSprite, m_BatteryItemSpriteFactory);
+
     }
 
     //----------------------------------------------------------------------------

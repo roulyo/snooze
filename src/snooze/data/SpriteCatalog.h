@@ -64,4 +64,14 @@
 
         forge::generated::SpriteFactories::VerminEnemySpriteFactory m_VerminEnemySpriteFactory;
 
+        forge::generated::SpriteFactories::BatteryMissingOneSpriteFactory m_BatteryMissingOneSpriteFactory;
+
+        forge::generated::SpriteFactories::BatteryCompleteSpriteFactory m_BatteryCompleteSpriteFactory;
+
+        forge::generated::SpriteFactories::BatteryStealingMouseSpriteFactory m_BatteryStealingMouseSpriteFactory;
+
+        forge::generated::SpriteFactories::BatteryKOMouseFactory m_BatteryKOMouseFactory;
+
+        forge::generated::SpriteFactories::BatteryItemSpriteFactory m_BatteryItemSpriteFactory;
+
     };

@@ -358,4 +358,60 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Entity* BatteryContainerFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::BatteryContainer);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::BatteryMissingOneSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water1));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water2));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* BatteryMouseFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::BatteryMouse);
+
+        data->SetSize(20, 20, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::BatteryStealingMouseSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Entity* BatteryItemFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::BatteryItem);
+
+        data->SetSize(6.5, 6.5, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::BatteryItemSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
+        return data;
+    }
+
     }}}

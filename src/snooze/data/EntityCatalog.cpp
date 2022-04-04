@@ -47,6 +47,12 @@
 
         RegisterData(DataList::Entity::VerminEnemy, m_VerminEnemyFactory);
 
+        RegisterData(DataList::Entity::BatteryContainer, m_BatteryContainerFactory);
+
+        RegisterData(DataList::Entity::BatteryMouse, m_BatteryMouseFactory);
+
+        RegisterData(DataList::Entity::BatteryItem, m_BatteryItemFactory);
+
     }
 
     //----------------------------------------------------------------------------
