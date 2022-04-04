@@ -48,6 +48,12 @@
 
         constexpr forge::DataNameId VerminEnemy = forge::DataNameId("Entity::VerminEnemy");
 
+        constexpr forge::DataNameId BatteryContainer = forge::DataNameId("Entity::BatteryContainer");
+
+        constexpr forge::DataNameId BatteryMouse = forge::DataNameId("Entity::BatteryMouse");
+
+        constexpr forge::DataNameId BatteryItem = forge::DataNameId("Entity::BatteryItem");
+
     }
 
     namespace Font
@@ -173,6 +179,16 @@
         constexpr forge::DataNameId MouseAttackWaterGlassSprite = forge::DataNameId("Sprite::MouseAttackWaterGlassSprite");
 
         constexpr forge::DataNameId VerminEnemySprite = forge::DataNameId("Sprite::VerminEnemySprite");
+
+        constexpr forge::DataNameId BatteryMissingOneSprite = forge::DataNameId("Sprite::BatteryMissingOneSprite");
+
+        constexpr forge::DataNameId BatteryCompleteSprite = forge::DataNameId("Sprite::BatteryCompleteSprite");
+
+        constexpr forge::DataNameId BatteryStealingMouseSprite = forge::DataNameId("Sprite::BatteryStealingMouseSprite");
+
+        constexpr forge::DataNameId BatteryKOMouse = forge::DataNameId("Sprite::BatteryKOMouse");
+
+        constexpr forge::DataNameId BatteryItemSprite = forge::DataNameId("Sprite::BatteryItemSprite");
 
     }
 

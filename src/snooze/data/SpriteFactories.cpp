@@ -311,4 +311,69 @@
         return data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Sprite* BatteryMissingOneSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::BatteryMissingOneSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(600, 600, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* BatteryCompleteSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::BatteryCompleteSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1200, 600, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* BatteryStealingMouseSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::BatteryStealingMouseSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1800, 600, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* BatteryKOMouseFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::BatteryKOMouse);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(2400, 600, 600, 600);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* BatteryItemSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::BatteryItemSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1600, 1600, 200, 200);
+
+        return data;
+    }
+
     }}}

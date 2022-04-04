@@ -192,4 +192,44 @@
 
     };    
 
+    //----------------------------------------------------------------------------
+    class BatteryMissingOneSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class BatteryCompleteSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class BatteryStealingMouseSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class BatteryKOMouseFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class BatteryItemSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
     }}}
