@@ -1,4 +1,5 @@
 #include <snooze/Precomp.h>
+#include <math.h>
 #include <snooze/ecs/SnoozableComponent.h>
 
 //----------------------------------------------------------------------------
