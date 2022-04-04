@@ -11,10 +11,29 @@ public:
     StoryView();
 
     forge::builtin::gui::QuadTextPanel& GetStoryPanel();
+    forge::builtin::gui::QuadTextPanel& GetToughtPanel();
 
-    void SetAlpha(u8 _a);
+private:
+    void SetupStoryPanel();
+    void SetupThoughtPanel();
 
 private:
     forge::builtin::gui::QuadTextPanel   m_StoryPanel;
+
+};
+
+//----------------------------------------------------------------------------
+class ThoughtView : public forge::View
+{
+public:
+    ThoughtView();
+
+    forge::builtin::gui::QuadTextPanel& GetToughtPanel();
+
+private:
+    void SetupThoughtPanel();
+
+private:
+    forge::builtin::gui::QuadTextPanel   m_ThoughtPanel;
 
 };

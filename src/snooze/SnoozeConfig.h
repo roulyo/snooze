@@ -7,6 +7,9 @@ struct SnoozeConfig
     static constexpr f32 MiniGameTimeRatioToSpawn = 0.1f;
     static constexpr f32 SpeechCharactersPerSecond = 42.0f;
 
+    static constexpr u32 StoryDisplayTimeMs = 2000;
+    static constexpr u32 ThoughtDisplayTimeMs = 1000;
+
     static constexpr u32 ToolSpawnPointCount = 6;
     static constexpr forge::Vector3f ToolSpawnPoints[ToolSpawnPointCount] =
     {

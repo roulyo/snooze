@@ -1,6 +1,8 @@
 #include <snooze/Precomp.h>
 #include <snooze/presentation/SnoozeViewController.h>
 
+#include <random>
+
 #include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/time/api/TimeAPI.h>
 
@@ -14,6 +16,7 @@
 static constexpr f32 HUD_SCALE = 1080.f / 600.f;
 
 static forge::Sound::Ptr s_SpeechSound = nullptr;
+static std::random_device rd;
 
 //----------------------------------------------------------------------------
 SnoozeViewController::SnoozeViewController()
@@ -75,6 +78,14 @@ void SnoozeViewController::OnStop()
 //----------------------------------------------------------------------------
 void SnoozeViewController::Update()
 {
+    UpdateSnoozeView();
+    UpdateStoryView();
+    UpdateThoughtView();
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::UpdateSnoozeView()
+{
     if (m_SnoozeView != nullptr)
     {
         u32 timeSec = m_SDA.GetRemainingTimeMs() / 1000;
@@ -89,7 +100,11 @@ void SnoozeViewController::Update()
         m_SnoozeView->GetColonDisplay().GetText()->SetFillColor(
             { 255, 0 , 0, static_cast<u8>(255 * (timeSec % 2)) });
     }
+}
 
+//----------------------------------------------------------------------------
+void SnoozeViewController::UpdateStoryView()
+{
     if (m_StoryView != nullptr)
     {
         UpdateCurrentStoryDisplay();
@@ -111,30 +126,54 @@ void SnoozeViewController::Update()
 }
 
 //----------------------------------------------------------------------------
+void SnoozeViewController::UpdateThoughtView()
+{
+    if (m_ThoughtView != nullptr)
+    {
+        if (m_ThoughtTimer.IsElapsed())
+        {
+            CloseView(m_ThoughtView);
+            delete m_ThoughtView;
+            m_ThoughtView = nullptr;
+        }
+    }
+}
+
+//----------------------------------------------------------------------------
 void SnoozeViewController::OnButtonPushedEvent(const ButtonPushedEvent& _event)
 {
-    if (m_StoryView == nullptr)
+    if (_event.GetIsPostMiniGame())
     {
-        m_StoryView = new StoryView();
-        m_StoryView->SetGravity(forge::GUIGravity::Bottom);
-        m_StoryView->SetRelativeSize({ 90, 20 });
-        m_StoryView->SetRelativePadding({ 0, 2 });
-    }
+        if (m_StoryView == nullptr)
+        {
+            m_StoryView = new StoryView();
+            m_StoryView->SetGravity(forge::GUIGravity::Bottom);
+            m_StoryView->SetRelativeSize({ 90, 20 });
+            m_StoryView->SetRelativePadding({ 0, 2 });
+            OpenView(m_StoryView);
+        }
 
+        m_StoryPages = Story::GetInstance().GetNextStory();
+
+        DisplayNextAvailableStoryPage();
+    }
+    else
     {
-        if (_event.GetIsPostMiniGame())
+        if (m_ThoughtView == nullptr)
         {
-            m_StoryPages = Story::GetInstance().GetNextStory();
+            m_ThoughtView = new ThoughtView();
+
+            OpenView(m_ThoughtView);
         }
-        else
-        {
-            m_StoryPages = Story::GetInstance().GetRandomThought();
-        }
+
+        m_ThoughtView->SetRelativeSize({ 20, 10 });
+        m_ThoughtView->SetRelativePadding({ static_cast<f32>((rd() % 20) + 60 * (rd() % 2)),
+                                            static_cast<f32>((rd() % 20) + 60 * (rd() % 2)) });
+
+        m_Thought = Story::GetInstance().GetRandomThought();
+
+        DisplayThought();
     }
-
-    DisplayNextAvailableStoryPage();
-
-    OpenView(m_StoryView);
 }
 
 //----------------------------------------------------------------------------
@@ -170,7 +209,7 @@ void SnoozeViewController::DisplayNextAvailableStoryPage()
         m_CurrentStory.Index = 0;
 
         m_StoryPages.erase(m_StoryPages.cbegin());
-        m_StoryTimer.Start(2000);
+        m_StoryTimer.Start(SnoozeConfig::StoryDisplayTimeMs);
     }
 }
 
@@ -201,4 +240,11 @@ void SnoozeViewController::UpdateCurrentStoryDisplay()
 
     forge::String str = m_CurrentStory.Content.substr(0, m_CurrentStory.Index);
     m_StoryView->GetStoryPanel().GetText()->SetString(str);
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::DisplayThought()
+{
+    m_ThoughtView->GetToughtPanel().GetText()->SetString('*' + m_Thought + '*');
+    m_ThoughtTimer.Start(SnoozeConfig::ThoughtDisplayTimeMs);
 }

@@ -24,17 +24,24 @@ public:
     void Update() override;
 
 private:
-    void OnButtonPushedEvent(const ButtonPushedEvent& _event);
-    void OnItemAcquieredEvent(const ItemAcquieredEvent& _event);
-    void OnItemLostEvent(const ItemLostEvent& _event);
+    void UpdateSnoozeView();
+    void UpdateStoryView();
+    void UpdateThoughtView();
 
     void DisplayNextAvailableStoryPage();
     void UpdateCurrentStoryDisplay();
+
+    void DisplayThought();
+
+    void OnButtonPushedEvent(const ButtonPushedEvent& _event);
+    void OnItemAcquieredEvent(const ItemAcquieredEvent& _event);
+    void OnItemLostEvent(const ItemLostEvent& _event);
 
 private:
     ItemView*                       m_ItemView;
     SnoozeView*                     m_SnoozeView;
     StoryView*                      m_StoryView;
+    ThoughtView*                    m_ThoughtView;
 
     forge::Chrono                   m_StoryTimer;
     forge::Vector<forge::String>    m_StoryPages;
@@ -43,6 +50,9 @@ private:
         forge::String               Content;
         u32                         Index;
     }                               m_CurrentStory;
+
+    forge::Chrono                   m_ThoughtTimer;
+    forge::String                   m_Thought;
 
     SnoozeDataAccessor              m_SDA;
 

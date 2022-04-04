@@ -14,10 +14,10 @@ public:
     void Reset();
 
     const forge::Vector<forge::String>& GetNextStory();
-    const forge::Vector<forge::String>& GetRandomThought();
+    const forge::String& GetRandomThought();
 
 private:
     forge::u32 m_StoryAdvancement;
-    forge::Vector<forge::Vector<forge::String>> m_RandomThoughts;
     forge::Vector<forge::Vector<forge::String>> m_Storylines;
+    forge::Vector<forge::String>                m_RandomThoughts;
 };

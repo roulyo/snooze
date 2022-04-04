@@ -9,6 +9,12 @@
 //----------------------------------------------------------------------------
 StoryView::StoryView()
 {
+    SetupStoryPanel();
+}
+
+//----------------------------------------------------------------------------
+void StoryView::SetupStoryPanel()
+{
     forge::Font::Ptr font = forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::StoryFont);
 
     m_StoryPanel.GetBackground()->SetOutlineColor({ 0, 0, 0 });
@@ -24,15 +30,34 @@ StoryView::StoryView()
 }
 
 //----------------------------------------------------------------------------
-void StoryView::SetAlpha(u8 _a)
-{
-    m_StoryPanel.GetBackground()->SetOutlineColor({ 0, 0, 0, _a });
-    m_StoryPanel.GetBackground()->SetFillColor({ 200, 200, 200, _a });
-    m_StoryPanel.GetText()->SetFillColor({ 55, 55, 55, _a });
-}
-
-//----------------------------------------------------------------------------
 forge::builtin::gui::QuadTextPanel& StoryView::GetStoryPanel()
 {
     return m_StoryPanel;
+}
+
+//----------------------------------------------------------------------------
+ThoughtView::ThoughtView()
+{
+    SetupThoughtPanel();
+}
+
+//----------------------------------------------------------------------------
+void ThoughtView::SetupThoughtPanel()
+{
+    forge::Font::Ptr font = forge::DataAPI::GetDataFrom<FontCatalog>(DataList::Font::StoryFont);
+
+    m_ThoughtPanel.GetBackground()->SetFillColor({ 0, 0, 0, 0 });
+
+    m_ThoughtPanel.GetText()->SetFont(font);
+    m_ThoughtPanel.GetText()->SetStyle(forge::Text::Style::Italic);
+    m_ThoughtPanel.GetText()->SetSize(28);
+    m_ThoughtPanel.GetText()->SetFillColor({ 55, 55, 55 });
+
+    AddWidget(&m_ThoughtPanel);
+}
+
+//----------------------------------------------------------------------------
+forge::builtin::gui::QuadTextPanel& ThoughtView::GetToughtPanel()
+{
+    return m_ThoughtPanel;
 }

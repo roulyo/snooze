@@ -62,7 +62,7 @@ const forge::Vector<forge::String>& Story::GetNextStory()
 }
 
 //----------------------------------------------------------------------------
-const forge::Vector<forge::String>& Story::GetRandomThought()
+const forge::String& Story::GetRandomThought()
 {
     static std::random_device rd;
 
