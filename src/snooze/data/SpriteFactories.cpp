@@ -26,6 +26,58 @@
     }
 
     //----------------------------------------------------------------------------
+    forge::Sprite* SoundOnFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::SoundOn);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+
+        data->SetTextureQuad(0, 0, 240, 240);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* SoundOffFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::SoundOff);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+
+        data->SetTextureQuad(240, 0, 240, 240);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* MusicOnFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MusicOn);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+
+        data->SetTextureQuad(0, 240, 240, 240);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
+    forge::Sprite* MusicOffFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::MusicOff);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+
+        data->SetTextureQuad(240, 240, 240, 240);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Sprite* AlarmNeutralSpriteFactory::Create() const
     {
         forge::Sprite* data = new forge::Sprite();

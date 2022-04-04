@@ -1,5 +1,5 @@
 # CMakeLists.txt for src/snooze/presentation
 
 MACRO_ADD_SOURCES(EXE_SRC
-GameOverViewController.cpp GameOverViewController.h GameOverView.cpp GameOverView.h ItemView.cpp ItemView.h SnoozeDataAccessor.cpp SnoozeDataAccessor.h SnoozeViewController.cpp SnoozeViewController.h SnoozeView.cpp SnoozeView.h StoryView.cpp StoryView.h
+ConfigView.cpp ConfigView.h GameOverView.cpp GameOverView.h GameOverViewController.cpp GameOverViewController.h ItemView.cpp ItemView.h SnoozeDataAccessor.cpp SnoozeDataAccessor.h SnoozeView.cpp SnoozeView.h SnoozeViewController.cpp SnoozeViewController.h StoryView.cpp StoryView.h
 )

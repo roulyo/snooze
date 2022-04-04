@@ -20,6 +20,14 @@
 
         forge::generated::SpriteFactories::ForgeSpriteFactory m_ForgeSpriteFactory;
 
+        forge::generated::SpriteFactories::SoundOnFactory m_SoundOnFactory;
+
+        forge::generated::SpriteFactories::SoundOffFactory m_SoundOffFactory;
+
+        forge::generated::SpriteFactories::MusicOnFactory m_MusicOnFactory;
+
+        forge::generated::SpriteFactories::MusicOffFactory m_MusicOffFactory;
+
         forge::generated::SpriteFactories::AlarmNeutralSpriteFactory m_AlarmNeutralSpriteFactory;
 
         forge::generated::SpriteFactories::AlarmScrewSpriteFactory m_AlarmScrewSpriteFactory;

@@ -4,6 +4,7 @@
 #include <forge/engine/presentation/ViewController.h>
 #include <forge/engine/time/Chrono.h>
 
+#include <snooze/presentation/ConfigView.h>
 #include <snooze/presentation/ItemView.h>
 #include <snooze/presentation/SnoozeDataAccessor.h>
 #include <snooze/presentation/SnoozeView.h>
@@ -37,12 +38,18 @@ private:
     void OnItemAcquieredEvent(const ItemAcquieredEvent& _event);
     void OnItemLostEvent(const ItemLostEvent& _event);
 
+    void OnMuteSoundClicked(forge::GUIWidget* _widget,
+                            const forge::SystemEvent& _event);
+    void OnMuteMusicClicked(forge::GUIWidget* _widget,
+                            const forge::SystemEvent& _event);
+
 private:
     ItemView*                       m_ItemView;
     SnoozeView*                     m_SnoozeView;
     StoryView*                      m_StoryView;
     ThoughtView*                    m_ThoughtView;
-
+    ConfigView*                     m_ConfigView;
+        
     forge::Chrono                   m_StoryTimer;
     forge::Vector<forge::String>    m_StoryPages;
     struct
@@ -53,6 +60,9 @@ private:
 
     forge::Chrono                   m_ThoughtTimer;
     forge::String                   m_Thought;
+
+    bool                            m_SoundMuted;
+    bool                            m_MusicMuted;
 
     SnoozeDataAccessor              m_SDA;
 

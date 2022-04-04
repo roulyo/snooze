@@ -41,4 +41,15 @@
 
     };
 
+    //----------------------------------------------------------------------------
+    class ConfigSheetFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Texture* Create() const override;
+
+    private:
+        static forge::Texture* m_Data;
+
+    };
+
     }}}

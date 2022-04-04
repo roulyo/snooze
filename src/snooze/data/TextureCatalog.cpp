@@ -13,6 +13,8 @@
 
         RegisterData(DataList::Texture::SampleSheet, m_SampleSheetFactory);
 
+        RegisterData(DataList::Texture::ConfigSheet, m_ConfigSheetFactory);
+
     }
 
     //----------------------------------------------------------------------------

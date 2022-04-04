@@ -24,4 +24,6 @@
 
         forge::generated::TextureFactories::SampleSheetFactory m_SampleSheetFactory;
 
+        forge::generated::TextureFactories::ConfigSheetFactory m_ConfigSheetFactory;
+
     };

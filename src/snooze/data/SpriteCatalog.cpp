@@ -9,6 +9,14 @@
 
         RegisterData(DataList::Sprite::ForgeSprite, m_ForgeSpriteFactory);
 
+        RegisterData(DataList::Sprite::SoundOn, m_SoundOnFactory);
+
+        RegisterData(DataList::Sprite::SoundOff, m_SoundOffFactory);
+
+        RegisterData(DataList::Sprite::MusicOn, m_MusicOnFactory);
+
+        RegisterData(DataList::Sprite::MusicOff, m_MusicOffFactory);
+
         RegisterData(DataList::Sprite::AlarmNeutralSprite, m_AlarmNeutralSpriteFactory);
 
         RegisterData(DataList::Sprite::AlarmScrewSprite, m_AlarmScrewSpriteFactory);

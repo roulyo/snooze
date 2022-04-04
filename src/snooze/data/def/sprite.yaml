@@ -11,6 +11,34 @@ Sprite:
           name: ForgeSheet
         TextureQuad: [0, 0, 512, 204]
 
+# Config Icon
+
+    - SoundOn:
+        Texture:
+          from: Texture
+          name: ConfigSheet
+        TextureQuad: [0, 0, 240, 240]
+
+    - SoundOff:
+        Texture:
+          from: Texture
+          name: ConfigSheet
+        TextureQuad: [240, 0, 240, 240]
+
+    - MusicOn:
+        Texture:
+          from: Texture
+          name: ConfigSheet
+        TextureQuad: [0, 240, 240, 240]
+
+    - MusicOff:
+        Texture:
+          from: Texture
+          name: ConfigSheet
+        TextureQuad: [240, 240, 240, 240]
+
+# Alarm
+
     - AlarmNeutralSprite:
         Texture:
           from: Texture

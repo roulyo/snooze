@@ -69,4 +69,24 @@
         return m_Data;
     }
 
+    //----------------------------------------------------------------------------
+    forge::Texture* ConfigSheetFactory::m_Data = nullptr;
+
+    //----------------------------------------------------------------------------
+    forge::Texture* ConfigSheetFactory::Create() const
+    {
+    if (m_Data == nullptr)
+    {
+        forge::Texture* data = new forge::Texture();
+        m_Data = data;
+        data->SetInstanceAddr(&m_Data);
+        data->SetDataNameId(DataList::Texture::ConfigSheet);
+
+        data->SetFile("assets/config.png");
+
+    }
+
+        return m_Data;
+    }
+
     }}}

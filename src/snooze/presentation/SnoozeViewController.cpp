@@ -6,6 +6,7 @@
 #include <forge/engine/data/api/DataAPI.h>
 #include <forge/engine/time/api/TimeAPI.h>
 
+#include <forge/builtin/presentation/behaviors/ClickableBehavior.h>
 #include <forge/builtin/rendering/RenderableComponent.h>
 
 #include <snooze/data/DataList.h>
@@ -24,6 +25,9 @@ SnoozeViewController::SnoozeViewController()
     , m_SnoozeView(nullptr)
     , m_StoryView(nullptr)
     , m_ThoughtView(nullptr)
+    , m_ConfigView(nullptr)
+    , m_SoundMuted(false)
+    , m_MusicMuted(false)
 {
     m_SDA.Init();
     s_SpeechSound = forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Speech);
@@ -44,6 +48,18 @@ void SnoozeViewController::OnStart()
     m_SnoozeView->SetPixelPadding({ 154 * HUD_SCALE, 207 * HUD_SCALE });
 
     OpenView(m_SnoozeView);
+
+    m_ConfigView = new ConfigView();
+    m_ConfigView->SetGravity(forge::GUIGravity::TopRight);
+    m_ConfigView->SetPixelSize({ 100, 50 });
+    m_ConfigView->GetMuteSoundButton().AddBehavior<forge::builtin::ClickableBehavior>(
+        FRG__BIND_BEHAVIOR(SnoozeViewController, OnMuteSoundClicked, this)
+    );
+    m_ConfigView->GetMuteMusicButton().AddBehavior<forge::builtin::ClickableBehavior>(
+        FRG__BIND_BEHAVIOR(SnoozeViewController, OnMuteMusicClicked, this)
+    );
+
+    OpenView(m_ConfigView);
 }
 
 //----------------------------------------------------------------------------
@@ -55,6 +71,10 @@ void SnoozeViewController::OnStop()
         ItemAcquieredEvent::Handler(this, &SnoozeViewController::OnItemAcquieredEvent);
     ItemLostEvent::Handlers -=
         ItemLostEvent::Handler(this, &SnoozeViewController::OnItemLostEvent);
+
+    CloseView(m_ConfigView);
+    delete m_ConfigView;
+    m_ConfigView = nullptr;
 
     CloseView(m_SnoozeView);
     delete m_SnoozeView;
@@ -198,6 +218,42 @@ void SnoozeViewController::OnItemLostEvent(const ItemLostEvent& _event)
         CloseView(m_ItemView);
         delete m_ItemView;
         m_ItemView = nullptr;
+    }
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::OnMuteSoundClicked(forge::GUIWidget* _widget,
+                                              const forge::SystemEvent& _event)
+{
+    m_SoundMuted = !m_SoundMuted;
+
+    if (m_SoundMuted)
+    {
+        SetGlobalSoundVolume(0.0f);
+        m_ConfigView->SetSoundOff();
+    }
+    else
+    {
+        SetGlobalSoundVolume(100.0f);
+        m_ConfigView->SetSoundOn();
+    }
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::OnMuteMusicClicked(forge::GUIWidget* _widget,
+                                              const forge::SystemEvent& _event)
+{
+    m_MusicMuted = !m_MusicMuted;
+
+    if (m_MusicMuted)
+    {
+        SetGlobalMusicVolume(0.0f);
+        m_ConfigView->SetMusicOff();
+    }
+    else
+    {
+        SetGlobalMusicVolume(100.0f);
+        m_ConfigView->SetMusicOn();
     }
 }
 

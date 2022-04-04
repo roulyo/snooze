@@ -16,3 +16,7 @@ Texture:
     - SampleSheet:
         Singleton: true
         File: assets/sample.png
+        
+    - ConfigSheet:
+        Singleton: true
+        File: assets/config.png

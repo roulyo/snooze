@@ -6,5 +6,5 @@ ADD_SUBDIRECTORY(sample)
 ADD_SUBDIRECTORY(vermins)
 
 MACRO_ADD_SOURCES(EXE_SRC
-BaseMiniGameComponent.cpp BaseMiniGameComponent.h BaseMiniGame.cpp BaseMiniGame.h
+BaseMiniGame.cpp BaseMiniGame.h BaseMiniGameComponent.cpp BaseMiniGameComponent.h
 )

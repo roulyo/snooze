@@ -17,6 +17,38 @@
     };    
 
     //----------------------------------------------------------------------------
+    class SoundOnFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class SoundOffFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class MusicOnFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class MusicOffFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
     class AlarmNeutralSpriteFactory : public forge::AbstractDataFactory
     {
     public:
