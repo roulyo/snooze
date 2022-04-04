@@ -31,9 +31,9 @@
         forge::Sprite* data = new forge::Sprite();
         data->SetDataNameId(DataList::Sprite::SoundOn);
 
-        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(0, 0, 240, 240);
+        data->SetTextureQuad(1800, 2400, 50, 50);
 
         return data;
     }
@@ -44,9 +44,9 @@
         forge::Sprite* data = new forge::Sprite();
         data->SetDataNameId(DataList::Sprite::SoundOff);
 
-        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(240, 0, 240, 240);
+        data->SetTextureQuad(1850, 2400, 50, 50);
 
         return data;
     }
@@ -57,9 +57,9 @@
         forge::Sprite* data = new forge::Sprite();
         data->SetDataNameId(DataList::Sprite::MusicOn);
 
-        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(0, 240, 240, 240);
+        data->SetTextureQuad(1800, 2450, 50, 50);
 
         return data;
     }
@@ -70,9 +70,9 @@
         forge::Sprite* data = new forge::Sprite();
         data->SetDataNameId(DataList::Sprite::MusicOff);
 
-        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::ConfigSheet));
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
 
-        data->SetTextureQuad(240, 240, 240, 240);
+        data->SetTextureQuad(1850, 2450, 50, 50);
 
         return data;
     }

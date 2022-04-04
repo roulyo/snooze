@@ -70,18 +70,18 @@
 
     }
 
-    namespace Sound
+    namespace SoundBuffer
     {
 
         extern const forge::DataNameId Error;
 
         extern const forge::DataNameId Speech;
 
-        extern const forge::DataNameId Screw;
-
         extern const forge::DataNameId SnoozePress;
 
         extern const forge::DataNameId SnoozeRelease;
+
+        extern const forge::DataNameId Screw;
 
         extern const forge::DataNameId TakeObjectCommon;
 
@@ -103,18 +103,18 @@
 
     }
 
-    namespace SoundBuffer
+    namespace Sound
     {
 
         extern const forge::DataNameId Error;
 
         extern const forge::DataNameId Speech;
 
+        extern const forge::DataNameId Screw;
+
         extern const forge::DataNameId SnoozePress;
 
         extern const forge::DataNameId SnoozeRelease;
-
-        extern const forge::DataNameId Screw;
 
         extern const forge::DataNameId TakeObjectCommon;
 
