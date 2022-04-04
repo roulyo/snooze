@@ -8,6 +8,7 @@
 #include <snooze/ecs/HoveringSystem.h>
 #include <snooze/ecs/RefereeSystem.h>
 #include <snooze/ecs/SnoozeSystem.h>
+#include <snooze/ecs/SoundClickingSystem.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameSystem.h>
 #include <snooze/ecs/minigame/padlock/PadlockMiniGameSystem.h>
 #include <snooze/ecs/minigame/mouseattack/MouseAttackMiniGameSystem.h>
@@ -29,6 +30,7 @@ public:
 
 private:
     HoveringSystem                          m_HoveringSystem;
+    SoundClickingSystem                     m_SoundClickingSystem;
 
     SampleMiniGameSystem                    m_SampleMiniGameSystem;
     PadlockMiniGameSystem                   m_PadlockMiniGameSystem;

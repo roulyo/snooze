@@ -1,0 +1,58 @@
+SoundBuffer:
+  Type: forge::SoundBuffer
+  Includes:
+    - forge/Project.h
+    - forge/engine/audio/resource/SoundBuffer.h
+
+  Data:
+    - Error:
+        Singleton: true
+        File: assets/error.wav
+
+    - SnoozePress:
+        Singleton: true
+        File: assets/snooze_press.wav
+
+    - SnoozeRelease:
+        Singleton: true
+        File: assets/snooze_release.wav
+
+    - Screw:
+        Singleton: true
+        File: assets/screw.wav
+
+    - TakeObjectCommon:
+        Singleton: true
+        File: assets/take_object_common.wav
+
+    - CleanCommon:
+        Singleton: true
+        File: assets/clean_common.wav
+
+    - Key:
+        Singleton: true
+        File: assets/key.wav
+
+    - Lock1:
+        Singleton: true
+        File: assets/lock1.wav
+
+    - Lock2:
+        Singleton: true
+        File: assets/lock2.wav
+
+    - Water1:
+        Singleton: true
+        File: assets/water1.wav
+
+    - Water2:
+        Singleton: true
+        File: assets/water2.wav
+
+    - BBQSplash:
+        Singleton: true
+        File: assets/fire.wav
+
+    - HitMouse:
+        Singleton: true
+        File: assets/hit_mouse.wav

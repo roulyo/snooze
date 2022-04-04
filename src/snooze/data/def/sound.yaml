@@ -1,0 +1,71 @@
+Sound:
+  Type: forge::Sound
+  Includes:
+    - forge/Project.h
+    - forge/engine/audio/playable/Sound.h
+
+  Data:
+    - Error:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Error
+
+    - Screw:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Screw
+
+    - SnoozePress:
+        SoundBuffer:
+          from: SoundBuffer
+          name: SnoozePress
+
+    - SnoozeRelease:
+        SoundBuffer:
+          from: SoundBuffer
+          name: SnoozeRelease
+
+    - TakeObjectCommon:
+        SoundBuffer:
+          from: SoundBuffer
+          name: TakeObjectCommon
+
+    - CleanCommon:
+        SoundBuffer:
+          from: SoundBuffer
+          name: CleanCommon
+
+    - Key:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Key
+
+    - Lock1:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Lock1
+
+    - Lock2:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Lock2
+
+    - Water1:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Water1
+
+    - Water2:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Water2
+
+    - BBQSplash:
+        SoundBuffer:
+          from: SoundBuffer
+          name: BBQSplash
+
+    - HitMouse:
+        SoundBuffer:
+          from: SoundBuffer
+          name: HitMouse

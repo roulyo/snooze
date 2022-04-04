@@ -8,6 +8,7 @@ BaseGameState::BaseGameState(const forge::AbstractForgeGame& _game)
     : AbstractGameState(_game)
 {
     AddSystem(&m_HoveringSystem);
+    AddSystem(&m_SoundClickingSystem);
     AddSystem(&m_SampleMiniGameSystem);
     AddSystem(&m_PadlockMiniGameSystem);
     AddSystem(&m_MouseAttackMiniGameSystem);

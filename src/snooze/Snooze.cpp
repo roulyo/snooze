@@ -12,6 +12,8 @@
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
 #include <snooze/data/FontCatalog.h>
+#include <snooze/data/SoundBufferCatalog.h>
+#include <snooze/data/SoundCatalog.h>
 #include <snooze/data/SpriteCatalog.h>
 #include <snooze/data/TextureCatalog.h>
 #include <snooze/ecs/minigame/sample/SampleMiniGameComponent.h>
@@ -51,7 +53,8 @@ void Snooze::OnInit()
     RegisterCatalogType<FontCatalog>();
     RegisterCatalogType<SpriteCatalog>();
     RegisterCatalogType<TextureCatalog>();
-
+    RegisterCatalogType<SoundCatalog>();
+    RegisterCatalogType<SoundBufferCatalog>();
 
     // Instanciate story singleton
     Story::Instantiate();

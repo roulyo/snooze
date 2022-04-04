@@ -8,8 +8,6 @@
     namespace Entity
     {
 
-        extern const forge::DataNameId SnoozeButton;
-
         extern const forge::DataNameId Alarm;
 
         extern const forge::DataNameId AlarmScrew;
@@ -56,6 +54,68 @@
         extern const forge::DataNameId AlarmClock;
 
         extern const forge::DataNameId StoryFont;
+
+    }
+
+    namespace SoundBuffer
+    {
+
+        extern const forge::DataNameId Error;
+
+        extern const forge::DataNameId SnoozePress;
+
+        extern const forge::DataNameId SnoozeRelease;
+
+        extern const forge::DataNameId Screw;
+
+        extern const forge::DataNameId TakeObjectCommon;
+
+        extern const forge::DataNameId CleanCommon;
+
+        extern const forge::DataNameId Key;
+
+        extern const forge::DataNameId Lock1;
+
+        extern const forge::DataNameId Lock2;
+
+        extern const forge::DataNameId Water1;
+
+        extern const forge::DataNameId Water2;
+
+        extern const forge::DataNameId BBQSplash;
+
+        extern const forge::DataNameId HitMouse;
+
+    }
+
+    namespace Sound
+    {
+
+        extern const forge::DataNameId Error;
+
+        extern const forge::DataNameId Screw;
+
+        extern const forge::DataNameId SnoozePress;
+
+        extern const forge::DataNameId SnoozeRelease;
+
+        extern const forge::DataNameId TakeObjectCommon;
+
+        extern const forge::DataNameId CleanCommon;
+
+        extern const forge::DataNameId Key;
+
+        extern const forge::DataNameId Lock1;
+
+        extern const forge::DataNameId Lock2;
+
+        extern const forge::DataNameId Water1;
+
+        extern const forge::DataNameId Water2;
+
+        extern const forge::DataNameId BBQSplash;
+
+        extern const forge::DataNameId HitMouse;
 
     }
 

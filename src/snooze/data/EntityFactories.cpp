@@ -10,20 +10,6 @@
     namespace forge { namespace generated { namespace EntityFactories {
 
     //----------------------------------------------------------------------------
-    forge::Entity* SnoozeButtonFactory::Create() const
-    {
-        forge::Entity* data = new forge::Entity();
-        data->SetDataNameId(DataList::Entity::SnoozeButton);
-
-        data->SetSize(5.12, 2.04, 0);
-data->AddComponent<SnoozableComponent>();
-auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ForgeSprite));
-
-        return data;
-    }
-
-    //----------------------------------------------------------------------------
     forge::Entity* AlarmFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
@@ -46,6 +32,11 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Screw));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Screw));
 
         return data;
     }
@@ -63,6 +54,9 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::SnoozePress));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::SnoozeRelease));
 
         return data;
     }
@@ -79,6 +73,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningBroom));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
 
         return data;
     }
@@ -95,6 +91,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningWeb));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
         return data;
     }
@@ -111,6 +109,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningFire));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
 
         return data;
     }
@@ -127,6 +127,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningIce));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
         return data;
     }
@@ -143,6 +145,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningSponge));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
 
         return data;
     }
@@ -159,6 +163,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningGoo));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
         return data;
     }
@@ -175,6 +181,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Key));
 
         return data;
     }
@@ -191,6 +199,9 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockLockSprite));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Lock1));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Lock2));
 
         return data;
     }
@@ -228,9 +239,12 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         data->SetDataNameId(DataList::Entity::MouseAttackOpenAlarm);
 
         data->SetSize(20, 20, 0);
-data->AddComponent<forge::builtin::ScreenMappableComponent>();
+//data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackOpenAlarmSprite));
+//auto& soundComp = data->AddComponent<SoundClickableComponent>();
+//soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
+//soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
 
         return data;
     }
@@ -242,9 +256,12 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
         data->SetDataNameId(DataList::Entity::MouseAttackSmoke);
 
         data->SetSize(20, 20, 0);
-data->AddComponent<forge::builtin::ScreenMappableComponent>();
+//data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackSmokeSprite));
+//auto& soundComp = data->AddComponent<SoundClickableComponent>();
+//soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
+//soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
 
         return data;
     }
@@ -259,6 +276,10 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackBbqMouseSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::BBQSplash));
 
         return data;
     }
@@ -273,6 +294,11 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWetMouseSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Cross);
+//auto& soundComp = data->AddComponent<SoundClickableComponent>();
+//soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
+//soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
 
         return data;
     }
@@ -287,6 +313,11 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water1));
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water2));
 
         return data;
     }
@@ -303,6 +334,8 @@ auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::VerminEnemySprite));
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
 
         return data;
     }

@@ -12,19 +12,15 @@
 
     #include <snooze/data/SpriteCatalog.h>
 
+    #include <snooze/data/SoundCatalog.h>
+
     #include <snooze/ecs/SnoozableComponent.h>
 
     #include <snooze/ecs/HoverableComponent.h>
 
+    #include <snooze/ecs/SoundClickableComponent.h>
+
     namespace forge { namespace generated { namespace EntityFactories {
-
-    //----------------------------------------------------------------------------
-    class SnoozeButtonFactory : public forge::AbstractDataFactory
-    {
-    public:
-        forge::Entity* Create() const override;
-
-    };    
 
     //----------------------------------------------------------------------------
     class AlarmFactory : public forge::AbstractDataFactory

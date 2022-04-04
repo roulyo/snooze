@@ -6,17 +6,12 @@ Entity:
     - forge/builtin/rendering/RenderableComponent.h
     - forge/builtin/3Cs/ScreenMappableComponent.h
     - snooze/data/SpriteCatalog.h
+    - snooze/data/SoundCatalog.h
     - snooze/ecs/SnoozableComponent.h
     - snooze/ecs/HoverableComponent.h
+    - snooze/ecs/SoundClickableComponent.h
 
   Data:
-    - SnoozeButton:
-        Size: [5.12, 2.04, 0]
-        Verbatim: |
-          data->AddComponent<SnoozableComponent>();
-          auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
-          renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ForgeSprite));
-
     - Alarm:
         Size: [20, 20, 0]
         Verbatim: |
@@ -29,6 +24,11 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmScrewSprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Screw));
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Screw));
 
     - AlarmButton:
         Size: [20, 20, 0]
@@ -39,6 +39,9 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::AlarmButtonNeutralSprite));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Hand);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::SnoozePress));
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::SnoozeRelease));
 
 # Cleaning mini-game
 
@@ -50,6 +53,8 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningBroom));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Hand);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
 
     - CleaningWeb:
         Size: [20, 20, 0]
@@ -59,6 +64,8 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningWeb));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
     - CleaningFire:
         Size: [3, 3, 0]
@@ -68,6 +75,8 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningFire));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Hand);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
 
     - CleaningIce:
         Size: [20, 20, 0]
@@ -77,6 +86,8 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningIce));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
     - CleaningSponge:
         Size: [3, 3, 0]
@@ -86,6 +97,8 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningSponge));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Hand);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
 
     - CleaningGoo:
         Size: [20, 20, 0]
@@ -95,6 +108,8 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningGoo));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
 # Lock mini-game
 
@@ -106,6 +121,9 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Hand);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Key));
+
     - LockLock:
         Size: [20, 20, 0]
         Verbatim: |
@@ -114,6 +132,10 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockLockSprite));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Lock1));
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Lock2));
+
     - LockChainBack:
         Size: [20, 20, 0]
         Verbatim: |
@@ -130,17 +152,22 @@ Entity:
     - MouseAttackOpenAlarm:
         Size: [20, 20, 0]
         Verbatim: |
-          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          //data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackOpenAlarmSprite));
-
+          //auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          //soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
+          //soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
 
     - MouseAttackSmoke:
         Size: [20, 20, 0]
         Verbatim: |
-          data->AddComponent<forge::builtin::ScreenMappableComponent>();
+          //data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackSmokeSprite));
+          //auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          //soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
+          //soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
 
     - MouseAttackBbqMouse:
         Size: [20, 20, 0]
@@ -148,6 +175,10 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackBbqMouseSprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::BBQSplash));
 
     - MouseAttackWetMouse:
         Size: [20, 20, 0]
@@ -155,6 +186,11 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWetMouseSprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Cross);
+          //auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          //soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
+          //soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Error));
 
     - MouseAttackWaterGlass:
         Size: [5, 5, 0]
@@ -162,6 +198,11 @@ Entity:
           data->AddComponent<forge::builtin::ScreenMappableComponent>();
           auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));
+          auto& hoverComp = data->AddComponent<HoverableComponent>();
+          hoverComp.SetCursorType(CursorType::Hand);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water1));
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water2));
 
 # Vermins mini-game
 
@@ -173,3 +214,5 @@ Entity:
           renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::VerminEnemySprite));
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
+          auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));

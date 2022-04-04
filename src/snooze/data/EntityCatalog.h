@@ -13,9 +13,13 @@
 
     #include <snooze/data/SpriteCatalog.h>
 
+    #include <snooze/data/SoundCatalog.h>
+
     #include <snooze/ecs/SnoozableComponent.h>
 
     #include <snooze/ecs/HoverableComponent.h>
+
+    #include <snooze/ecs/SoundClickableComponent.h>
 
     //----------------------------------------------------------------------------
     class EntityCatalog : public forge::DataCatalog<forge::Entity>
@@ -27,8 +31,6 @@
         ~EntityCatalog();
 
     private:
-
-        forge::generated::EntityFactories::SnoozeButtonFactory m_SnoozeButtonFactory;
 
         forge::generated::EntityFactories::AlarmFactory m_AlarmFactory;
 

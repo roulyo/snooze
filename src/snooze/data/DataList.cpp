@@ -8,8 +8,6 @@
     namespace Entity
     {
 
-        constexpr forge::DataNameId SnoozeButton = forge::DataNameId("Entity::SnoozeButton");
-
         constexpr forge::DataNameId Alarm = forge::DataNameId("Entity::Alarm");
 
         constexpr forge::DataNameId AlarmScrew = forge::DataNameId("Entity::AlarmScrew");
@@ -56,6 +54,68 @@
         constexpr forge::DataNameId AlarmClock = forge::DataNameId("Font::AlarmClock");
 
         constexpr forge::DataNameId StoryFont = forge::DataNameId("Font::StoryFont");
+
+    }
+
+    namespace SoundBuffer
+    {
+
+        constexpr forge::DataNameId Error = forge::DataNameId("SoundBuffer::Error");
+
+        constexpr forge::DataNameId SnoozePress = forge::DataNameId("SoundBuffer::SnoozePress");
+
+        constexpr forge::DataNameId SnoozeRelease = forge::DataNameId("SoundBuffer::SnoozeRelease");
+
+        constexpr forge::DataNameId Screw = forge::DataNameId("SoundBuffer::Screw");
+
+        constexpr forge::DataNameId TakeObjectCommon = forge::DataNameId("SoundBuffer::TakeObjectCommon");
+
+        constexpr forge::DataNameId CleanCommon = forge::DataNameId("SoundBuffer::CleanCommon");
+
+        constexpr forge::DataNameId Key = forge::DataNameId("SoundBuffer::Key");
+
+        constexpr forge::DataNameId Lock1 = forge::DataNameId("SoundBuffer::Lock1");
+
+        constexpr forge::DataNameId Lock2 = forge::DataNameId("SoundBuffer::Lock2");
+
+        constexpr forge::DataNameId Water1 = forge::DataNameId("SoundBuffer::Water1");
+
+        constexpr forge::DataNameId Water2 = forge::DataNameId("SoundBuffer::Water2");
+
+        constexpr forge::DataNameId BBQSplash = forge::DataNameId("SoundBuffer::BBQSplash");
+
+        constexpr forge::DataNameId HitMouse = forge::DataNameId("SoundBuffer::HitMouse");
+
+    }
+
+    namespace Sound
+    {
+
+        constexpr forge::DataNameId Error = forge::DataNameId("Sound::Error");
+
+        constexpr forge::DataNameId Screw = forge::DataNameId("Sound::Screw");
+
+        constexpr forge::DataNameId SnoozePress = forge::DataNameId("Sound::SnoozePress");
+
+        constexpr forge::DataNameId SnoozeRelease = forge::DataNameId("Sound::SnoozeRelease");
+
+        constexpr forge::DataNameId TakeObjectCommon = forge::DataNameId("Sound::TakeObjectCommon");
+
+        constexpr forge::DataNameId CleanCommon = forge::DataNameId("Sound::CleanCommon");
+
+        constexpr forge::DataNameId Key = forge::DataNameId("Sound::Key");
+
+        constexpr forge::DataNameId Lock1 = forge::DataNameId("Sound::Lock1");
+
+        constexpr forge::DataNameId Lock2 = forge::DataNameId("Sound::Lock2");
+
+        constexpr forge::DataNameId Water1 = forge::DataNameId("Sound::Water1");
+
+        constexpr forge::DataNameId Water2 = forge::DataNameId("Sound::Water2");
+
+        constexpr forge::DataNameId BBQSplash = forge::DataNameId("Sound::BBQSplash");
+
+        constexpr forge::DataNameId HitMouse = forge::DataNameId("Sound::HitMouse");
 
     }
 
