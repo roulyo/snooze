@@ -27,6 +27,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Screw));
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Screw));
 
@@ -77,6 +78,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
     - CleaningFire:
@@ -99,6 +101,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
     - CleaningSponge:
@@ -121,6 +124,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::CleanCommon));
 
 # Lock mini-game
@@ -145,6 +149,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Lock1));
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Lock2));
 
@@ -186,6 +191,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::BBQSplash));
 
     - MouseAttackWetMouse:
@@ -223,6 +229,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
 
 # Battery mini-game
@@ -236,6 +243,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water1));
 
     - BatteryMouse:

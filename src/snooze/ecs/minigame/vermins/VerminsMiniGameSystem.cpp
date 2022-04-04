@@ -26,6 +26,7 @@ VerminsMiniGameSystem::VerminsMiniGameSystem()
 void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 {
     static std::random_device rd;
+    bool unmute_vermins = false;
     VerminsMiniGameComponent& comp = _entity->GetComponent<VerminsMiniGameComponent>();
 
     BaseMiniGame::Update(comp);
@@ -35,11 +36,14 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     {
         if (m_Tool != nullptr)
         {
+            unmute_vermins = true;
             ItemAcquieredEvent::Broadcast(m_Tool);
             RequestRemoveEntity(m_Tool);
             m_Tool = nullptr;
         }
-        if (m_KeyAcquired && m_Key != nullptr) {
+        if (m_KeyAcquired && m_Key != nullptr)
+        {
+            m_Lock->GetComponent<SoundClickableComponent>().SetIsMute(false);
             ItemLostEvent::Broadcast();
             ItemAcquieredEvent::Broadcast(m_Key);
             RequestRemoveEntity(m_Key);
@@ -55,6 +59,10 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 
         while (it != m_Vermins.end())
         {
+            if (unmute_vermins)
+            {
+                it->first->GetComponent<SoundClickableComponent>().SetIsMute(false);
+            }
             if (it->second)
             {
                 if (m_Key == nullptr)
@@ -72,6 +80,7 @@ void VerminsMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
                     }
                 }
 
+                it->first->GetComponent<SoundClickableComponent>().SetIsMute(true);
                 RequestRemoveEntity(it->first);
                 it = m_Vermins.erase(it);
             }
@@ -89,6 +98,10 @@ void VerminsMiniGameSystem::Reset()
     m_Tool = nullptr;
     RequestRemoveEntity(m_Key);
     m_Key = nullptr;
+    if (m_Lock != nullptr)
+    {
+        m_Lock->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
     RequestRemoveEntity(m_Lock);
     m_Lock = nullptr;
     RequestRemoveEntity(m_MetalBox);
@@ -99,6 +112,10 @@ void VerminsMiniGameSystem::Reset()
 
     while (it != m_Vermins.end())
     {
+        if (it->first != nullptr)
+        {
+            it->first->GetComponent<SoundClickableComponent>().SetIsMute(true);
+        }
         RequestRemoveEntity(it->first);
         it = m_Vermins.erase(it);
     }

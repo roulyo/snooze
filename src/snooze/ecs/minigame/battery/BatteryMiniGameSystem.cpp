@@ -30,12 +30,14 @@ void BatteryMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 
     if (m_screwdriverPicked && m_Screwdriver != nullptr)
     {
+        m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_Screwdriver);
         RequestRemoveEntity(m_Screwdriver);
         m_Screwdriver = nullptr;
     } else if (m_alarmOpened && m_Screw != nullptr)
     {
         ItemLostEvent::Broadcast();
+        m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(true);
         RequestRemoveEntity(m_Screw);
         m_Screw = nullptr;
 
@@ -52,6 +54,7 @@ void BatteryMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
         RequestAddEntity(m_Battery);
     } else if (m_batteryCollected && m_Battery != nullptr)
     {
+        m_BatteryContainer->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_Battery);
         RequestRemoveEntity(m_Battery);
         m_Battery = nullptr;
@@ -69,10 +72,18 @@ void BatteryMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
             m_EndGameTimer.Stop();
 
             RequestRemoveEntity(m_OpenAlarm);
+            if (m_Screw != nullptr)
+            {
+                m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(true);
+            }
             RequestRemoveEntity(m_Screw);
             RequestRemoveEntity(m_Screwdriver);
             RequestRemoveEntity(m_Mouse);
             RequestRemoveEntity(m_Battery);
+            if (m_BatteryContainer != nullptr)
+            {
+                m_BatteryContainer->GetComponent<SoundClickableComponent>().SetIsMute(true);
+            }
             RequestRemoveEntity(m_BatteryContainer);
 
             m_OpenAlarm = m_Screwdriver = m_Screw = nullptr;
@@ -90,10 +101,18 @@ void BatteryMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 void BatteryMiniGameSystem::Reset()
 {
     RequestRemoveEntity(m_OpenAlarm);
+    if (m_Screw != nullptr)
+    {
+        m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
     RequestRemoveEntity(m_Screw);
     RequestRemoveEntity(m_Screwdriver);
     RequestRemoveEntity(m_Mouse);
     RequestRemoveEntity(m_Battery);
+    if (m_BatteryContainer != nullptr)
+    {
+        m_BatteryContainer->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
     RequestRemoveEntity(m_BatteryContainer);
 
     m_OpenAlarm = m_Screwdriver = m_Screw = nullptr;
