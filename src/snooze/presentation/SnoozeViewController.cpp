@@ -116,6 +116,15 @@ void SnoozeViewController::UpdateSnoozeView()
         forge::String secStr = seconds < 10 ? "0" :  "";
         forge::String minStr = minutes < 10 ? "0" :  "";
 
+        if (seconds < 20 && seconds >= 10)
+        {
+            m_SnoozeView->GetSecondsDisplay().SetGravity(forge::GUIGravity::Right);
+        }
+        else
+        {
+            m_SnoozeView->GetSecondsDisplay().SetGravity(forge::GUIGravity::Center);
+        }
+
         m_SnoozeView->GetSecondsDisplay().GetText()->SetString(secStr + std::to_string(seconds));
         m_SnoozeView->GetMinutesDisplay().GetText()->SetString(minStr + std::to_string(minutes));
         m_SnoozeView->GetColonDisplay().GetText()->SetFillColor(

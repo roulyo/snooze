@@ -2,6 +2,7 @@
 
 #include <forge/engine/presentation/View.h>
 
+#include <forge/builtin/presentation/guiwidgets/Div.h>
 #include <forge/builtin/presentation/guiwidgets/TextPanel.h>
 
 //----------------------------------------------------------------------------
@@ -15,8 +16,10 @@ public:
     forge::builtin::gui::QuadTextPanel& GetSecondsDisplay();
 
 private:
+    forge::builtin::gui::Div             m_MinutesDiv;
     forge::builtin::gui::QuadTextPanel   m_Minutes;
     forge::builtin::gui::QuadTextPanel   m_Colon;
+    forge::builtin::gui::Div             m_SecondsDiv;
     forge::builtin::gui::QuadTextPanel   m_Seconds;
 
 };

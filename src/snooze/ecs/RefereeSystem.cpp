@@ -1,6 +1,8 @@
 #include <snooze/Precomp.h>
 #include <snooze/ecs/RefereeSystem.h>
 
+#include <math.h>
+
 #include <snooze/SnoozeConfig.h>
 
 //----------------------------------------------------------------------------
@@ -62,7 +64,6 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
             StartMiniGameRequestEvent::Broadcast();
             comp.SetClickable(false);
             m_MiniGameSpawned = true;
-            comp.ForceMiniGameAtRatio = NAN;
         }
     }
     else if (m_MiniGameSpawned)
@@ -75,6 +76,8 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         // TODO: Display narration here
         comp.SetClickable(true);
         m_MiniGameIsCompleted = false;
+
+        comp.ForceMiniGameAtRatio = NAN;
     }
 }
 
