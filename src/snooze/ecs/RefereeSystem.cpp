@@ -10,6 +10,7 @@ void RefereeSystem::OnStart()
 {
     m_MiniGameSpawned = false;
     m_MiniGameIsCompleted = false;
+    m_EndGameReached = false;
 
     MiniGameCompletedEvent::Handlers +=
         MiniGameCompletedEvent::Handler(this, &RefereeSystem::OnMiniGameCompletedEvent);
@@ -36,18 +37,21 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         return;
     }
 
-    if (m_EndGameTimer.IsStarted())
+    if (m_EndGameReached)
     {
         if (comp.IsClickable())
         {
+            comp.GetTimer().Start(SnoozeConfig::PostGameTimeMs);
             comp.SetClickable(false);
         }
 
-        if (m_EndGameTimer.IsElapsed())
+        if (comp.GetTimer().IsElapsed())
         {
+            comp.GetTimer().Stop();
             GameOverRequestedEvent::Broadcast(true);
-            m_EndGameTimer.Stop();
         }
+
+        return;
     }
 
     if (comp.GetTimer().IsElapsed())
@@ -73,7 +77,6 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
 
     if (m_MiniGameIsCompleted)
     {
-        // TODO: Display narration here
         comp.SetClickable(true);
         m_MiniGameIsCompleted = false;
 
@@ -91,5 +94,5 @@ void RefereeSystem::OnMiniGameCompletedEvent(const MiniGameCompletedEvent& _even
 //----------------------------------------------------------------------------
 void RefereeSystem::OnStoryCompletedEvent(const StoryCompletedEvent& _event)
 {
-    m_EndGameTimer.Start(2000);
+    m_EndGameReached = true;
 }

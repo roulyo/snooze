@@ -23,6 +23,6 @@ private:
     bool            m_MiniGameSpawned;
     bool            m_MiniGameIsCompleted;
 
-    forge::Chrono   m_EndGameTimer;
+    bool            m_EndGameReached;
 
 };

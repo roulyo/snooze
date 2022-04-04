@@ -21,7 +21,7 @@ void StoryView::SetupStoryPanel()
     m_StoryPanel.GetBackground()->SetOutlineThickness(5.f);
     m_StoryPanel.GetBackground()->SetFillColor({ 200, 200, 200 });
     m_StoryPanel.GetText().Gravity = forge::GUIGravity::TopLeft;
-    m_StoryPanel.GetText().RelativePadding = { 3, 4 };
+    m_StoryPanel.GetText().RelativePadding = { 10, 12 };
     m_StoryPanel.GetText()->SetFont(font);
     m_StoryPanel.GetText()->SetSize(42);
     m_StoryPanel.GetText()->SetFillColor({ 55, 55, 55 });
