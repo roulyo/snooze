@@ -80,7 +80,7 @@ void Snooze::OnInit()
     m_World.AddEntity(button);
 
     forge::CameraAPI::SetLookAt({50.f, 50.f, 0.f});
-    forge::CameraAPI::SetDistance(20);
+    forge::CameraAPI::SetDistance(10);
     forge::CameraAPI::SetFieldOfView(90);
     forge::CameraAPI::SetFilmedWorld(GetWorld());
 
