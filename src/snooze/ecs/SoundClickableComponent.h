@@ -11,6 +11,7 @@ class SoundClickableComponent : public forge::AbstractComponent
 public:
     SoundClickableComponent();
 
+    FRG__CLASS_ATTR_RW(bool, IsMute);
     FRG__CLASS_ATTR_RW(forge::Sound::Ptr, OnPressSound);
     FRG__CLASS_ATTR_RW(forge::Sound::Ptr, OnReleaseSound);
 

@@ -24,18 +24,13 @@ void SoundClickingSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _ent
     {
         if (it->ClickedEntity == _entity)
         {
-            if (it->Pressed)
-            {
-                const auto& sound = _entity->GetComponent<SoundClickableComponent>().GetOnPressSound();
+            const SoundClickableComponent& soundClickComp =
+                _entity->GetComponent<SoundClickableComponent>();
 
-                if (sound != nullptr)
-                {
-                    PlaySound(sound);
-                }
-            }
-            else
+            if (!soundClickComp.GetIsMute())
             {
-                const auto& sound = _entity->GetComponent<SoundClickableComponent>().GetOnReleaseSound();
+                const forge::Sound::Ptr& sound = it->Pressed ? soundClickComp.GetOnPressSound()
+                                                             : soundClickComp.GetOnReleaseSound();
 
                 if (sound != nullptr)
                 {

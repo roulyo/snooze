@@ -6,7 +6,8 @@ FRG__IMPL_COMPONENT(SoundClickableComponent);
 
 //----------------------------------------------------------------------------
 SoundClickableComponent::SoundClickableComponent()
-    : m_OnPressSound(nullptr)
+    : m_IsMute(false)
+    , m_OnPressSound(nullptr)
     , m_OnReleaseSound(nullptr)
 {
 }
