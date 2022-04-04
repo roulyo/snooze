@@ -72,4 +72,10 @@
 
         forge::generated::EntityFactories::VerminEnemyFactory m_VerminEnemyFactory;
 
+        forge::generated::EntityFactories::BatteryContainerFactory m_BatteryContainerFactory;
+
+        forge::generated::EntityFactories::BatteryMouseFactory m_BatteryMouseFactory;
+
+        forge::generated::EntityFactories::BatteryItemFactory m_BatteryItemFactory;
+
     };

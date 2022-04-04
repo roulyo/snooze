@@ -48,6 +48,12 @@
 
         extern const forge::DataNameId VerminEnemy;
 
+        extern const forge::DataNameId BatteryContainer;
+
+        extern const forge::DataNameId BatteryMouse;
+
+        extern const forge::DataNameId BatteryItem;
+
     }
 
     namespace Font
@@ -169,6 +175,16 @@
         extern const forge::DataNameId MouseAttackWaterGlassSprite;
 
         extern const forge::DataNameId VerminEnemySprite;
+
+        extern const forge::DataNameId BatteryMissingOneSprite;
+
+        extern const forge::DataNameId BatteryCompleteSprite;
+
+        extern const forge::DataNameId BatteryStealingMouseSprite;
+
+        extern const forge::DataNameId BatteryKOMouse;
+
+        extern const forge::DataNameId BatteryItemSprite;
 
     }
 
