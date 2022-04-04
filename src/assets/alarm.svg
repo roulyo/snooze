@@ -636,9 +636,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="11.313709"
-     inkscape:cx="42.95007"
-     inkscape:cy="157.12034"
+     inkscape:zoom="1"
+     inkscape:cx="224.71727"
+     inkscape:cy="312.86584"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -649,7 +649,7 @@
      inkscape:window-y="25"
      inkscape:window-maximized="1"
      showguides="false"
-     inkscape:snap-global="false"
+     inkscape:snap-global="true"
      inkscape:snap-bbox="false"
      inkscape:snap-grids="true">
     <inkscape:grid
@@ -735,8 +735,8 @@
        id="rect5681"
        width="26.458332"
        height="26.458332"
-       x="-79.375"
-       y="191.16664" />
+       x="-52.916664"
+       y="138.24997" />
     <path
        style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter5677)"
        d="m 49.381998,265.43394 -0.173633,-0.14056 0.711068,-0.29765 0.438216,0.82682 -0.152963,0.15709 c 0,0 -0.08985,-0.61941 -0.351399,-0.72347 -0.175282,-0.0697 -0.471289,0.17777 -0.471289,0.17777 z"
@@ -2695,43 +2695,6 @@
          d="m 10.512997,260.39778 c -0.01364,-2.59734 2.116615,-1.86281 1.571338,0.11227"
          style="fill:none;stroke:#808080;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
-    <ellipse
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#666666;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse17135-3-8"
-       cx="140.64505"
-       cy="-240.98851"
-       rx="1.4902765"
-       ry="0.72331417"
-       transform="rotate(126.2687)" />
-    <ellipse
-       transform="rotate(126.2687)"
-       ry="0.72331417"
-       rx="1.4902765"
-       cy="-240.92935"
-       cx="140.54335"
-       id="ellipse17031-7-0-63"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#808080;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <ellipse
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#666666;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       id="ellipse17135-5"
-       cx="195.98395"
-       cy="203.61371"
-       rx="1.4902765"
-       ry="0.72331417"
-       transform="rotate(17.190673)" />
-    <ellipse
-       transform="rotate(17.190673)"
-       ry="0.72331417"
-       rx="1.4902765"
-       cy="203.67287"
-       cx="195.88225"
-       id="ellipse17031-7-7"
-       style="opacity:1;fill:none;fill-opacity:1;stroke:#808080;stroke-width:0.52916664;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path7049-4-4"
-       d="m 123.05504,252.61447 4.39617,-2.60118"
-       style="fill:none;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.9755969px;line-height:1.25;font-family:Chilanka;-inkscape-font-specification:Chilanka;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.19938992"
@@ -4604,7 +4567,7 @@
            inkscape:connector-curvature="0"
            id="path16286-8-3-5-0"
            d="m 35.812187,252.14696 2.098573,0.77031"
-           style="fill:#ffb380;stroke:#ffb380;stroke-width:0.53041309;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+           style="fill:#ff6600;stroke:#ff6600;stroke-width:0.53041309;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       </g>
       <path
          sodipodi:nodetypes="ccccc"
