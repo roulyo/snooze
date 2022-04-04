@@ -97,6 +97,14 @@
     };    
 
     //----------------------------------------------------------------------------
+    class ScrewdriverSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
     class LockKeySpriteFactory : public forge::AbstractDataFactory
     {
     public:

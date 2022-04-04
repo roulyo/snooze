@@ -62,6 +62,24 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
     }
 
     //----------------------------------------------------------------------------
+    forge::Entity* ScrewdriverFactory::Create() const
+    {
+        forge::Entity* data = new forge::Entity();
+        data->SetDataNameId(DataList::Entity::Screwdriver);
+
+        data->SetSize(6.5, 6.5, 0);
+data->AddComponent<forge::builtin::ScreenMappableComponent>();
+auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
+renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::ScrewdriverSprite));
+auto& hoverComp = data->AddComponent<HoverableComponent>();
+hoverComp.SetCursorType(CursorType::Hand);
+auto& soundComp = data->AddComponent<SoundClickableComponent>();
+soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Entity* CleaningBroomFactory::Create() const
     {
         forge::Entity* data = new forge::Entity();
