@@ -35,10 +35,10 @@ bool Snooze::IsGameCompleted()
 //----------------------------------------------------------------------------
 Snooze::Snooze()
 {
-    m_MiniGames.push_back(SampleMiniGameComponent::Id);
-    m_MiniGames.push_back(PadlockMiniGameComponent::Id);
+    // m_MiniGames.push_back(SampleMiniGameComponent::Id);
+    // m_MiniGames.push_back(PadlockMiniGameComponent::Id);
     m_MiniGames.push_back(MouseAttackMiniGameComponent::Id);
-    m_MiniGames.push_back(VerminsMiniGameComponent::Id);
+    // m_MiniGames.push_back(VerminsMiniGameComponent::Id);
 }
 
 //----------------------------------------------------------------------------
