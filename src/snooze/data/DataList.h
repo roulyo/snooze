@@ -62,6 +62,8 @@
 
         extern const forge::DataNameId Error;
 
+        extern const forge::DataNameId Speech;
+
         extern const forge::DataNameId SnoozePress;
 
         extern const forge::DataNameId SnoozeRelease;
@@ -92,6 +94,8 @@
     {
 
         extern const forge::DataNameId Error;
+
+        extern const forge::DataNameId Speech;
 
         extern const forge::DataNameId Screw;
 

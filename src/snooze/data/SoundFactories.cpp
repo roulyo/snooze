@@ -24,6 +24,17 @@
     }
 
     //----------------------------------------------------------------------------
+    forge::Sound* SpeechFactory::Create() const
+    {
+        forge::Sound* data = new forge::Sound();
+        data->SetDataNameId(DataList::Sound::Speech);
+
+        data->SetSoundBuffer(forge::DataAPI::GetDataFrom<SoundBufferCatalog>(DataList::SoundBuffer::Speech));
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Sound* ScrewFactory::Create() const
     {
         forge::Sound* data = new forge::Sound();

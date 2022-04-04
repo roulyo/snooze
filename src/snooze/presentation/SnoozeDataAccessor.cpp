@@ -10,4 +10,6 @@ u32 SnoozeDataAccessor::GetRemainingTimeMs() const
             ->GetComponent<SnoozableComponent>()
             .GetTimer().GetRemainingTimeMs();
     }
+
+    return 0;
 }

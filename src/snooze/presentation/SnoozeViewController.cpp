@@ -1,12 +1,19 @@
 #include <snooze/Precomp.h>
 #include <snooze/presentation/SnoozeViewController.h>
 
+#include <forge/engine/data/api/DataAPI.h>
+#include <forge/engine/time/api/TimeAPI.h>
+
 #include <forge/builtin/rendering/RenderableComponent.h>
 
+#include <snooze/data/DataList.h>
+#include <snooze/data/SoundCatalog.h>
 #include <snooze/Story.h>
 
 //----------------------------------------------------------------------------
 static constexpr f32 HUD_SCALE = 1080.f / 600.f;
+
+static forge::Sound::Ptr s_SpeechSound = nullptr;
 
 //----------------------------------------------------------------------------
 SnoozeViewController::SnoozeViewController()
@@ -15,6 +22,7 @@ SnoozeViewController::SnoozeViewController()
     , m_StoryView(nullptr)
 {
     m_SDA.Init();
+    s_SpeechSound = forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Speech);
 }
 
 //----------------------------------------------------------------------------
@@ -29,7 +37,7 @@ void SnoozeViewController::OnStart()
 
     m_SnoozeView = new SnoozeView();
     m_SnoozeView->SetPixelSize({ 202 * HUD_SCALE, 64  * HUD_SCALE });
-    m_SnoozeView->SetPixelPadding({ 154 * HUD_SCALE, 212 * HUD_SCALE });
+    m_SnoozeView->SetPixelPadding({ 154 * HUD_SCALE, 202 * HUD_SCALE });
 
     OpenView(m_SnoozeView);
 }
@@ -84,7 +92,7 @@ void SnoozeViewController::Update()
 
     if (m_StoryView != nullptr)
     {
-        //m_StoryView->SetAlpha(static_cast<u8>(std::max(0.f, (std::log10(1.f - m_StoryTimer.GetElapsedRatio()) + 1.f) * 255)));
+        UpdateCurrentStoryDisplay();
 
         if (m_StoryTimer.IsElapsed())
         {
@@ -158,9 +166,39 @@ void SnoozeViewController::DisplayNextAvailableStoryPage()
 {
     if (m_StoryPages.size() > 0)
     {
-        forge::String str = m_StoryPages[0];
+        m_CurrentStory.Content = m_StoryPages[0];
+        m_CurrentStory.Index = 0;
+
         m_StoryPages.erase(m_StoryPages.cbegin());
-        m_StoryView->GetStoryPanel().GetText()->SetString(str);
         m_StoryTimer.Start(2000);
     }
+}
+
+//----------------------------------------------------------------------------
+void SnoozeViewController::UpdateCurrentStoryDisplay()
+{
+    static u64 startTimeMs;
+
+    if (m_CurrentStory.Index == 0)
+    {
+        startTimeMs = forge::TimeAPI::GetGameTimeMilliseconds();
+    }
+
+    u32 prevIndex = m_CurrentStory.Index;
+    f32 charCount =   (SnoozeConfig::SpeechCharactersPerSecond / 1000.f)
+                    * (forge::TimeAPI::GetGameTimeMilliseconds() - startTimeMs);
+    m_CurrentStory.Index = std::min(m_CurrentStory.Content.size(), static_cast<u64>(charCount));
+    m_CurrentStory.Index = std::max(1u, m_CurrentStory.Index);
+
+    if (prevIndex != m_CurrentStory.Index && (m_CurrentStory.Index % 7 == 1))
+    {
+        u8 charValue = m_CurrentStory.Content[m_CurrentStory.Index] % 26;
+        f32 pitch = 1.f + (static_cast<f32>(charValue) / 26.f);
+
+        s_SpeechSound->SetPitch(pitch);
+        PlaySound(s_SpeechSound);
+    }
+
+    forge::String str = m_CurrentStory.Content.substr(0, m_CurrentStory.Index);
+    m_StoryView->GetStoryPanel().GetText()->SetString(str);
 }

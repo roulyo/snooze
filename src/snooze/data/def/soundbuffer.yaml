@@ -9,6 +9,10 @@ SoundBuffer:
         Singleton: true
         File: assets/error.wav
 
+    - Speech:
+        Singleton: true
+        File: assets/speech.wav
+
     - SnoozePress:
         Singleton: true
         File: assets/snooze_press.wav

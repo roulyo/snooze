@@ -30,6 +30,26 @@
     }
 
     //----------------------------------------------------------------------------
+    forge::SoundBuffer* SpeechFactory::m_Data = nullptr;
+
+    //----------------------------------------------------------------------------
+    forge::SoundBuffer* SpeechFactory::Create() const
+    {
+    if (m_Data == nullptr)
+    {
+        forge::SoundBuffer* data = new forge::SoundBuffer();
+        m_Data = data;
+        data->SetInstanceAddr(&m_Data);
+        data->SetDataNameId(DataList::SoundBuffer::Speech);
+
+        data->SetFile("assets/speech.wav");
+
+    }
+
+        return m_Data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::SoundBuffer* SnoozePressFactory::m_Data = nullptr;
 
     //----------------------------------------------------------------------------

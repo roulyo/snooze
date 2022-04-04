@@ -10,6 +10,11 @@ Sound:
           from: SoundBuffer
           name: Error
 
+    - Speech:
+        SoundBuffer:
+          from: SoundBuffer
+          name: Speech
+
     - Screw:
         SoundBuffer:
           from: SoundBuffer

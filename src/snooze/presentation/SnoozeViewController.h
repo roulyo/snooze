@@ -1,5 +1,6 @@
 #pragma once
 
+#include <forge/engine/audio/AudioAgent.h>
 #include <forge/engine/presentation/ViewController.h>
 #include <forge/engine/time/Chrono.h>
 
@@ -12,6 +13,7 @@
 
 //----------------------------------------------------------------------------
 class SnoozeViewController : public forge::AbstractViewController
+                           , public forge::AudioAgent
 {
 public:
     SnoozeViewController();
@@ -27,6 +29,7 @@ private:
     void OnItemLostEvent(const ItemLostEvent& _event);
 
     void DisplayNextAvailableStoryPage();
+    void UpdateCurrentStoryDisplay();
 
 private:
     ItemView*                       m_ItemView;
@@ -35,6 +38,11 @@ private:
 
     forge::Chrono                   m_StoryTimer;
     forge::Vector<forge::String>    m_StoryPages;
+    struct
+    {
+        forge::String               Content;
+        u32                         Index;
+    }                               m_CurrentStory;
 
     SnoozeDataAccessor              m_SDA;
 

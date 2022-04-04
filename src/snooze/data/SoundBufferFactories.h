@@ -20,6 +20,17 @@
     };
 
     //----------------------------------------------------------------------------
+    class SpeechFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::SoundBuffer* Create() const override;
+
+    private:
+        static forge::SoundBuffer* m_Data;
+
+    };
+
+    //----------------------------------------------------------------------------
     class SnoozePressFactory : public forge::AbstractDataFactory
     {
     public:

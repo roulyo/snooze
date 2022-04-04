@@ -17,6 +17,14 @@
     };    
 
     //----------------------------------------------------------------------------
+    class SpeechFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sound* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
     class ScrewFactory : public forge::AbstractDataFactory
     {
     public:

@@ -9,6 +9,8 @@
 
         RegisterData(DataList::SoundBuffer::Error, m_ErrorFactory);
 
+        RegisterData(DataList::SoundBuffer::Speech, m_SpeechFactory);
+
         RegisterData(DataList::SoundBuffer::SnoozePress, m_SnoozePressFactory);
 
         RegisterData(DataList::SoundBuffer::SnoozeRelease, m_SnoozeReleaseFactory);

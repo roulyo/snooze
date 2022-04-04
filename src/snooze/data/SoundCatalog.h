@@ -20,6 +20,8 @@
 
         forge::generated::SoundFactories::ErrorFactory m_ErrorFactory;
 
+        forge::generated::SoundFactories::SpeechFactory m_SpeechFactory;
+
         forge::generated::SoundFactories::ScrewFactory m_ScrewFactory;
 
         forge::generated::SoundFactories::SnoozePressFactory m_SnoozePressFactory;

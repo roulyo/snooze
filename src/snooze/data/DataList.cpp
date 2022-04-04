@@ -62,6 +62,8 @@
 
         constexpr forge::DataNameId Error = forge::DataNameId("SoundBuffer::Error");
 
+        constexpr forge::DataNameId Speech = forge::DataNameId("SoundBuffer::Speech");
+
         constexpr forge::DataNameId SnoozePress = forge::DataNameId("SoundBuffer::SnoozePress");
 
         constexpr forge::DataNameId SnoozeRelease = forge::DataNameId("SoundBuffer::SnoozeRelease");
@@ -92,6 +94,8 @@
     {
 
         constexpr forge::DataNameId Error = forge::DataNameId("Sound::Error");
+
+        constexpr forge::DataNameId Speech = forge::DataNameId("Sound::Speech");
 
         constexpr forge::DataNameId Screw = forge::DataNameId("Sound::Screw");
 

@@ -16,3 +16,6 @@ using f32 = forge::f32;
 using f64 = forge::f64;
 
 using byte = forge::byte;
+
+#include <snooze/GameEvents.h>
+#include <snooze/SnoozeConfig.h>
