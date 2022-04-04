@@ -137,7 +137,7 @@ void VerminsMiniGameSystem::OnMiniGameStart()
     for (int i = 0; i < m_MaxVermins; i++)
     {
         forge::Entity::Ptr vermin = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::VerminEnemy);
-        forge::Vector3 randLocation = spawnPoints[i];
+        forge::Vector3f randLocation = spawnPoints[i];
         vermin->SetPosition(randLocation.x, randLocation.y, randLocation.z);
         RequestAddEntity(vermin);
         m_Vermins.push_back({vermin, false});
