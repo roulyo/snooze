@@ -134,6 +134,8 @@
 
         constexpr forge::DataNameId AlarmButtonPressedSprite = forge::DataNameId("Sprite::AlarmButtonPressedSprite");
 
+        constexpr forge::DataNameId AlarmButtonPressedProblemSprite = forge::DataNameId("Sprite::AlarmButtonPressedProblemSprite");
+
         constexpr forge::DataNameId CleaningBroom = forge::DataNameId("Sprite::CleaningBroom");
 
         constexpr forge::DataNameId CleaningWeb = forge::DataNameId("Sprite::CleaningWeb");

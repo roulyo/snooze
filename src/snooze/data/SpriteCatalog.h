@@ -28,6 +28,8 @@
 
         forge::generated::SpriteFactories::AlarmButtonPressedSpriteFactory m_AlarmButtonPressedSpriteFactory;
 
+        forge::generated::SpriteFactories::AlarmButtonPressedProblemSpriteFactory m_AlarmButtonPressedProblemSpriteFactory;
+
         forge::generated::SpriteFactories::CleaningBroomFactory m_CleaningBroomFactory;
 
         forge::generated::SpriteFactories::CleaningWebFactory m_CleaningWebFactory;

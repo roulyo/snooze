@@ -134,6 +134,8 @@
 
         extern const forge::DataNameId AlarmButtonPressedSprite;
 
+        extern const forge::DataNameId AlarmButtonPressedProblemSprite;
+
         extern const forge::DataNameId CleaningBroom;
 
         extern const forge::DataNameId CleaningWeb;

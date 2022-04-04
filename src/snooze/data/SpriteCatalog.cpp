@@ -17,6 +17,8 @@
 
         RegisterData(DataList::Sprite::AlarmButtonPressedSprite, m_AlarmButtonPressedSpriteFactory);
 
+        RegisterData(DataList::Sprite::AlarmButtonPressedProblemSprite, m_AlarmButtonPressedProblemSpriteFactory);
+
         RegisterData(DataList::Sprite::CleaningBroom, m_CleaningBroomFactory);
 
         RegisterData(DataList::Sprite::CleaningWeb, m_CleaningWebFactory);
