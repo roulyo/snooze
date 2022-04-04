@@ -5,7 +5,7 @@
 
     #include <forge/Project.h>
 
-    #include <forge/engine/audio/resource/Music.h>
+    #include <forge/engine/audio/playable/Music.h>
 
     //----------------------------------------------------------------------------
     class MusicCatalog : public forge::DataCatalog<forge::Music>

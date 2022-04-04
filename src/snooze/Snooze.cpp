@@ -12,6 +12,7 @@
 #include <snooze/data/DataList.h>
 #include <snooze/data/EntityCatalog.h>
 #include <snooze/data/FontCatalog.h>
+#include <snooze/data/MusicCatalog.h>
 #include <snooze/data/SoundBufferCatalog.h>
 #include <snooze/data/SoundCatalog.h>
 #include <snooze/data/SpriteCatalog.h>
@@ -53,6 +54,7 @@ void Snooze::OnInit()
 {
     RegisterCatalogType<EntityCatalog>();
     RegisterCatalogType<FontCatalog>();
+    RegisterCatalogType<MusicCatalog>();
     RegisterCatalogType<SpriteCatalog>();
     RegisterCatalogType<TextureCatalog>();
     RegisterCatalogType<SoundCatalog>();
@@ -76,7 +78,7 @@ void Snooze::OnInit()
     m_World.AddEntity(button);
 
     forge::CameraAPI::SetLookAt({50.f, 50.f, 0.f});
-    forge::CameraAPI::SetDistance(10);
+    forge::CameraAPI::SetDistance(20);
     forge::CameraAPI::SetFieldOfView(90);
     forge::CameraAPI::SetFilmedWorld(GetWorld());
 
@@ -97,6 +99,8 @@ void Snooze::OnInit()
     RegisterGameState<GameOverState>();
     AddBidirectionalLink(BaseGameState::Id, GameOverState::Id);
     RequestState(BaseGameState::Id);
+
+    PlayMusic(forge::DataAPI::GetDataFrom<MusicCatalog>(DataList::Music::Ambient), true);
 }
 
 //----------------------------------------------------------------------------

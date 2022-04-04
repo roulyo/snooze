@@ -4,7 +4,7 @@
 
     #include <forge/Project.h>
 
-    #include <forge/engine/audio/resource/Music.h>
+    #include <forge/engine/audio/playable/Music.h>
 
     namespace forge { namespace generated { namespace MusicFactories {
 
