@@ -141,6 +141,14 @@
 
         constexpr forge::DataNameId ForgeSprite = forge::DataNameId("Sprite::ForgeSprite");
 
+        constexpr forge::DataNameId SoundOn = forge::DataNameId("Sprite::SoundOn");
+
+        constexpr forge::DataNameId SoundOff = forge::DataNameId("Sprite::SoundOff");
+
+        constexpr forge::DataNameId MusicOn = forge::DataNameId("Sprite::MusicOn");
+
+        constexpr forge::DataNameId MusicOff = forge::DataNameId("Sprite::MusicOff");
+
         constexpr forge::DataNameId AlarmNeutralSprite = forge::DataNameId("Sprite::AlarmNeutralSprite");
 
         constexpr forge::DataNameId AlarmScrewSprite = forge::DataNameId("Sprite::AlarmScrewSprite");
@@ -203,6 +211,8 @@
         constexpr forge::DataNameId AlarmSheet = forge::DataNameId("Texture::AlarmSheet");
 
         constexpr forge::DataNameId SampleSheet = forge::DataNameId("Texture::SampleSheet");
+
+        constexpr forge::DataNameId ConfigSheet = forge::DataNameId("Texture::ConfigSheet");
 
     }
 

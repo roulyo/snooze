@@ -141,6 +141,14 @@
 
         extern const forge::DataNameId ForgeSprite;
 
+        extern const forge::DataNameId SoundOn;
+
+        extern const forge::DataNameId SoundOff;
+
+        extern const forge::DataNameId MusicOn;
+
+        extern const forge::DataNameId MusicOff;
+
         extern const forge::DataNameId AlarmNeutralSprite;
 
         extern const forge::DataNameId AlarmScrewSprite;
@@ -203,6 +211,8 @@
         extern const forge::DataNameId AlarmSheet;
 
         extern const forge::DataNameId SampleSheet;
+
+        extern const forge::DataNameId ConfigSheet;
 
     }
 
