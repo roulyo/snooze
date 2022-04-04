@@ -1,0 +1,10 @@
+Music:
+  Type: forge::Music
+  Includes:
+    - forge/Project.h
+    - forge/engine/audio/playable/Music.h
+
+  Data:
+    - Ambient:
+        Singleton: true
+        File: assets/music.ogg

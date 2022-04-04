@@ -1,11 +1,13 @@
 #pragma once
 
+#include <forge/engine/audio/AudioAgent.h>
 #include <forge/engine/game/Game.h>
 
 #include <snooze/GameEvents.h>
 
 //----------------------------------------------------------------------------
 class Snooze : public forge::AbstractForgeGame
+             , public forge::AudioAgent
 {
 public:
     static bool IsGameCompleted();
