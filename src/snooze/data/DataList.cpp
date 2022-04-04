@@ -65,6 +65,13 @@
 
     }
 
+    namespace Music
+    {
+
+        constexpr forge::DataNameId Ambient = forge::DataNameId("Music::Ambient");
+
+    }
+
     namespace SoundBuffer
     {
 

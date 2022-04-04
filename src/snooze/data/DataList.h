@@ -65,6 +65,13 @@
 
     }
 
+    namespace Music
+    {
+
+        extern const forge::DataNameId Ambient;
+
+    }
+
     namespace SoundBuffer
     {
 
