@@ -28,6 +28,7 @@ private:
 private:
     forge::Entity::Ptr m_SnoozeButton;
     forge::Entity::Ptr m_Screw;
+    forge::Entity::Ptr m_Screwdriver;
     forge::Entity::Ptr m_Smoke;
     forge::Entity::Ptr m_BbqMouse;
     forge::Entity::Ptr m_WetMouse;
@@ -35,8 +36,11 @@ private:
     forge::Entity::Ptr m_WaterGlass;
 
     bool    m_gameSolved;
+    bool    m_screwdriverPicked;
     bool    m_alarmOpened;
     bool    m_fireStopped;
     bool    m_gotWater;
+
+    forge::Chrono   m_EndGameTimer;
 
 };

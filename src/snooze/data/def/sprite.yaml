@@ -35,6 +35,12 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [1800, 0, 600, 600]
 
+    - AlarmButtonPressedProblemSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [2400, 0, 600, 600]
+
 # Sample mini-game
 
     - CleaningBroom:
@@ -73,6 +79,12 @@ Sprite:
           name: AlarmSheet
         TextureQuad: [1200, 2400, 600, 600]
 
+    - ScrewdriverSprite:
+        Texture:
+          from: Texture
+          name: AlarmSheet
+        TextureQuad: [1200, 1600, 200, 200]
+
 # Lock mini-game
 
     - LockKeySprite:
@@ -80,6 +92,7 @@ Sprite:
           from: Texture
           name: AlarmSheet
         TextureQuad: [1000, 2200, 200, 200]
+
 
     - LockLockSprite:
         Texture:

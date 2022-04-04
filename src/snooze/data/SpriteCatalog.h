@@ -28,6 +28,8 @@
 
         forge::generated::SpriteFactories::AlarmButtonPressedSpriteFactory m_AlarmButtonPressedSpriteFactory;
 
+        forge::generated::SpriteFactories::AlarmButtonPressedProblemSpriteFactory m_AlarmButtonPressedProblemSpriteFactory;
+
         forge::generated::SpriteFactories::CleaningBroomFactory m_CleaningBroomFactory;
 
         forge::generated::SpriteFactories::CleaningWebFactory m_CleaningWebFactory;
@@ -39,6 +41,8 @@
         forge::generated::SpriteFactories::CleaningSpongeFactory m_CleaningSpongeFactory;
 
         forge::generated::SpriteFactories::CleaningGooFactory m_CleaningGooFactory;
+
+        forge::generated::SpriteFactories::ScrewdriverSpriteFactory m_ScrewdriverSpriteFactory;
 
         forge::generated::SpriteFactories::LockKeySpriteFactory m_LockKeySpriteFactory;
 

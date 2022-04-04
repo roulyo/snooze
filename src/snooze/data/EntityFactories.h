@@ -47,6 +47,14 @@
     };    
 
     //----------------------------------------------------------------------------
+    class ScrewdriverFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Entity* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
     class CleaningBroomFactory : public forge::AbstractDataFactory
     {
     public:

@@ -14,6 +14,8 @@
 
         constexpr forge::DataNameId AlarmButton = forge::DataNameId("Entity::AlarmButton");
 
+        constexpr forge::DataNameId Screwdriver = forge::DataNameId("Entity::Screwdriver");
+
         constexpr forge::DataNameId CleaningBroom = forge::DataNameId("Entity::CleaningBroom");
 
         constexpr forge::DataNameId CleaningWeb = forge::DataNameId("Entity::CleaningWeb");
@@ -136,6 +138,8 @@
 
         constexpr forge::DataNameId AlarmButtonPressedSprite = forge::DataNameId("Sprite::AlarmButtonPressedSprite");
 
+        constexpr forge::DataNameId AlarmButtonPressedProblemSprite = forge::DataNameId("Sprite::AlarmButtonPressedProblemSprite");
+
         constexpr forge::DataNameId CleaningBroom = forge::DataNameId("Sprite::CleaningBroom");
 
         constexpr forge::DataNameId CleaningWeb = forge::DataNameId("Sprite::CleaningWeb");
@@ -147,6 +151,8 @@
         constexpr forge::DataNameId CleaningSponge = forge::DataNameId("Sprite::CleaningSponge");
 
         constexpr forge::DataNameId CleaningGoo = forge::DataNameId("Sprite::CleaningGoo");
+
+        constexpr forge::DataNameId ScrewdriverSprite = forge::DataNameId("Sprite::ScrewdriverSprite");
 
         constexpr forge::DataNameId LockKeySprite = forge::DataNameId("Sprite::LockKeySprite");
 

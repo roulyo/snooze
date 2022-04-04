@@ -14,6 +14,8 @@
 
         extern const forge::DataNameId AlarmButton;
 
+        extern const forge::DataNameId Screwdriver;
+
         extern const forge::DataNameId CleaningBroom;
 
         extern const forge::DataNameId CleaningWeb;
@@ -136,6 +138,8 @@
 
         extern const forge::DataNameId AlarmButtonPressedSprite;
 
+        extern const forge::DataNameId AlarmButtonPressedProblemSprite;
+
         extern const forge::DataNameId CleaningBroom;
 
         extern const forge::DataNameId CleaningWeb;
@@ -147,6 +151,8 @@
         extern const forge::DataNameId CleaningSponge;
 
         extern const forge::DataNameId CleaningGoo;
+
+        extern const forge::DataNameId ScrewdriverSprite;
 
         extern const forge::DataNameId LockKeySprite;
 

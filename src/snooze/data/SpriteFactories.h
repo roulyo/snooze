@@ -49,6 +49,14 @@
     };    
 
     //----------------------------------------------------------------------------
+    class AlarmButtonPressedProblemSpriteFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
     class CleaningBroomFactory : public forge::AbstractDataFactory
     {
     public:
@@ -90,6 +98,14 @@
 
     //----------------------------------------------------------------------------
     class CleaningGooFactory : public forge::AbstractDataFactory
+    {
+    public:
+        forge::Sprite* Create() const override;
+
+    };    
+
+    //----------------------------------------------------------------------------
+    class ScrewdriverSpriteFactory : public forge::AbstractDataFactory
     {
     public:
         forge::Sprite* Create() const override;

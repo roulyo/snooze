@@ -38,6 +38,8 @@
 
         forge::generated::EntityFactories::AlarmButtonFactory m_AlarmButtonFactory;
 
+        forge::generated::EntityFactories::ScrewdriverFactory m_ScrewdriverFactory;
+
         forge::generated::EntityFactories::CleaningBroomFactory m_CleaningBroomFactory;
 
         forge::generated::EntityFactories::CleaningWebFactory m_CleaningWebFactory;

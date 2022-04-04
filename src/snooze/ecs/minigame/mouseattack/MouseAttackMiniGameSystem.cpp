@@ -14,6 +14,7 @@
 //----------------------------------------------------------------------------
 MouseAttackMiniGameSystem::MouseAttackMiniGameSystem()
     : m_alarmOpened(false)
+    , m_screwdriverPicked(false)
     , m_gameSolved(false)
     , m_fireStopped(false)
     , m_gotWater(false)
@@ -27,8 +28,15 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 
     BaseMiniGame::Update(comp);
 
-    if (m_alarmOpened && m_Screw != nullptr)
+
+    if (m_screwdriverPicked && m_Screwdriver != nullptr)
     {
+        ItemAcquieredEvent::Broadcast(m_Screwdriver);
+        RequestRemoveEntity(m_Screwdriver);
+        m_Screwdriver = nullptr;
+    } else if (m_alarmOpened && m_Screw != nullptr)
+    {
+        ItemLostEvent::Broadcast();
         RequestRemoveEntity(m_Screw);
         m_Screw = nullptr;
 
@@ -48,22 +56,31 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
         RequestRemoveEntity(m_Smoke);
         m_Smoke = nullptr;
         RequestAddEntity(m_WetMouse);
+
+        m_EndGameTimer.Start(1000);
     }
-    else if (m_gameSolved)
+
+    if (m_EndGameTimer.IsStarted())
     {
-        RequestRemoveEntity(m_SnoozeButton);
-        RequestRemoveEntity(m_Smoke);
-        RequestRemoveEntity(m_Screw);
-        RequestRemoveEntity(m_BbqMouse);
-        RequestRemoveEntity(m_WetMouse);
-        RequestRemoveEntity(m_OpenAlarm);
-        RequestRemoveEntity(m_WaterGlass);
+        if (m_EndGameTimer.IsElapsed())
+        {
+            m_EndGameTimer.Stop();
 
-        m_SnoozeButton = m_Smoke = m_Screw = nullptr;
-        m_BbqMouse = m_WetMouse = m_OpenAlarm = nullptr;
-        m_WaterGlass = nullptr;
+            RequestRemoveEntity(m_SnoozeButton);
+            RequestRemoveEntity(m_Smoke);
+            RequestRemoveEntity(m_Screw);
+            RequestRemoveEntity(m_Screwdriver);
+            RequestRemoveEntity(m_BbqMouse);
+            RequestRemoveEntity(m_WetMouse);
+            RequestRemoveEntity(m_OpenAlarm);
+            RequestRemoveEntity(m_WaterGlass);
 
-        BaseMiniGame::CompleteGame(comp);
+            m_SnoozeButton = m_Smoke = m_Screw = nullptr;
+            m_BbqMouse = m_WetMouse = m_OpenAlarm = nullptr;
+            m_WaterGlass = m_Screwdriver = nullptr;
+
+            BaseMiniGame::CompleteGame(comp);
+        }
     }
 }
 
@@ -73,6 +90,7 @@ void MouseAttackMiniGameSystem::Reset()
     RequestRemoveEntity(m_SnoozeButton);
     RequestRemoveEntity(m_Smoke);
     RequestRemoveEntity(m_Screw);
+    RequestRemoveEntity(m_Screwdriver);
     RequestRemoveEntity(m_BbqMouse);
     RequestRemoveEntity(m_WetMouse);
     RequestRemoveEntity(m_OpenAlarm);
@@ -80,12 +98,12 @@ void MouseAttackMiniGameSystem::Reset()
 
     m_SnoozeButton = m_Smoke = m_Screw = nullptr;
     m_BbqMouse = m_WetMouse = m_OpenAlarm = nullptr;
-    m_WaterGlass = nullptr;
+    m_WaterGlass = m_Screwdriver = nullptr;
 
     ItemLostEvent::Broadcast();
 
     // Initialize minigame variables
-    m_alarmOpened = m_fireStopped = m_gotWater = m_gameSolved = false;
+    m_alarmOpened = m_screwdriverPicked = m_fireStopped = m_gotWater = m_gameSolved = false;
 }
 
 //----------------------------------------------------------------------------
@@ -101,6 +119,10 @@ void MouseAttackMiniGameSystem::OnMiniGameStart()
     m_Screw->SetPosition(50.f - m_Screw->GetSize().w * 0.5f, 50.f - m_Screw->GetSize().d * 0.5f, 1.3f);
     RequestAddEntity(m_Screw);
 
+    m_Screwdriver = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Screwdriver);
+    m_Screwdriver->SetPosition(55.f, 55.f, 10.f);
+    RequestAddEntity(m_Screwdriver);
+
     m_Smoke = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackSmoke);
     m_Smoke->SetPosition(50.f - m_Smoke->GetSize().w * 0.5f, 50.f - m_Smoke->GetSize().d * 0.5f, 2.f);
     RequestAddEntity(m_Smoke);
@@ -115,7 +137,7 @@ void MouseAttackMiniGameSystem::OnMiniGameStart()
     m_WetMouse->SetPosition(50.f - m_WetMouse->GetSize().w * 0.5f, 50.f - m_WetMouse->GetSize().d * 0.5f, 2.1f);
 
     m_WaterGlass = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackWaterGlass);
-    m_WaterGlass->SetPosition(55, 55, 10);
+    m_WaterGlass->SetPosition(55.f, 55.f, 10.f);
 }
 
 //----------------------------------------------------------------------------
@@ -132,7 +154,10 @@ void MouseAttackMiniGameSystem::OnEntityClickedEvent(const forge::builtin::Entit
 {
     if (_event.GetIsPressed())
         return;
-    if (_event.GetEntity() == m_Screw)
+    if (_event.GetEntity() == m_Screwdriver)
+    {
+        m_screwdriverPicked = true;
+    } else if (_event.GetEntity() == m_Screw && m_screwdriverPicked)
     {
         m_alarmOpened = true;
     } else if (_event.GetEntity() == m_WaterGlass)
@@ -142,11 +167,6 @@ void MouseAttackMiniGameSystem::OnEntityClickedEvent(const forge::builtin::Entit
     {
         if (m_gotWater) {
             m_fireStopped = true;
-        }
-    } else if (_event.GetEntity() == m_WetMouse)
-    {
-        if (m_fireStopped) {
-            m_gameSolved = true;
         }
     }
 }
