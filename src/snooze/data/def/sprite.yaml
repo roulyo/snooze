@@ -182,4 +182,4 @@ Sprite:
         Texture:
           from: Texture
           name: AlarmSheet
-        TextureQuad: [1000, 1600, 200, 200]
+        TextureQuad: [1600, 1600, 200, 200]

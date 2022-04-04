@@ -1,4 +1,5 @@
 # CMakeLists.txt for src/snooze/ecs/minigame
+ADD_SUBDIRECTORY(battery)
 ADD_SUBDIRECTORY(mouseattack)
 ADD_SUBDIRECTORY(padlock)
 ADD_SUBDIRECTORY(sample)
