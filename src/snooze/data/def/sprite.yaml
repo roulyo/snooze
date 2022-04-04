@@ -16,26 +16,26 @@ Sprite:
     - SoundOn:
         Texture:
           from: Texture
-          name: ConfigSheet
-        TextureQuad: [0, 0, 240, 240]
+          name: AlarmSheet
+        TextureQuad: [1800, 2400, 50, 50]
 
     - SoundOff:
         Texture:
           from: Texture
-          name: ConfigSheet
-        TextureQuad: [240, 0, 240, 240]
+          name: AlarmSheet
+        TextureQuad: [1850, 2400, 50, 50]
 
     - MusicOn:
         Texture:
           from: Texture
-          name: ConfigSheet
-        TextureQuad: [0, 240, 240, 240]
+          name: AlarmSheet
+        TextureQuad: [1800, 2450, 50, 50]
 
     - MusicOff:
         Texture:
           from: Texture
-          name: ConfigSheet
-        TextureQuad: [240, 240, 240, 240]
+          name: AlarmSheet
+        TextureQuad: [1850, 2450, 50, 50]
 
 # Alarm
 

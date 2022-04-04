@@ -70,39 +70,6 @@
 
     }
 
-    namespace Sound
-    {
-
-        constexpr forge::DataNameId Error = forge::DataNameId("Sound::Error");
-
-        constexpr forge::DataNameId Speech = forge::DataNameId("Sound::Speech");
-
-        constexpr forge::DataNameId Screw = forge::DataNameId("Sound::Screw");
-
-        constexpr forge::DataNameId SnoozePress = forge::DataNameId("Sound::SnoozePress");
-
-        constexpr forge::DataNameId SnoozeRelease = forge::DataNameId("Sound::SnoozeRelease");
-
-        constexpr forge::DataNameId TakeObjectCommon = forge::DataNameId("Sound::TakeObjectCommon");
-
-        constexpr forge::DataNameId CleanCommon = forge::DataNameId("Sound::CleanCommon");
-
-        constexpr forge::DataNameId Key = forge::DataNameId("Sound::Key");
-
-        constexpr forge::DataNameId Lock1 = forge::DataNameId("Sound::Lock1");
-
-        constexpr forge::DataNameId Lock2 = forge::DataNameId("Sound::Lock2");
-
-        constexpr forge::DataNameId Water1 = forge::DataNameId("Sound::Water1");
-
-        constexpr forge::DataNameId Water2 = forge::DataNameId("Sound::Water2");
-
-        constexpr forge::DataNameId BBQSplash = forge::DataNameId("Sound::BBQSplash");
-
-        constexpr forge::DataNameId HitMouse = forge::DataNameId("Sound::HitMouse");
-
-    }
-
     namespace SoundBuffer
     {
 
@@ -133,6 +100,39 @@
         constexpr forge::DataNameId BBQSplash = forge::DataNameId("SoundBuffer::BBQSplash");
 
         constexpr forge::DataNameId HitMouse = forge::DataNameId("SoundBuffer::HitMouse");
+
+    }
+
+    namespace Sound
+    {
+
+        constexpr forge::DataNameId Error = forge::DataNameId("Sound::Error");
+
+        constexpr forge::DataNameId Speech = forge::DataNameId("Sound::Speech");
+
+        constexpr forge::DataNameId Screw = forge::DataNameId("Sound::Screw");
+
+        constexpr forge::DataNameId SnoozePress = forge::DataNameId("Sound::SnoozePress");
+
+        constexpr forge::DataNameId SnoozeRelease = forge::DataNameId("Sound::SnoozeRelease");
+
+        constexpr forge::DataNameId TakeObjectCommon = forge::DataNameId("Sound::TakeObjectCommon");
+
+        constexpr forge::DataNameId CleanCommon = forge::DataNameId("Sound::CleanCommon");
+
+        constexpr forge::DataNameId Key = forge::DataNameId("Sound::Key");
+
+        constexpr forge::DataNameId Lock1 = forge::DataNameId("Sound::Lock1");
+
+        constexpr forge::DataNameId Lock2 = forge::DataNameId("Sound::Lock2");
+
+        constexpr forge::DataNameId Water1 = forge::DataNameId("Sound::Water1");
+
+        constexpr forge::DataNameId Water2 = forge::DataNameId("Sound::Water2");
+
+        constexpr forge::DataNameId BBQSplash = forge::DataNameId("Sound::BBQSplash");
+
+        constexpr forge::DataNameId HitMouse = forge::DataNameId("Sound::HitMouse");
 
     }
 

@@ -21,10 +21,16 @@ struct SnoozeConfig
         { 54.f, 49.f,  1.f }
     };
 
-    static constexpr u32 MobSpawnPointCount = 1;
+    static constexpr u32 MobSpawnPointCount = 8;
     static constexpr forge::Vector3f MobSpawnPoints[MobSpawnPointCount] =
     {
-        // TODO: fill mob spawn points
-        { 40.f, 40.f, 10.f }
+        { 55.f, 55.f, 10.f },
+        { 40.f, 40.f, 10.f },
+        { 40.f, 56.f, 10.f },
+        { 55.f, 40.f, 10.f },
+        { 50.f, 40.f,  1.f },
+        { 54.f, 49.f,  1.f },
+        { 54.f, 49.f, 10.f },
+        { 40.f, 45.f, 10.f },
     };
 };
