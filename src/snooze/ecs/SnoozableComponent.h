@@ -25,5 +25,9 @@ private:
     bool            m_IsClickable;
     bool            m_IsPressed;
     forge::Chrono   m_Timer;
+    
+public:
+    // don't do this at home kid
+    forge::f32      ForceMiniGameAtRatio;
 
 };

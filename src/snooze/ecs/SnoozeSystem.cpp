@@ -53,6 +53,9 @@ void SnoozeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
             m_ClickData.Entity = nullptr;
             m_IsStarted = true;
 
+            // Hack for first minigame to spawn sooner
+            snoozeComp.ForceMiniGameAtRatio = 0.10f;
+
             return;
         }
     }

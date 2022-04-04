@@ -8,6 +8,7 @@ FRG__IMPL_COMPONENT(SnoozableComponent);
 SnoozableComponent::SnoozableComponent()
     : m_IsClickable(true)
     , m_IsPressed(false)
+    , ForceMiniGameAtRatio(NAN)
 {}
 
 //----------------------------------------------------------------------------

@@ -114,10 +114,10 @@ void SnoozeViewController::UpdateSnoozeView()
         u32 minutes = timeSec / 60;
 
         forge::String secStr = seconds < 10 ? "0" :  "";
-        forge::String minStr = seconds < 10 ? "0" :  "";
+        forge::String minStr = minutes < 10 ? "0" :  "";
 
-        m_SnoozeView->GetMinutesDisplay().GetText()->SetString(minStr + std::to_string(minutes));
         m_SnoozeView->GetSecondsDisplay().GetText()->SetString(secStr + std::to_string(seconds));
+        m_SnoozeView->GetMinutesDisplay().GetText()->SetString(minStr + std::to_string(minutes));
         m_SnoozeView->GetColonDisplay().GetText()->SetFillColor(
             { 255, 0 , 0, static_cast<u8>(255 * (timeSec % 2)) });
     }

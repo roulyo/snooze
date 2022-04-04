@@ -53,13 +53,16 @@ void RefereeSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _entity)
         comp.GetTimer().Stop();
         GameOverRequestedEvent::Broadcast(false);
     }
-    else if (comp.GetTimer().GetElapsedRatio() > SnoozeConfig::MiniGameTimeRatioToSpawn)
+    else if (   (   !std::isnan(comp.ForceMiniGameAtRatio)
+                 && comp.GetTimer().GetElapsedRatio() > comp.ForceMiniGameAtRatio)
+             || comp.GetTimer().GetElapsedRatio() > SnoozeConfig::MiniGameTimeRatioToSpawn)
     {
         if (!m_MiniGameSpawned)
         {
             StartMiniGameRequestEvent::Broadcast();
             comp.SetClickable(false);
             m_MiniGameSpawned = true;
+            comp.ForceMiniGameAtRatio = NAN;
         }
     }
     else if (m_MiniGameSpawned)
