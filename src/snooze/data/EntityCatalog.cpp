@@ -13,6 +13,8 @@
 
         RegisterData(DataList::Entity::AlarmButton, m_AlarmButtonFactory);
 
+        RegisterData(DataList::Entity::Screwdriver, m_ScrewdriverFactory);
+
         RegisterData(DataList::Entity::CleaningBroom, m_CleaningBroomFactory);
 
         RegisterData(DataList::Entity::CleaningWeb, m_CleaningWebFactory);

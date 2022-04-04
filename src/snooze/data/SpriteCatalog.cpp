@@ -29,6 +29,8 @@
 
         RegisterData(DataList::Sprite::CleaningGoo, m_CleaningGooFactory);
 
+        RegisterData(DataList::Sprite::ScrewdriverSprite, m_ScrewdriverSpriteFactory);
+
         RegisterData(DataList::Sprite::LockKeySprite, m_LockKeySpriteFactory);
 
         RegisterData(DataList::Sprite::LockLockSprite, m_LockLockSpriteFactory);

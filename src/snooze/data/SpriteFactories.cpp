@@ -156,6 +156,19 @@
     }
 
     //----------------------------------------------------------------------------
+    forge::Sprite* ScrewdriverSpriteFactory::Create() const
+    {
+        forge::Sprite* data = new forge::Sprite();
+        data->SetDataNameId(DataList::Sprite::ScrewdriverSprite);
+
+        data->SetTexture(forge::DataAPI::GetDataFrom<TextureCatalog>(DataList::Texture::AlarmSheet));
+
+        data->SetTextureQuad(1200, 1600, 200, 200);
+
+        return data;
+    }
+
+    //----------------------------------------------------------------------------
     forge::Sprite* LockKeySpriteFactory::Create() const
     {
         forge::Sprite* data = new forge::Sprite();

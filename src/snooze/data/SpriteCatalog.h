@@ -40,6 +40,8 @@
 
         forge::generated::SpriteFactories::CleaningGooFactory m_CleaningGooFactory;
 
+        forge::generated::SpriteFactories::ScrewdriverSpriteFactory m_ScrewdriverSpriteFactory;
+
         forge::generated::SpriteFactories::LockKeySpriteFactory m_LockKeySpriteFactory;
 
         forge::generated::SpriteFactories::LockLockSpriteFactory m_LockLockSpriteFactory;
