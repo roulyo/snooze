@@ -84,8 +84,10 @@ void SampleMiniGameSystem::OnMiniGameStart()
     forge::Pair<forge::Entity::Ptr, forge::Entity::Ptr> pair = m_Variants[rd() % numberOfVariants];
 
     m_Problem = pair.first;
-    //m_Problem->SetPosition(48, 42, 10);
     m_Problem->SetPosition(50.f - m_Problem->GetSize().w * 0.5f, 50.f - m_Problem->GetSize().d * 0.5f, 3.f);
+
+    m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
+        ->SetOverlayColor({ 255, 255, 255, 255 });
     RequestAddEntity(m_Problem);
 
     m_Tool = pair.second;
@@ -99,10 +101,6 @@ void SampleMiniGameSystem::OnMiniGameStop()
 {
     forge::builtin::EntityClickedEvent::Handlers -=
         forge::builtin::EntityClickedEvent::Handler(this, &SampleMiniGameSystem::OnEntityClickedEvent);
-
-    // Resetting the alpha for future
-    m_Problem->GetComponent<forge::builtin::RenderableComponent>().GetSprite()
-            ->SetOverlayColor({ 255, 255, 255, 255 });
 
     Reset();
 }
