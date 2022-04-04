@@ -76,7 +76,7 @@ void PadlockMiniGameSystem::OnMiniGameStart()
     RequestAddEntity(m_MetalBox);
 
     // Pop the key at a random place (40-58)
-    forge::Vector3f rand_location = SnoozeConfig::ToolSpawnPoints[rd() % SnoozeConfig::ToolSpawnPointCount];
+    forge::Vector3f rand_location = SnoozeConfig::KeysSpawnPoints[rd() % SnoozeConfig::KeysSpawnPointCount];
     m_Key = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::LockKey);
     m_Key->SetPosition(rand_location.x, rand_location.y, rand_location.z);
     RequestAddEntity(m_Key);

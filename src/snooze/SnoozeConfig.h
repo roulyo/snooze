@@ -12,15 +12,24 @@ struct SnoozeConfig
 
     static constexpr u32 PostGameTimeMs = 15000;
 
-    static constexpr u32 ToolSpawnPointCount = 6;
+    static constexpr u32 KeysSpawnPointCount = 6;
+    static constexpr forge::Vector3f KeysSpawnPoints[KeysSpawnPointCount] =
+    {
+        { 40.f, 40.f, 10.f },
+        { 56.f, 56.f, 10.f },
+        { 40.f, 56.f, 10.f },
+        { 56.f, 40.f, 10.f },
+        { 41.f, 50.f, 0.1f },
+        { 54.f, 49.f, 0.1f }
+    };
+
+    static constexpr u32 ToolSpawnPointCount = 4;
     static constexpr forge::Vector3f ToolSpawnPoints[ToolSpawnPointCount] =
     {
         { 40.f, 40.f, 10.f },
         { 56.f, 56.f, 10.f },
         { 40.f, 56.f, 10.f },
         { 56.f, 40.f, 10.f },
-        { 41.f, 50.f,  1.f },
-        { 54.f, 49.f,  1.f }
     };
 
     static constexpr u32 MobSpawnPointCount = 8;
@@ -30,8 +39,8 @@ struct SnoozeConfig
         { 40.f, 40.f, 10.f },
         { 40.f, 56.f, 10.f },
         { 55.f, 40.f, 10.f },
-        { 50.f, 40.f,  1.f },
-        { 54.f, 49.f,  1.f },
+        { 50.f, 40.f, 0.1f },
+        { 54.f, 49.f, 0.1f },
         { 54.f, 49.f, 10.f },
         { 40.f, 45.f, 10.f },
     };
