@@ -89,7 +89,8 @@ void SampleMiniGameSystem::OnMiniGameStart()
     RequestAddEntity(m_Problem);
 
     m_Tool = pair.second;
-    m_Tool->SetPosition(57, 57, 10);
+    forge::Vector3f rand_location = SnoozeConfig::ToolSpawnPoints[rd() % SnoozeConfig::ToolSpawnPointCount];
+    m_Tool->SetPosition(rand_location.x, rand_location.y, rand_location.z);
     RequestAddEntity(m_Tool);
 }
 

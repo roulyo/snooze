@@ -654,6 +654,19 @@
          stdDeviation="0.10159999"
          id="feGaussianBlur12567" />
     </filter>
+    <filter
+       inkscape:collect="always"
+       style="color-interpolation-filters:sRGB"
+       id="filter5677"
+       x="-0.017818627"
+       width="1.0356373"
+       y="-0.020813552"
+       height="1.0416271">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="0.008532776"
+         id="feGaussianBlur5679" />
+    </filter>
   </defs>
   <sodipodi:namedview
      id="base"
@@ -663,8 +676,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="11.313709"
-     inkscape:cx="433.85219"
-     inkscape:cy="337.1756"
+     inkscape:cx="144.46521"
+     inkscape:cy="124.26688"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -705,6 +718,12 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-164.70831)">
+    <path
+       style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter5677)"
+       d="m 49.381998,265.43394 -0.173633,-0.14056 0.711068,-0.29765 0.438216,0.82682 -0.152963,0.15709 c 0,0 -0.08985,-0.61941 -0.351399,-0.72347 -0.175282,-0.0697 -0.471289,0.17777 -0.471289,0.17777 z"
+       id="path5651"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccsc" />
     <path
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
@@ -2645,17 +2664,16 @@
          style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.28516787px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     </g>
     <path
-       sodipodi:nodetypes="ccccccccccccccc"
+       sodipodi:nodetypes="ccccccccccccssccc"
        inkscape:connector-curvature="0"
        id="path17159-9"
-       d="m 48.627961,265.67444 -2.168061,0.64563 0.241123,0.84077 0.253603,0.016 v -0.62081 l 0.39287,-0.13658 v 0.28558 l 0.31737,-0.0947 0.0755,-0.30262 1.353218,-0.40973 0.494726,0.54632 0.800291,-0.13659 -0.436523,-1.44027 -1.091889,0.38169 z"
+       d="m 48.627961,265.67444 -2.168061,0.64563 -0.236156,0.12518 0.32096,0.26631 0.156319,0.44928 0.253603,0.016 v -0.62081 l 0.39287,-0.13658 v 0.28558 l 0.31737,-0.0947 0.0755,-0.30262 1.353218,-0.40973 c 0,0 0.324551,0.36681 0.556738,0.4471 0.25576,0.0885 0.563808,0.0622 0.68867,-0.17793 0.205729,-0.39559 -0.611038,-0.0509 -0.611038,-0.0509 l -0.694132,-0.67694 z"
        style="fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.28516787px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;filter:url(#filter17177-6)" />
     <path
-       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.28516787px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 48.690324,265.52189 -2.168061,0.64564 0.228652,0.85141 0.266074,0.005 v -0.62082 l 0.39287,-0.13657 v 0.28557 l 0.31737,-0.0947 0.0755,-0.30262 1.353218,-0.40973 0.494725,0.54632 0.800291,-0.13659 c 0.122139,-0.51271 0.01688,-0.99771 -0.436522,-1.44026 l -1.091889,0.38168 z"
-       id="path17157-6"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccccccccccccc" />
+       style="fill:#999999;fill-opacity:1;stroke:none;stroke-width:1.0777998px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 188.31836 378.53516 C 188.20624 378.52199 188.09445 378.52786 187.98438 378.55469 C 187.98438 378.55469 186.69157 378.61324 185.85742 379.27734 C 185.37954 379.6579 185.15234 380.62109 185.15234 380.62109 L 183.71484 381.32422 L 174.95703 383.70312 L 175.17773 385.22461 L 176.21289 384.88281 L 176.69727 386.68555 L 177.70117 386.70508 L 177.70117 384.35742 L 179.1875 383.8418 L 179.1875 384.92188 L 180.38672 384.5625 L 180.67188 383.41992 L 185.78711 381.87109 C 185.78711 381.87109 187.09119 383.39771 187.96875 383.70117 C 188.93541 384.03528 189.94727 383.4668 189.94727 383.4668 C 191.78817 383.15251 190.00013 378.73265 188.31836 378.53516 z M 187.8418 379.64258 C 188.24622 379.59799 188.66434 379.73935 188.93555 380.11328 C 189.43956 380.80819 189.71747 380.91476 189.81836 381.89453 C 189.90106 382.69772 188.53414 382.78533 187.84375 382.41406 C 186.97165 381.9451 186.32283 381.13672 186.82812 380.28516 C 187.04668 379.91684 187.43737 379.68716 187.8418 379.64258 z "
+       transform="matrix(0.26458333,0,0,0.26458333,0,164.70831)"
+       id="path17157-6" />
     <g
        id="g19413-4"
        transform="translate(52.883185,-0.73876636)">

@@ -120,7 +120,8 @@ void MouseAttackMiniGameSystem::OnMiniGameStart()
     RequestAddEntity(m_Screw);
 
     m_Screwdriver = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::Screwdriver);
-    m_Screwdriver->SetPosition(55.f, 55.f, 10.f);
+    forge::Vector3f rand_location = SnoozeConfig::ToolSpawnPoints[rd() % SnoozeConfig::ToolSpawnPointCount];
+    m_Screwdriver->SetPosition(rand_location.x, rand_location.y, rand_location.z);
     RequestAddEntity(m_Screwdriver);
 
     m_Smoke = forge::DataAPI::GetDataFrom<EntityCatalog>(DataList::Entity::MouseAttackSmoke);

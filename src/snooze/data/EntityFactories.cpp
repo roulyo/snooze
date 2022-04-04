@@ -85,7 +85,7 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::CleaningBroom);
 
-        data->SetSize(3, 3, 0);
+        data->SetSize(6.5, 6.5, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningBroom));
@@ -121,7 +121,7 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::CleaningFire);
 
-        data->SetSize(3, 3, 0);
+        data->SetSize(6.5, 6.5, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningFire));
@@ -157,7 +157,7 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::CleaningSponge);
 
-        data->SetSize(3, 3, 0);
+        data->SetSize(6.5, 6.5, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::CleaningSponge));
@@ -193,7 +193,7 @@ soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::LockKey);
 
-        data->SetSize(5, 5, 0);
+        data->SetSize(6.5, 6.5, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::LockKeySprite));
@@ -327,7 +327,7 @@ hoverComp.SetCursorType(CursorType::Cross);
         forge::Entity* data = new forge::Entity();
         data->SetDataNameId(DataList::Entity::MouseAttackWaterGlass);
 
-        data->SetSize(5, 5, 0);
+        data->SetSize(6.5, 6.5, 0);
 data->AddComponent<forge::builtin::ScreenMappableComponent>();
 auto& renderComp = data->AddComponent<forge::builtin::RenderableComponent>();
 renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite::MouseAttackWaterGlassSprite));
@@ -372,7 +372,6 @@ auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
 auto& soundComp = data->AddComponent<SoundClickableComponent>();
 soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water1));
-soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water2));
 
         return data;
     }
@@ -391,7 +390,6 @@ auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Cross);
 auto& soundComp = data->AddComponent<SoundClickableComponent>();
 soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
-soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
 
         return data;
     }
@@ -409,8 +407,7 @@ renderComp.SetSprite(forge::DataAPI::GetDataFrom<SpriteCatalog>(DataList::Sprite
 auto& hoverComp = data->AddComponent<HoverableComponent>();
 hoverComp.SetCursorType(CursorType::Hand);
 auto& soundComp = data->AddComponent<SoundClickableComponent>();
-soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
-soundComp.SetOnReleaseSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::HitMouse));
+soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::TakeObjectCommon));
         return data;
     }
 
