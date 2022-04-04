@@ -1,3 +1,6 @@
+#include <cmath>
+#include <math.h>
+
 #include <snooze/Precomp.h>
 #include <snooze/ecs/SnoozableComponent.h>
 

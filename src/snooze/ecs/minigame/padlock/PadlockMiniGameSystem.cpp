@@ -27,6 +27,7 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 
     if (m_KeyAcquired && m_Key != nullptr)
     {
+        m_Lock->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_Key);
         RequestRemoveEntity(m_Key);
         m_Key = nullptr;
@@ -34,6 +35,7 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
     if (m_PadlockUnlocked)
     {
         ItemLostEvent::Broadcast();
+        m_Lock->GetComponent<SoundClickableComponent>().SetIsMute(true);
         RequestRemoveEntity(m_Lock);
         RequestRemoveEntity(m_MetalBox);
         m_Lock = m_MetalBox = nullptr;
@@ -45,6 +47,10 @@ void PadlockMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
 //----------------------------------------------------------------------------
 void PadlockMiniGameSystem::Reset()
 {
+    if (m_Lock != nullptr)
+    {
+        m_Lock->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
 
     RequestRemoveEntity(m_Key);
     RequestRemoveEntity(m_Lock);

@@ -41,6 +41,7 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 
     if (m_ToolAcquired && m_Tool != nullptr)
     {
+        m_Problem->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_Tool);
         RequestRemoveEntity(m_Tool);
         m_Tool = nullptr;
@@ -49,6 +50,7 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
     if (m_Cleaning > 5)
     {
         ItemLostEvent::Broadcast();
+        m_Problem->GetComponent<SoundClickableComponent>().SetIsMute(true);
         RequestRemoveEntity(m_Problem);
         BaseMiniGame::CompleteGame(comp);
 
@@ -59,6 +61,11 @@ void SampleMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _en
 //----------------------------------------------------------------------------
 void SampleMiniGameSystem::Reset()
 {
+    if (m_Problem != nullptr)
+    {
+        m_Problem->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
+
     RequestRemoveEntity(m_Tool);
     RequestRemoveEntity(m_Problem);
 

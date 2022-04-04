@@ -31,12 +31,14 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 
     if (m_screwdriverPicked && m_Screwdriver != nullptr)
     {
+        m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_Screwdriver);
         RequestRemoveEntity(m_Screwdriver);
         m_Screwdriver = nullptr;
     } else if (m_alarmOpened && m_Screw != nullptr)
     {
         ItemLostEvent::Broadcast();
+        m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(true);
         RequestRemoveEntity(m_Screw);
         m_Screw = nullptr;
 
@@ -45,12 +47,14 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
         RequestAddEntity(m_WaterGlass);
     } else if (m_gotWater && m_WaterGlass != nullptr)
     {
+        m_BbqMouse->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_WaterGlass);
         RequestRemoveEntity(m_WaterGlass);
         m_WaterGlass = nullptr;
     } else if (m_fireStopped && m_BbqMouse != nullptr)
     {
         ItemLostEvent::Broadcast();
+        m_BbqMouse->GetComponent<SoundClickableComponent>().SetIsMute(true);
         RequestRemoveEntity(m_BbqMouse);
         m_BbqMouse = nullptr;
         RequestRemoveEntity(m_Smoke);
@@ -68,8 +72,16 @@ void MouseAttackMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr
 
             RequestRemoveEntity(m_SnoozeButton);
             RequestRemoveEntity(m_Smoke);
+            if (m_Screw != nullptr)
+            {
+                m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(true);
+            }
             RequestRemoveEntity(m_Screw);
             RequestRemoveEntity(m_Screwdriver);
+            if (m_BbqMouse != nullptr)
+            {
+                m_BbqMouse->GetComponent<SoundClickableComponent>().SetIsMute(true);
+            }
             RequestRemoveEntity(m_BbqMouse);
             RequestRemoveEntity(m_WetMouse);
             RequestRemoveEntity(m_OpenAlarm);
@@ -89,8 +101,16 @@ void MouseAttackMiniGameSystem::Reset()
 {
     RequestRemoveEntity(m_SnoozeButton);
     RequestRemoveEntity(m_Smoke);
+    if (m_Screw != nullptr)
+    {
+        m_Screw->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
     RequestRemoveEntity(m_Screw);
     RequestRemoveEntity(m_Screwdriver);
+    if (m_BbqMouse != nullptr)
+    {
+        m_BbqMouse->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
     RequestRemoveEntity(m_BbqMouse);
     RequestRemoveEntity(m_WetMouse);
     RequestRemoveEntity(m_OpenAlarm);
