@@ -54,6 +54,7 @@ void BatteryMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
         RequestAddEntity(m_Battery);
     } else if (m_batteryCollected && m_Battery != nullptr)
     {
+        m_BatteryContainer->GetComponent<SoundClickableComponent>().SetIsMute(false);
         ItemAcquieredEvent::Broadcast(m_Battery);
         RequestRemoveEntity(m_Battery);
         m_Battery = nullptr;
@@ -79,6 +80,10 @@ void BatteryMiniGameSystem::Execute(const u64& _dt, const forge::Entity::Ptr& _e
             RequestRemoveEntity(m_Screwdriver);
             RequestRemoveEntity(m_Mouse);
             RequestRemoveEntity(m_Battery);
+            if (m_BatteryContainer != nullptr)
+            {
+                m_BatteryContainer->GetComponent<SoundClickableComponent>().SetIsMute(true);
+            }
             RequestRemoveEntity(m_BatteryContainer);
 
             m_OpenAlarm = m_Screwdriver = m_Screw = nullptr;
@@ -104,6 +109,10 @@ void BatteryMiniGameSystem::Reset()
     RequestRemoveEntity(m_Screwdriver);
     RequestRemoveEntity(m_Mouse);
     RequestRemoveEntity(m_Battery);
+    if (m_BatteryContainer != nullptr)
+    {
+        m_BatteryContainer->GetComponent<SoundClickableComponent>().SetIsMute(true);
+    }
     RequestRemoveEntity(m_BatteryContainer);
 
     m_OpenAlarm = m_Screwdriver = m_Screw = nullptr;

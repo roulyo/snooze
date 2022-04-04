@@ -243,6 +243,7 @@ Entity:
           auto& hoverComp = data->AddComponent<HoverableComponent>();
           hoverComp.SetCursorType(CursorType::Cross);
           auto& soundComp = data->AddComponent<SoundClickableComponent>();
+          soundComp.SetIsMute(true);
           soundComp.SetOnPressSound(forge::DataAPI::GetDataFrom<SoundCatalog>(DataList::Sound::Water1));
 
     - BatteryMouse:
