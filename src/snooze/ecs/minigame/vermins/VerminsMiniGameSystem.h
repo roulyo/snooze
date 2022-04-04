@@ -26,11 +26,13 @@ private:
     void OnEntityClickedEvent(const forge::builtin::EntityClickedEvent& _event);
 
 private:
-    const u32                                              m_TimeToVermin;
     u8                                                     m_MaxVermins;
     bool                                                   m_ToolAcquired;
-    bool                                                   m_FirstRun;
+    bool                                                   m_KeyAcquired;
+    bool                                                   m_Victory;
     forge::Entity::Ptr                                     m_Tool;
+    forge::Entity::Ptr                                     m_Key;
+    forge::Entity::Ptr                                     m_Lock;
+    forge::Entity::Ptr                                     m_MetalBox;
     forge::Vector<forge::Pair<forge::Entity::Ptr, bool>>   m_Vermins;
-    forge::Chrono                                          m_Timer;
 };
